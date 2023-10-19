@@ -1,0 +1,49 @@
+.content {
+    margin: 8px;
+    background: #fcfcfc;
+    width: 220px;
+    border-radius: 10px;
+}
+
+.list {
+    padding: 10px;
+}
+
+.link {
+    color: #39608d;
+    text-decoration: none;
+    display: block;
+    width: 200px;
+}
+
+.leftbar {
+    display: flex;
+    align-items: center;
+    box-shadow: 1px 3px 14px -7px #39608d;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 4px 6px;
+    cursor: pointer;
+} 
+
+.leftbar:hover {
+    background: rgba(0, 0, 0, .1);
+} 
+
+.icon {
+    position: relative;
+    padding: 0px 10px ;
+    float: left;
+}
+
+.text {
+    display: block;
+    padding-left: 3em;
+    margin-top: 2px;
+}
+
+.preference_icon {
+    position: relative;
+    padding: 10px ;
+    float: left;
+}

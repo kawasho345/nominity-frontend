@@ -1,0 +1,30 @@
+.content {
+    display: flex;
+}
+
+.group_picture {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.group_text {
+    display:flex;
+    flex-flow: column;
+    padding-left: 10px;
+}
+
+.heading {
+    text-align:left;
+}
+
+.detail {
+    display:flex;
+}
+
+.groupname {
+    font-size: large;
+}
+
+.ExpandMore_icon {
+    margin-top: px;
+}

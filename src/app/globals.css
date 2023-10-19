@@ -1,4 +1,23 @@
-:root {
+.button {
+  border: none;
+  background: transparent;
+}
+
+.button:hover {
+  /* opacity: 0.7; */
+  background: rgba(0, 0, 0, .1);
+  margin: 0;
+}
+
+body {
+  /* background: #f7f7f7; */
+  background: #e3f6d7;
+}
+
+* {
+  margin: 0;
+}
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -104,4 +123,4 @@ a {
   html {
     color-scheme: dark;
   }
-}
+} */
