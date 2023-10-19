@@ -15,14 +15,14 @@ const Form = (props) => {
         return Array.from(new Uint8Array(digest)).map(v => v.toString(16).padStart(2,'0')).join('');
     }
 
-    const creategroup = async(groupname, group_picture) => {
-        const invitation_code = await sha256(groupname + Date.now());
+    const creategroup = async(groupName, groupIcon) => {
+        const invitationCode = await sha256(groupname + Date.now());
         const responseGroupId = await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/group/register", {
             method: "POST",
             body: JSON.stringify({
-                groupName: groupname,
-                invitationCode: invitation_code,
-                icon: group_picture,
+                groupName: groupName,
+                invitationCode: invitationCode,
+                groupIcon: groupIcon,
                 userId: userId,
             }),
             cache: "no-cache",
@@ -30,7 +30,7 @@ const Form = (props) => {
         const jsonGroupId = await responseGroupId.json()
         const { groupId } = jsonGroupId.body; 
 
-        router.push("/Home?groupid=" + groupId);
+        router.push("/Home?groupId=" + groupId);
     }
 
     return (

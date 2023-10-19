@@ -1,24 +1,23 @@
 "use client"
 import React from 'react';
-import styles from "./Usermenu.module.css";
+import styles from "./User_menu.module.css";
 import { ExpandMore } from "@mui/icons-material";
 import Image from "next/image";
 
 const Usersetting = (props) => {
     const {
-        userid,
+        userId,
         username,
         userIcon,
     } = props
-    let usermenu_flag = false;
+    let shouldDisplayUserMenu = false;
 
-    const usermenu_flag_change = () => {
-        usermenu_flag = !usermenu_flag
-        // console.log(usermenu_flag)
+    const switchDisplayUserMenu = () => {
+        shouldDisplayUserMenu = !shouldDisplayUserMenu;
     }
 
     return (
-        <button onClick={() => usermenu_flag_change()} className="button">
+        <button onClick={() => switchDisplayUserMenu()} className="button">
             <div className = { styles.content }>
                 <Image 
                     src = { userIcon || "/images/group_icon.png"} 

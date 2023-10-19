@@ -2,35 +2,34 @@ import React from 'react';
 import styles from "./page.module.css";
 import Header from "@/components/header/Header";
 import Leftbar from "@/components/leftbar/Leftbar";
-import No_group from "@/components/no_group/No_group";
+import No_group from "@/components/no_roup/No_group";
 import { getServerSession } from "next-auth";
 import { handler } from "../api/auth/[...nextauth]/route";
-import { redirect } from "next/navigation";
 
 const page = async({ searchParams }) => {
-    const groupid = searchParams.groupid;
+    const searchParamsGroupId = searchParams.groupId;
 
     //セッション確認
     const session =  await getServerSession(handler);
 
     //ユーザー照合
-    const user_response = await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/user/verification", {
+    const responseUser = await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/user/verification", {
         method: "POST",
         body: JSON.stringify({
             username: session.user.name,
             email: session.user.email,
-            icon: session.user.image,
+            userIcon: session.user.image,
         }),
         cache: "no-cache",
     })
-    const user_json = await user_response.json();
+    const jsonUser = await responseUser.json();
     const {
         userId, 
         username,
-        icon,
+        userIcon,
         joinGroups, 
         lastGroup,
-    } = user_json.body;
+    } = jsonUser.body;
     
     console.log(joinGroups)
     //表示グループ選定    
@@ -40,19 +39,19 @@ const page = async({ searchParams }) => {
                     <Header
                         userid = { userId }
                         username = { username }
-                        userIcon = { icon } 
+                        userIcon = { userIcon } 
                     />
                     <No_group />
                 </>
         )
     }
-    let id = joinGroups[0];
+    let groupId = joinGroups[0];
     if(joinGroups.includes(lastGroup)){
-        id = lastGroup;
+        groupId = lastGroup;
     }
-    if(groupid){
-        if(joinGroups.includes(groupid)){
-            id = groupid;
+    if(searchParamsGroupId){
+        if(joinGroups.includes(searchParamsGroupId)){
+            groupId = searchParamsGroupId;
         }else{
             console.log("指定されたグループが存在しません");
         }
@@ -61,10 +60,10 @@ const page = async({ searchParams }) => {
     return (
         <>
             <Header
-                userid = { userId }
+                userId = { userId }
                 username = { username }
-                userIcon = { icon } 
-                groupId = { id } 
+                userIcon = { userIcon } 
+                groupId = { groupId } 
             />
             <div className = {styles.group_content}>
                 <Leftbar />

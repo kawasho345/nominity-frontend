@@ -1,23 +1,23 @@
 "use client"
 import React from 'react'
-import styles from "./Groupselect.module.css";
+import styles from "./Group_select.module.css";
 import { ExpandMore } from "@mui/icons-material";
 import Image from "next/image";
 
 const Groupselect = (props) => {
     const {
-        groupname,
+        userId,
+        groupName,
         groupIcon,
     } = props
-    let groupdisplay_flag = false;
+    let shouldDisplayGroups = false;
 
-
-    const groupdisplay_flag_change = () => {
-        groupdisplay_flag = !groupdisplay_flag
+    const switchDisplayGroups = () => {
+        shouldDisplayGroups = !shouldDisplayGroups
     }
 
     return (
-        <button onClick={() => groupdisplay_flag_change()} className="button">
+        <button onClick={() => switchDisplayGroups()} className="button">
             <div className = { styles.content }>
                 <Image 
                     src = { groupIcon || "/images/group_icon.png"} 
@@ -29,7 +29,7 @@ const Groupselect = (props) => {
                 <div className = { styles.group_text }>
                     <p className = { styles.heading }>グループ</p>
                     <div className = { styles.detail }>
-                        <span className = { styles.groupname }>{ groupname||"グループがありません" }</span>
+                        <span className = { styles.groupname }>{ groupName||"グループがありません" }</span>
                         <span className = { styles.ExpandMore_icon }><ExpandMore /></span>
                     </div>
                 </div>

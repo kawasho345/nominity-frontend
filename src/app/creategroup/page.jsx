@@ -4,50 +4,43 @@ import Header from "@/components/header/Header";
 import Form from "./Form";
 import { getServerSession } from "next-auth";
 import { handler } from "../api/auth/[...nextauth]/route";
-import { redirect } from "next/navigation";
 
 const page = async({ searchParams }) => {
-    const groupid = searchParams.groupid;
+    const searchParamsGroupId = searchParams.groupId;
 
     //セッション確認
     const session =  await getServerSession(handler);
-    if(session === null){
-        if(groupid){
-            redirect("/auth?page=Home&groupid="+groupid);
-        }
-        redirect("/auth?page=Home");
-    }
 
     //ユーザー照合
-    const user_response = await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/user/verification", {
+    const responseUser = await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/user/verification", {
         method: "POST",
         body: JSON.stringify({
             username: session.user.name,
             email: session.user.email,
-            icon: session.user.image,
+            userIcon: session.user.image,
         }),
         cache: "no-cache",
     })
-    const user_json = await user_response.json();
+    const jsonUser = await responseUser.json();
     const {
         userId, 
         username,
-        icon,
+        userIcon,
         joinGroups, 
         lastGroup,
-        } = user_json.body;
+        } = jsonUser.body;
 
-    //表示グループ選定    
-    let id = null;
+    //表示グループ選定
+    let groupId = null;
     if(joinGroups.length){
-        id = joinGroups[0];
+        groupId = joinGroups[0];
     }
     if(joinGroups.includes(lastGroup)){
-        id = lastGroup;
+        groupId = lastGroup;
     }
-    if(groupid){
-        if(groups.includes(groupid)){
-            id = groupid;
+    if(searchParamsGroupId){
+        if(groups.includes(searchParamsGroupId)){
+            groupId = searchParamsGroupId;
         }else{
             console.log("指定されたグループが存在しません");
         }
@@ -56,10 +49,10 @@ const page = async({ searchParams }) => {
     return (
         <>
             <Header
-                userid = { userId }
+                userId = { userId }
                 username = { username }
-                userIcon = { icon } 
-                groupid = { id } 
+                userIcon = { userIcon } 
+                groupid = { groupId } 
             />
             <Form userId = { userId }/>
         </>
