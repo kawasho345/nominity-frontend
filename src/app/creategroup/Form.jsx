@@ -3,20 +3,15 @@ import React, { useRef } from 'react';
 import styles from "./Form.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import bcrypt from "bcryptjs"
 
 const Form = (props) => {
     const { userId } = props;
     const textRef = useRef(null);
     const router = useRouter();
 
-    const sha256 = async(text) => {
-        const uint8  = new TextEncoder().encode(text);
-        const digest = await crypto.subtle.digest('SHA-256', uint8);
-        return Array.from(new Uint8Array(digest)).map(v => v.toString(16).padStart(2,'0')).join('');
-    }
-
-    const creategroup = async(groupName, groupIcon) => {
-        const invitationCode = await sha256(groupname + Date.now());
+    const createGroup = async(groupName, groupIcon) => {
+        const invitationCode = await bcrypt.hash(groupName + Date.now(), 10);
         const responseGroupId = await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/group/register", {
             method: "POST",
             body: JSON.stringify({
@@ -26,9 +21,8 @@ const Form = (props) => {
                 userId: userId,
             }),
             cache: "no-cache",
-        })
-        const jsonGroupId = await responseGroupId.json()
-        const { groupId } = jsonGroupId.body; 
+        }).then((response) => response.json())
+        const { groupId } = responseGroupId.body;
 
         router.push("/Home?groupId=" + groupId);
     }
@@ -62,7 +56,7 @@ const Form = (props) => {
                     </div>
                     <button 
                         className = { styles.submit }
-                        onClick = { () => creategroup(textRef.current.value, null) } 
+                        onClick = { () => createGroup(textRef.current.value, null) } 
                     >作成</button>
                 </div>
             </div>

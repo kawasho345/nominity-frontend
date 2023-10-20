@@ -20,15 +20,14 @@ const page = async({ searchParams }) => {
             userIcon: session.user.image,
         }),
         cache: "no-cache",
-    })
-    const jsonUser = await responseUser.json();
+    }).then((response) => response.json())
     const {
         userId, 
         username,
         userIcon,
         joinGroups, 
         lastGroup,
-        } = jsonUser.body;
+        } = responseUser.body;
 
     //表示グループ選定
     let groupId = null;
@@ -52,7 +51,7 @@ const page = async({ searchParams }) => {
                 userId = { userId }
                 username = { username }
                 userIcon = { userIcon } 
-                groupid = { groupId } 
+                groupId = { groupId } 
             />
             <Form userId = { userId }/>
         </>

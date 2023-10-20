@@ -11,7 +11,7 @@ const No_group = () => {
                 <p>グループを作ってノミニティを始めましょう</p>
             </div>
             <div className = { styles.body }>
-                <Link href = "/creategroup" className = { styles.link }>
+                <Link href = "/createGroup" className = { styles.link }>
                     <span>新しいグループを作る</span>
                 </Link>
             </div>

@@ -14,6 +14,7 @@
     "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^5.14.13",
     "@mui/material": "^5.14.13",
+    "bcryptjs": "^2.4.3",
     "next": "13.5.4",
     "next-auth": "^4.23.2",
     "react": "^18",

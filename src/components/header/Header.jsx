@@ -13,22 +13,20 @@ const header = async(props) => {
     } = props
 
     //グループデータ取得
-    let jsonCurrentGroup = { body: { groupName: "", groupIcon: "" } };
+    let responseCurrentGroup = { body: { groupName: "", groupIcon: "" } };
     if(groupId){
-        const responseCurrentGroup = await fetch (process.env.NEXT_PUBLIC_HOST_URL
+        responseCurrentGroup = await fetch (process.env.NEXT_PUBLIC_HOST_URL
                                                     + "/api/group/"
                                                     + groupId
                                                     + "/get", {
             method: "GET",
             cache: "no-cache",
-        })
-        jsonCurrentGroup = await responseCurrentGroup.json();
-        // console.log(currentgroup_json)
+        }).then((response) => response.json())
     }
     const {
         groupName,
         groupIcon,
-    } = jsonCurrentGroup.body
+    } = responseCurrentGroup.body
 
     return (
         <div className = { styles.content }>
