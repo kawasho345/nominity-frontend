@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import styles from "./Group_select.module.css";
+import styles from "./GroupSelect.module.css";
 import { ExpandMore } from "@mui/icons-material";
 import Image from "next/image";
 

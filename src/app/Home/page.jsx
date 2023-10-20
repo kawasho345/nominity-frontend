@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./page.module.css";
 import Header from "@/components/header/Header";
 import Leftbar from "@/components/leftbar/Leftbar";
-import No_group from "@/components/no_roup/No_group";
+import No_group from "@/components/noGroup/NoGroup";
 import { getServerSession } from "next-auth";
 import { handler } from "../api/auth/[...nextauth]/route";
 

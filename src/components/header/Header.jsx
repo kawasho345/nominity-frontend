@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Header.module.css";
-import Groupselect from "./Group_select"; 
-import Usermenu from "./User_menu";
+import Groupselect from "./GroupSelect"; 
+import Usermenu from "./UserMenu";
 import Image from "next/image";
 
 const header = async(props) => {

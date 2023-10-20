@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./No_group.module.css";
+import styles from "./NoGroup.module.css";
 import Link from "next/link";
 
 const No_group = () => {
