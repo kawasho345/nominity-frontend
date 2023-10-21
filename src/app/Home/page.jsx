@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import Header from "@/components/header/Header";
 import Leftbar from "@/components/leftbar/Leftbar";
 import No_group from "@/components/noGroup/NoGroup";
+import { fetchRequest } from "@/lib/fetch";
 import { getServerSession } from "next-auth";
 import { handler } from "../api/auth/[...nextauth]/route";
 
@@ -13,24 +14,23 @@ const page = async({ searchParams }) => {
     const session =  await getServerSession(handler);
 
     //ユーザー照合
-    const responseUser = await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/user/verification", {
+    const user = await fetchRequest({
+        url: "/api/user/verification",
         method: "POST",
-        body: JSON.stringify({
+        body: ({
             username: session.user.name,
             email: session.user.email,
             userIcon: session.user.image,
         }),
-        cache: "no-cache",
-    }).then((response) => response.json())
+    })
     const {
         userId, 
         username,
         userIcon,
         joinGroups, 
         lastGroup,
-    } = responseUser.body;
+    } = user;
     
-    console.log(joinGroups)
     //表示グループ選定    
     if(!joinGroups.length){
         return(

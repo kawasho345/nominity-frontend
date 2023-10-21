@@ -12,22 +12,22 @@ const page = async({ searchParams }) => {
     const session =  await getServerSession(handler);
 
     //ユーザー照合
-    const responseUser = await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/user/verification", {
+    const user = await fetchRequest({
+        url: "/api/user/verification",
         method: "POST",
-        body: JSON.stringify({
+        body: ({
             username: session.user.name,
             email: session.user.email,
             userIcon: session.user.image,
         }),
-        cache: "no-cache",
-    }).then((response) => response.json())
+    })
     const {
         userId, 
         username,
         userIcon,
         joinGroups, 
         lastGroup,
-        } = responseUser.body;
+    } = user;
 
     //表示グループ選定
     let groupId = null;

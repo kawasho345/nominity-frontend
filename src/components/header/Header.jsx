@@ -3,6 +3,7 @@ import styles from "./Header.module.css";
 import Groupselect from "./GroupSelect"; 
 import Usermenu from "./UserMenu";
 import Image from "next/image";
+import { fetchRequest } from "@/lib/fetch";
 
 const header = async(props) => {
     const {
@@ -13,20 +14,17 @@ const header = async(props) => {
     } = props
 
     //グループデータ取得
-    let responseCurrentGroup = { body: { groupName: "", groupIcon: "" } };
+    let currentGroup = { body: { groupName: "", groupIcon: "" } };
     if(groupId){
-        responseCurrentGroup = await fetch (process.env.NEXT_PUBLIC_HOST_URL
-                                                    + "/api/group/"
-                                                    + groupId
-                                                    + "/get", {
+        currentGroup = await fetchRequest({
+            url: "/api/group/" + groupId + "/get",
             method: "GET",
-            cache: "no-cache",
-        }).then((response) => response.json())
+        })
     }
     const {
         groupName,
         groupIcon,
-    } = responseCurrentGroup.body
+    } = currentGroup
 
     return (
         <div className = { styles.content }>

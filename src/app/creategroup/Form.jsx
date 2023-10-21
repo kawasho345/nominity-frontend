@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import styles from "./Form.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import bcrypt from "bcryptjs"
+import { fetchRequest } from '@/lib/fetch';
 
 const Form = (props) => {
     const { userId } = props;
@@ -11,18 +11,16 @@ const Form = (props) => {
     const router = useRouter();
 
     const createGroup = async(groupName, groupIcon) => {
-        const invitationCode = await bcrypt.hash(groupName + Date.now(), 10);
-        const responseGroupId = await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/group/register", {
+        const groupId = await fetchRequest({
+            url: "/api/group/register",
             method: "POST",
-            body: JSON.stringify({
+            body: {
                 groupName: groupName,
-                invitationCode: invitationCode,
                 groupIcon: groupIcon,
                 userId: userId,
-            }),
-            cache: "no-cache",
-        }).then((response) => response.json())
-        const { groupId } = responseGroupId.body;
+            },
+            element: "groupId"
+        })
 
         router.push("/Home?groupId=" + groupId);
     }
