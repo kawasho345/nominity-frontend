@@ -1,41 +1,45 @@
-"use client"
-import React from 'react'
+import React from 'react';
 import styles from "./GroupSelect.module.css";
-import { ExpandMore } from "@mui/icons-material";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
-const Groupselect = (props) => {
+const GroupSelect = (props) => {
     const {
-        userId,
-        groupName,
-        groupIcon,
-    } = props
-    let shouldDisplayGroups = false;
-
-    const switchDisplayGroups = () => {
-        shouldDisplayGroups = !shouldDisplayGroups
-    }
+        groupId,
+        joinGroups,
+    } = props;
 
     return (
-        <button onClick={() => switchDisplayGroups()} className="button">
-            <div className = { styles.content }>
-                <Image 
-                    src = { groupIcon || "/images/group_icon.png"} 
-                    width = "50"
-                    height = "50"
-                    alt = ""
-                    className = { styles.group_picture }
-                />
-                <div className = { styles.group_text }>
-                    <p className = { styles.heading }>グループ</p>
-                    <div className = { styles.detail }>
-                        <span className = { styles.groupname }>{ groupName||"グループがありません" }</span>
-                        <span className = { styles.ExpandMore_icon }><ExpandMore /></span>
-                    </div>
-                </div>
+        <div className={ styles.frame }>
+            <div className={ styles.create_group }>
+                <Link href = { "/createGroup/?groupId=" + groupId } className="link">
+                    <p className={ styles.create_group_text }>新しいグループを作る</p>
+                </Link>
             </div>
-        </button>
+            <div className={ styles.body }>
+                {joinGroups !== "undefind"?
+                    joinGroups.map((group) => (
+                        <div key={ group[0] } className={ styles.select_group }>
+                            <Link href = { "/?groupId=" + group[0] } className="link">
+                                <div className={ styles.group }>
+                                    <div className={ styles.icon}>
+                                        <Image 
+                                            src={ group[2] || "/images/group_icon.png" } 
+                                            width="30"
+                                            height="30"
+                                            alt=""
+                                            className="icon"
+                                        />     
+                                    </div>
+                                    <p className={ styles.name }>{ group[1] }</p>
+                                </div>
+                            </Link>
+                        </div>
+                    ))
+                :""}
+            </div>
+        </div>
     )
 }
 
-export default Groupselect
+export default GroupSelect

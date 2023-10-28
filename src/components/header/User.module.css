@@ -1,0 +1,58 @@
+.outside {
+    display: flex;
+}
+
+.frame {
+    display: flex;
+    padding: 15px 0 0 0;
+    min-width: 200px;
+}
+  
+.frame:hover {
+    background: rgba(0, 0, 0, .1);
+}
+
+.header {
+    margin: 0 8px;
+}
+
+.icon {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.heading {
+    text-align:left;
+}
+
+.detail {
+    display:flex;
+}
+
+.name {
+    font-size: large;
+    max-width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ExpandMore_icon {
+    margin-right: 0;
+}
+
+.background {
+    position: fixed;
+    left: -1000px;
+    width: 5000px;
+    height: 5000px;
+}
+
+.shadow {
+    margin-top: 75px;
+    position: absolute;
+    left: -0px;
+    width: 100%;
+    min-height: 100%;
+    background: rgba(0, 0, 0, .5);
+}

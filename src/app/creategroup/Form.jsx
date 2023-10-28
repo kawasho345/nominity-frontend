@@ -22,41 +22,37 @@ const Form = (props) => {
             element: "groupId"
         })
 
-        router.push("/Home?groupId=" + groupId);
+        router.push("/?groupId=" + groupId);
     }
 
     return (
-        <div className = { styles.frame }>
-            <div className = { styles.content }>
-                <div className = { styles.header }>
-                    <h2>新しいグループを作る</h2>
-                </div>
-                <div className = { styles.body }>
-                    <div className = { styles.groupname }>
-                        <h4>グループ名</h4>
-                        <input
-                            ref = { textRef } 
-                            type = "text" 
-                            className = { styles.fill } 
-                            placeholder="※必須" 
-                            required 
-                        />
-                    </div>
-                    <div className = { styles.groupicon }>
-                        <h4>グループアイコン</h4>
-                        <Image 
-                            src = {"/images/group_icon.png"} 
-                            width = "150"
-                            height = "150"
-                            alt = ""
-                            className = { styles.group_picture }
-                        />
-                    </div>
-                    <button 
-                        className = { styles.submit }
-                        onClick = { () => createGroup(textRef.current.value, null) } 
-                    >作成</button>
-                </div>
+        <div className={ styles.frame }>
+            <h1 className={ styles.header}>新しいグループを作る</h1> 
+            <h4 className={ styles.text }>グループ名</h4>
+            <input
+                ref={ textRef } 
+                type="text" 
+                className={ styles.fill } 
+                placeholder="※必須" 
+                required 
+            />
+            <h4 className={ styles.text }>グループアイコン</h4>
+            <div className={ styles.group_icon }>
+                <Image 
+                    src={"/images/group_icon.png"} 
+                    width="150"
+                    height="150"
+                    alt=""
+                    className="icon"
+                />
+            </div>
+            <div className={ styles.submit }>
+                <button 
+                    className="button" 
+                    onClick = { () => createGroup(textRef.current.value, null) } 
+                >
+                    <span className={ styles.submit_text }>作成</span>
+                </button>
             </div>
         </div>
     )

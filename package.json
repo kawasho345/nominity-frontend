@@ -14,10 +14,12 @@
     "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^5.14.13",
     "@mui/material": "^5.14.13",
+    "destyle.css": "^4.0.0",
     "next": "13.5.4",
     "next-auth": "^4.23.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-use": "^17.4.0"
   },
   "devDependencies": {
     "eslint": "^8",

@@ -27,10 +27,10 @@ const page = async({ params }) => {
     });
 
     if(joinGroupId.error){
-        redirect("/Home");
+        redirect("/");
     }
 
-    redirect("/Home?groupId=" + joinGroupId)
+    redirect("/?groupId=" + joinGroupId)
 
     return (
         <div>page</div>

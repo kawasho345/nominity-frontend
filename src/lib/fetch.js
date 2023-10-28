@@ -17,13 +17,14 @@ const fetchRequest = async(request) => {
         mode: mode || "cors",
         cache: cache || "no-store",
         credentials: credentials || "same-origin", 
-        headers: headers || { "Content-Type": "application/json" },
+        headers: headers,
         redirect: redirect || "follow",
         referrerPolicy: refirrerPolicy || "no-referrer",
         body: JSON.stringify(body),
     }).catch((error) => {
         return { status: 500, error: error };
     })
+
     const data = await response.json();
     data.status = response.status
 

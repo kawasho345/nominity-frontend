@@ -8,7 +8,7 @@ const Leftbar = () => {
     <div className = { styles.content }>
         <ul className = { styles.list }>
             <li className = { styles.leftbar }>
-                <Link href = "/Home" className = { styles.link }>
+                <Link href = "/" className = { styles.link }>
                     <span className = { styles.icon }>
                         <Home />
                     </span>

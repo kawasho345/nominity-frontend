@@ -1,3 +1,4 @@
+import 'destyle.css'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import NextAuthProvider from '@/providers/NextAuth'

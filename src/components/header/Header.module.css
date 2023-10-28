@@ -1,9 +1,12 @@
-.content {
+.frame {
+    /* position: relative; */
     background-color: #fcfcfc;
     display: flex;
+    height: 75px;
+    min-width: 730px;
 }
 
-.menu {
+.body {
     margin: 0 0 0 auto;
     display: flex;
 }

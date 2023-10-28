@@ -1,10 +1,13 @@
 import React from 'react';
 import styles from "./page.module.css";
 import Header from "@/components/header/Header";
-import Form from "./Form";
-import { fetchRequest } from '@/lib/fetch';
+import Leftbar from "@/components/leftbar/Leftbar";
+import No_group from "@/components/noGroup/NoGroup";
+import Rightbar from '@/components/rightbar/Rightbar';
+import Management from '@/components/management/Management';
+import { fetchRequest } from "@/lib/fetch";
 import { getServerSession } from "next-auth";
-import { handler } from "../api/auth/[...nextauth]/route";
+import { handler } from "./../api/auth/[...nextauth]/route";
 
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
@@ -29,12 +32,21 @@ const page = async({ searchParams }) => {
         joinGroupIds, 
         lastGroup,
     } = user;
-
-    //表示グループ選定
-    let groupId = null;
-    if(joinGroupIds.length){
-        groupId = joinGroupIds[0];
+    
+    //表示グループ選定    
+    if(!joinGroupIds.length){
+        return(
+                <>
+                    <Header
+                        userId = { userId }
+                        username = { username }
+                        userIcon = { userIcon } 
+                    />
+                    <No_group />
+                </>
+        )
     }
+    let groupId = joinGroupIds[0];
     if(joinGroupIds.includes(lastGroup)){
         groupId = lastGroup;
     }
@@ -45,6 +57,7 @@ const page = async({ searchParams }) => {
             console.log("指定されたグループが存在しません");
         }
     }
+
     //グループデータ取得
     let currentGroup = { body: { groupName: "", groupIcon: "" } };
     if(groupId){
@@ -59,7 +72,6 @@ const page = async({ searchParams }) => {
         invitationCode,
     } = currentGroup
 
-
     return (
         <>
             <Header
@@ -70,8 +82,17 @@ const page = async({ searchParams }) => {
                 groupName={ groupName }
                 groupIcon={ groupIcon }
             />
-            <Form userId = { userId }/>
-        </>
+            <div className={ styles.group_content }>
+                <Leftbar />
+                <Management 
+                    userId={ userId }
+                    groupId={ groupId }
+                    invitationCode={ invitationCode }
+                    groupName={ groupName }
+                />
+                <Rightbar groupId={ groupId }/> 
+            </div>
+        </>   
     )
 }
 

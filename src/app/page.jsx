@@ -3,9 +3,10 @@ import styles from "./page.module.css";
 import Header from "@/components/header/Header";
 import Leftbar from "@/components/leftbar/Leftbar";
 import No_group from "@/components/noGroup/NoGroup";
+import Rightbar from '@/components/rightbar/Rightbar';
 import { fetchRequest } from "@/lib/fetch";
 import { getServerSession } from "next-auth";
-import { handler } from "../api/auth/[...nextauth]/route";
+import { handler } from "./api/auth/[...nextauth]/route";
 
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
@@ -27,45 +28,61 @@ const page = async({ searchParams }) => {
         userId, 
         username,
         userIcon,
-        joinGroups, 
+        joinGroupIds, 
         lastGroup,
     } = user;
     
     //表示グループ選定    
-    if(!joinGroups.length){
+    if(!joinGroupIds.length){
         return(
-                <>
-                    <Header
-                        userid = { userId }
-                        username = { username }
-                        userIcon = { userIcon } 
-                    />
-                    <No_group />
-                </>
+            <>
+                <Header
+                    userId = { userId }
+                    username = { username }
+                    userIcon = { userIcon } 
+                />
+                <No_group />
+            </>
         )
     }
-    let groupId = joinGroups[0];
-    if(joinGroups.includes(lastGroup)){
+    let groupId = joinGroupIds[0];
+    if(joinGroupIds.includes(lastGroup)){
         groupId = lastGroup;
     }
     if(searchParamsGroupId){
-        if(joinGroups.includes(searchParamsGroupId)){
+        if(joinGroupIds.includes(searchParamsGroupId)){
             groupId = searchParamsGroupId;
         }else{
             console.log("指定されたグループが存在しません");
         }
     }
+    //グループデータ取得
+    let currentGroup = { body: { groupName: "", groupIcon: "" } };
+    if(groupId){
+        currentGroup = await fetchRequest({
+            url: "/api/group/" + groupId + "/get",
+            method: "GET",
+        })
+    }
+    const {
+        groupName,
+        groupIcon,
+        invitationCode,
+    } = currentGroup
 
     return (
         <>
             <Header
-                userId = { userId }
-                username = { username }
-                userIcon = { userIcon } 
-                groupId = { groupId } 
+                userId={ userId }
+                username={ username }
+                userIcon={ userIcon } 
+                groupId={ groupId } 
+                groupName={ groupName }
+                groupIcon={ groupIcon }
             />
             <div className = {styles.group_content}>
                 <Leftbar />
+                <Rightbar groupId = { groupId }/> 
             </div>
         </>   
     )

@@ -1,41 +1,29 @@
-"use client"
 import React from 'react';
 import styles from "./UserMenu.module.css";
-import { ExpandMore } from "@mui/icons-material";
-import Image from "next/image";
+import Link from 'next/link';
+import { signIn, signOut, useSession } from 'next-auth/react'
 
-const Usersetting = (props) => {
+const UserMenu = (props) => {
     const {
         userId,
-        username,
-        userIcon,
-    } = props
-    let shouldDisplayUserMenu = false;
-
-    const switchDisplayUserMenu = () => {
-        shouldDisplayUserMenu = !shouldDisplayUserMenu;
-    }
+    } = props;
 
     return (
-        <button onClick={() => switchDisplayUserMenu()} className="button">
-            <div className = { styles.content }>
-                <Image 
-                    src = { userIcon || "/images/group_icon.png"} 
-                    width = "50" 
-                    height = "50" 
-                    alt = ""
-                    className = { styles.profile_picture }
-                />
-                <div className = { styles.user_text }>
-                    <span className = { styles.heading }>ユーザー</span>
-                    <div className = { styles.detail }>
-                        <span className = { styles.username }>{ username }</span>
-                        <span className = { styles.ExpandMore_icon }><ExpandMore /></span>
-                    </div>
-                </div>
-            </div>
-        </button>
+        <div className= { styles.frame }>
+            <ul className={ styles.menubar }>
+                <li className={ styles.menu }>
+                    <Link href={ "/" + userId + "/setting" } className="link">
+                        <p className={ styles.menu_text }>プロフィール変更</p>
+                    </Link>
+                </li>
+                <li className={ styles.signout }>
+                    <button onClick={ () => signOut()} className='button'>
+                        <p className={ styles.signout_text }>サインアウト</p>    
+                    </button> 
+                </li>
+            </ul>
+        </div>
     )
 }
 
-export default Usersetting
+export default UserMenu

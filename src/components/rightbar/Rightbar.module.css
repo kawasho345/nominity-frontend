@@ -1,0 +1,29 @@
+.frame {
+    margin-left: auto;
+    padding: 8px;
+    width: 180px;
+    background: #fcfcfc;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.title {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+
+.member {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.icon {
+    margin-right: 5px;
+}

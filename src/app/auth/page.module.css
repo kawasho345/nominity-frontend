@@ -1,35 +1,28 @@
 .frame {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-.content {
+    text-align: center;
     background-color: #fcfcfc;
-    border-radius: 8px;
-    box-shadow: 0px 0px 50px rgba(0,0,0,0.1);
-    margin: 100px;
-    margin-bottom: auto;
-    overflow-wrap: break-word;
+    margin: 100px auto;
     padding: 30px;
-    word-wrap: break-word;
-    min-width: 500px;
+    border-radius: 8px;
+    width: 500px;
 }
 
 .header {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .greeting {
+    font-size: 18px;
+    font-weight: bold;
     text-align: center;
+    margin-bottom: 10px;   
 }
 
-.login {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
+.signin {
+    width: 382px;
+    margin: 20px auto 0;
+}
+
+.signin:hover {
+    background: rgba(206, 206, 206, 0.8);
 }
