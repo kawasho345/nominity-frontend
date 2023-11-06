@@ -9,6 +9,7 @@ import { setup } from '@/lib/setup';
 import BodyFrame from '@/components/bodyFrame/BodyFrame';
 import RegisterScheduleBody from './RegisterScheduleBody';
 import { fetchRequest } from '@/lib/fetch';
+import NoGroup from '@/components/noGroup/NoGroup';
 
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
@@ -40,7 +41,7 @@ const page = async({ searchParams }) => {
                     />
                 </header>
                 <main>
-                    <No_group />
+                    <NoGroup />
                 </main>
             </>
         )

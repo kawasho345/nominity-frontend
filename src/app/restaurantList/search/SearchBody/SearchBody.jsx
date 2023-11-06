@@ -12,6 +12,7 @@ import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 import { useToggle, useUpdateEffect } from 'react-use';
 import RegisterRestaurant from '../../registerRestaurant/RegisterRestaurant';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 const SearchForm = (props) => {
     const {
@@ -145,7 +146,7 @@ const SearchForm = (props) => {
                 />
             :""}
             <a href="http://webservice.recruit.co.jp/">
-                <img src="http://webservice.recruit.co.jp/banner/hotpepper-s.gif" alt="ホットペッパーグルメ Webサービス" width="135" height="17" border="0" title="ホットペッパーグルメ Webサービス" />
+                <Image src="http://webservice.recruit.co.jp/banner/hotpepper-s.gif" alt="ホットペッパーグルメ Webサービス" width="135" height="17" border="0" title="ホットペッパーグルメ Webサービス" />
             </a>
         </BodyFrame>
     )

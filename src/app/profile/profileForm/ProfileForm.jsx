@@ -6,7 +6,7 @@ import EditIcon from '@/components/editIcon/EditIcon';
 import { FormProvider, useForm } from 'react-hook-form';
 import EditTextArea from '@/components/editTextArea/EditTextArea';
 
-const profileForm = (props) => {
+const ProfileForm = (props) => {
     const {
         username, 
         userIcon 
@@ -75,4 +75,4 @@ const profileForm = (props) => {
     )
 }
 
-export default profileForm
+export default ProfileForm
