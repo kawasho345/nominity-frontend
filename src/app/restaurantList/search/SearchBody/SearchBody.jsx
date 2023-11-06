@@ -11,6 +11,7 @@ import Restaurant from '../../restaurant/Restaurant';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 import { useToggle, useUpdateEffect } from 'react-use';
 import RegisterRestaurant from '../../registerRestaurant/RegisterRestaurant';
+import { useRouter } from 'next/navigation';
 
 const SearchForm = (props) => {
     const {
@@ -22,8 +23,9 @@ const SearchForm = (props) => {
     const [keyword, setKeyword] = useState("");
     const [restaurants, setRestaurants] = useState("");
     const countRender = useRef(0);
-    const [hasRegisterForm, setHasRegisterForm] = useToggle(false)
-    const setRestaurant = useRef()
+    const [hasRegisterForm, setHasRegisterForm] = useToggle(false);
+    const setRestaurant = useRef();
+    const router = useRouter();
 
     const onSubmit = (data) => {
         setStart(1)

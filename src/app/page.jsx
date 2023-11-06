@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./page.module.css";
 import Header from "@/components/header/Header";
 import Leftbar from "@/components/leftbar/Leftbar";
-import No_group from "@/components/noGroup/NoGroup";
+import NoGroup from "@/components/noGroup/NoGroup";
 import Rightbar from '@/components/rightbar/Rightbar';
 import { getServerSession } from "next-auth";
 import { handler } from "./api/auth/[...nextauth]/route";
@@ -40,7 +40,7 @@ const page = async({ searchParams }) => {
                     />
                 </header>
                 <main>
-                    <No_group />
+                    <NoGroup />
                 </main>
             </>
         )

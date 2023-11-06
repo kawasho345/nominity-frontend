@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./NoGroup.module.css";
 import Link from "next/link";
 
-const No_group = () => {
+const NoGroup = () => {
   return (
     <div className = { styles.frame }>
         <h3 className={ styles.header }>グループがありません</h3>
@@ -19,4 +19,4 @@ const No_group = () => {
   )
 }
 
-export default No_group
+export default NoGroup

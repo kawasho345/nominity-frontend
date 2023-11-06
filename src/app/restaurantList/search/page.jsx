@@ -7,6 +7,7 @@ import { getServerSession } from 'next-auth';
 import { handler } from '../../api/auth/[...nextauth]/route';
 import { setup } from '@/lib/setup';
 import SearchForm from './SearchBody/SearchBody';
+import NoGroup from '@/components/noGroup/NoGroup';
 
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
@@ -32,7 +33,7 @@ const page = async({ searchParams }) => {
                     />
                 </header>
                 <main>
-                    <No_group />
+                    <NoGroup />
                 </main>
             </>
         )
