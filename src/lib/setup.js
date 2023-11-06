@@ -20,7 +20,7 @@ const setup = async(session, searchParamsGroupId) => {
 
     //ユーザー情報取得
     const user = await fetchRequest({
-        url: "/api/user/verification",
+        url: "api/user/verification",
         method: "POST",
         body: ({
             username: session.user.name,
