@@ -7,7 +7,7 @@ import { useToggle } from 'react-use';
 import GroupList from './groupList/GroupList';
 import UserMenu from "./userMenu/UserMenu"
 
-const menuButton = (props) => {
+const MenuButton = (props) => {
     const {
         name,
         icon,
@@ -57,4 +57,4 @@ const menuButton = (props) => {
     )
 }
 
-export default menuButton
+export default MenuButton
