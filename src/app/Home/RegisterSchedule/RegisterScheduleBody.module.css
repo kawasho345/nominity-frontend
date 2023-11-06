@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.button {
+    height: 40px;
+    width: 240px;
+    margin: 0 20px 0 auto;
+}
+
+.list {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #00000030;
+}
+
+.restaurant_button {
+    width: 350px;
+    height: 30px;
+    margin: 0 auto 5px;
+}

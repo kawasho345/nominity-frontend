@@ -8,7 +8,7 @@ const Leftbar = () => {
     <div className = { styles.content }>
         <ul className = { styles.list }>
             <li className = { styles.leftbar }>
-                <Link href = "/" className = { styles.link }>
+                <Link href = "/" className = "link">
                     <span className = { styles.icon }>
                         <Home />
                     </span>
@@ -16,7 +16,7 @@ const Leftbar = () => {
                 </Link>
             </li>
             <li className = { styles.leftbar }>
-                <Link href = "/groupchat" className = { styles.link }>
+                <Link href = "/groupchat" className = "link">
                     <span className = { styles.icon }>
                         <Chat />
                     </span>
@@ -24,7 +24,7 @@ const Leftbar = () => {
                 </Link>
             </li>
             <li className = { styles.leftbar }>
-                <Link href = "/adjustment" className = { styles.link }>
+                <Link href = "/adjustment" className = "link">
                     <span className = { styles.icon }>
                         <EditCalendar />
                     </span>
@@ -32,7 +32,7 @@ const Leftbar = () => {
                 </Link>
             </li>
             <li className = { styles.leftbar }>
-                <Link href = "/restaurantlist" className = { styles.link }>
+                <Link href = "/restaurantList" className = "link">
                     <span className = { styles.icon }>
                         <Restaurant />
                     </span>
@@ -40,7 +40,7 @@ const Leftbar = () => {
                 </Link>
             </li>
             <li className = { styles.leftbar }>
-                <Link href = "/preference" className = { styles.link }>
+                <Link href = "/preference" className = "link">
                     <span className = { styles.preference_icon }>
                         <ThumbsUpDown />
                     </span>
@@ -50,7 +50,7 @@ const Leftbar = () => {
                 </Link>
             </li>
             <li className = { styles.leftbar }>
-                <Link href = "/management" className = { styles.link }>
+                <Link href = "/management" className = "link">
                     <span className = { styles.icon }>
                         <People />
                     </span>

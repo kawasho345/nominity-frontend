@@ -4,86 +4,89 @@ import Header from "@/components/header/Header";
 import Leftbar from "@/components/leftbar/Leftbar";
 import No_group from "@/components/noGroup/NoGroup";
 import Rightbar from '@/components/rightbar/Rightbar';
-import { fetchRequest } from "@/lib/fetch";
 import { getServerSession } from "next-auth";
 import { handler } from "./api/auth/[...nextauth]/route";
+import Home from '@/components/home/Home';
+import { setup } from '@/lib/setup';
+import BodyFrame from '@/components/bodyFrame/BodyFrame';
+import OnClick from '@/components/onClick/OnClick';
+import RegisterSchedule from './Home/RegisterSchedule/RegisterSchedule';
+import { getSchedules } from '@/lib/schedule';
+import Schdule from './Home/Schedule/Schdule';
 
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
-
-    //セッション確認
     const session =  await getServerSession(handler);
-
-    //ユーザー照合
-    const user = await fetchRequest({
-        url: "/api/user/verification",
-        method: "POST",
-        body: ({
-            username: session.user.name,
-            email: session.user.email,
-            userIcon: session.user.image,
-        }),
-    })
     const {
-        userId, 
+        userId,
         username,
         userIcon,
-        joinGroupIds, 
-        lastGroup,
-    } = user;
-    
-    //表示グループ選定    
-    if(!joinGroupIds.length){
+        groupName,
+        groupIcon,
+        members,
+        groupId,
+        hasGroupId,
+    } = await setup(session, searchParamsGroupId);
+    const schedules = await getSchedules(groupId);
+
+    if(!hasGroupId){
         return(
             <>
-                <Header
-                    userId = { userId }
-                    username = { username }
-                    userIcon = { userIcon } 
-                />
-                <No_group />
+                <header>
+                    <Header
+                        userId = { userId }
+                        username = { username }
+                        userIcon = { userIcon } 
+                    />
+                </header>
+                <main>
+                    <No_group />
+                </main>
             </>
         )
     }
-    let groupId = joinGroupIds[0];
-    if(joinGroupIds.includes(lastGroup)){
-        groupId = lastGroup;
-    }
-    if(searchParamsGroupId){
-        if(joinGroupIds.includes(searchParamsGroupId)){
-            groupId = searchParamsGroupId;
-        }else{
-            console.log("指定されたグループが存在しません");
-        }
-    }
-    //グループデータ取得
-    let currentGroup = { body: { groupName: "", groupIcon: "" } };
-    if(groupId){
-        currentGroup = await fetchRequest({
-            url: "/api/group/" + groupId + "/get",
-            method: "GET",
-        })
-    }
-    const {
-        groupName,
-        groupIcon,
-        invitationCode,
-    } = currentGroup
 
     return (
         <>
-            <Header
-                userId={ userId }
-                username={ username }
-                userIcon={ userIcon } 
-                groupId={ groupId } 
-                groupName={ groupName }
-                groupIcon={ groupIcon }
-            />
-            <div className = {styles.group_content}>
+            <header>
+                <Header
+                    userId={ userId }
+                    username={ username }
+                    userIcon={ userIcon } 
+                    groupId={ groupId } 
+                    groupName={ groupName }
+                    groupIcon={ groupIcon }
+                />
+            </header>
+            <main className = {styles.group_content}>
                 <Leftbar />
-                <Rightbar groupId = { groupId }/> 
-            </div>
+                <BodyFrame>
+                    <ul>
+                        {schedules?
+                            schedules.map((schedule, index) => (
+                                <li key={ index }>
+                                    <Schdule
+                                    scheduleId={ schedule.scheduleId }
+                                    scheduleName={ schedule.scheduleName }
+                                    scheduleDate={ schedule.scheduleDate }
+                                    restaurantName={ schedule.restaurantName }
+                                    restaurantAddress={ schedule.restaurantAddress }
+                                    restaurantUrl={ schedule.restaurantUrl }
+                                    restaurantImage={ schedule.restaurantImage }
+                                    schedulePrice={ schedule.schedulePrice }
+                                    scheduleNumberPeople={ schedule.scheduleNumberPeople }
+                                    scheduleRemarks={ schedule.scheduleRemarks }
+                                    scheduleUpdatedAt={ schedule.scheduleUpdatedAt }
+                                    userId={ userId }
+                                    />
+                                </li>
+                            ))
+                        :""}
+                    </ul>
+                    <RegisterSchedule/>
+                </BodyFrame>
+                <Rightbar members = { members }/> 
+            </main>
         </>   
     )
 }

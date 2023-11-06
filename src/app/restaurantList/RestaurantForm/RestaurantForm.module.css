@@ -1,0 +1,23 @@
+.buttons {
+    display: flex;
+    margin-top: 20px;
+}
+
+.cancel_button {
+    width: 150px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+.decide_button {
+    width: 70px;
+    height: 40px;
+}
+
+.element {
+    margin-bottom: 5px;
+}
+
+.hotpepper_image {
+    display: none;
+}

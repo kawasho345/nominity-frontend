@@ -1,0 +1,25 @@
+.group_icon {
+    border-bottom: 1px solid #00000030;
+}
+
+.middle_frame {
+    text-align: right;
+    /* padding-bottom: 5px; */
+    padding-right: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items:flex-end;
+    border-bottom: 1px solid #00000030;
+}
+
+.text {
+    font-size: 24px;
+}
+
+.input {
+    display: none;
+}
+
+.icon {
+    margin: 0 0 5px auto;
+}

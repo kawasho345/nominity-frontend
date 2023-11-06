@@ -1,9 +1,10 @@
 .frame {
-    /* position: relative; */
+    position: fixed;
     background-color: #fcfcfc;
     display: flex;
     height: 75px;
-    min-width: 730px;
+    width: 100%;
+    box-shadow: 1px 3px 14px -3px #39608d;
 }
 
 .body {

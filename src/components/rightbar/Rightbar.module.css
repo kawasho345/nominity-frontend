@@ -1,10 +1,11 @@
 .frame {
-    margin-left: auto;
+    display: inline-block;
     padding: 8px;
     width: 180px;
     background: #fcfcfc;
     border-radius: 10px;
     text-align: center;
+    vertical-align: top;
 }
 
 .title {

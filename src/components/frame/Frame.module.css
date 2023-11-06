@@ -1,0 +1,27 @@
+.frame {
+    display: inline-block;
+    min-width: 480px;
+    max-width: 700px;
+    margin: 0 10px;
+    padding: 20px;
+    background-color: #fcfcfc;
+    /* background-color: aqua; */
+    border-radius: 10px;
+    text-align: left;
+    overflow: auto;
+}
+
+@media (max-width: 720px) {
+    .frame {
+        max-width: 480px;
+    }
+}
+
+.green_button {
+    background-color: #00d20e;
+    border-radius: 10px;
+}
+
+.green_button:hover {
+    background: rgba(0, 194, 14, .5);
+}

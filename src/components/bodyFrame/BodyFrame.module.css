@@ -1,0 +1,17 @@
+.frame {
+    display: inline-block;
+    min-width: 480px;
+    width: 700px;
+    margin: 0 10px;
+    padding: 20px;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+    text-align: left;
+    overflow: auto;
+}
+
+@media (max-width: 720px) {
+    .frame {
+        max-width: 480px;
+    }
+}

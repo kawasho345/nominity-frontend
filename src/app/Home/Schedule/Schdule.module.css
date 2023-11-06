@@ -1,0 +1,37 @@
+.frame {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #00000030;
+}
+
+.header {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.main {
+    display: flex;
+}
+
+.element {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.link {
+    color: blue;
+    text-decoration:underline;
+}
+
+.key {
+    display: block;
+    white-space: nowrap;
+}
+
+.value {
+    word-break: break-word;
+    margin-left: 10px;
+}
+
+.image {
+    margin: 0 0 0 auto
+}

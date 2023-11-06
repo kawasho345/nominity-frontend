@@ -1,15 +1,9 @@
 import React from 'react'
 import styles from "./Rightbar.module.css"
-import { fetchRequest } from '@/lib/fetch'
 import Image from 'next/image'
 
 const Rightbar = async(props) => {
-    const { groupId } = props;
-    const members = await fetchRequest({
-        url: "/api/group/" + groupId + "/getMembers",
-        method: "GET",
-        element: "members"
-    }); 
+    const { members } = props;
 
     return (
         <div className = { styles.frame }>

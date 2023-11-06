@@ -1,0 +1,51 @@
+.background {
+    position: relative;
+    top: -75px;
+    /* left: -0px; */
+    width: 100%;
+    height: 100vh;
+    /* background-color: aqua; */
+}
+
+.shadow {
+    position: absolute;
+    left: -0px;
+    top: 75px;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, .5);
+}
+
+.frame {
+    position: absolute;
+    top: 75px;
+    background-color: #fcfcfc;
+    width: 200px;
+}
+
+.list {
+    display: flex;
+    border-bottom: 1px solid #00000030;
+}
+
+.list:hover {
+    background: rgba(206, 206, 206, 0.8);
+}
+
+.sign_out {
+    height: 50px;
+    background-color: red;
+}
+
+.sign_out:hover {
+    background-color: rgba(255, 50, 50, 0.698);
+}
+
+.text {
+    padding: 15px 0 15px 10px;
+}
+
+.sign_out_text {
+    padding: 15px 0 15px 10px;
+    color: #fcfcfc;
+}

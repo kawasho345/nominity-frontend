@@ -1,0 +1,49 @@
+.search_frame {
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.search_button {
+    margin: auto 0 0 20px;
+    width: 70px;
+    height: 40px;
+}
+
+.element {
+    padding-top: 20px;
+    border-bottom: 1px solid #00000030;
+}
+
+.add_button {
+    margin: 10px auto;
+    width: 300px;
+    height: 40px;
+}
+
+.footer {
+    display: flex;
+}
+
+.footer_button {
+    width: 150px;
+    height: 40px;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.footer_button:hover {
+    background-color: #f1f1f1;
+}
+
+.next {
+    display: flex;
+}
+
+.back {
+    display: flex;
+}
+
+.arrow {
+    padding-bottom: 5px;
+}

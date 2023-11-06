@@ -1,0 +1,31 @@
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    width: 500px;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+}
+
+.message {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.false_button {
+    display: inline-block;
+    width:60px;
+    background-color: blue;
+    border-radius: 10px;
+    margin-right: 80px;
+}
+
+.true_button {
+    display: inline-block;
+    width: 60px;
+    background-color: red;
+    border-radius: 10px;
+}

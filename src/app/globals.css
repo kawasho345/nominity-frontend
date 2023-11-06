@@ -1,35 +1,58 @@
 body {
     background: #e3f6d7;
-    margin: 0;
-    padding: 0;
-    min-width: 1050px;
-    min-height: 800px;
-    position: relative;
+    padding-bottom: 150px;
 }
 
+header {
+    height: 75px;
+}
+
+main {
+    padding: 20px 10px 0;
+    text-align: center;
+}
+
+
 .button {
-    border: none;
-    background: transparent;
-    display: flex;
-    align-items: flex-start;
-    padding: 0;
+    display: inline-block;
     height: 100%;
     width: 100%;
-    font: inherit;
-    color: inherit;
-    cursor: pointer;
 }
 
 .link {
-    text-decoration: none;
-    display:block;
+    display: inline-block;
     height: 100%;
     width: 100%;
-    font: inherit;
-    color: inherit;
 }
 
 .icon {
     border-radius: 50%;
     object-fit: cover;
+}
+
+.green_button {
+    background-color: #00d20e;
+    border-radius: 10px;
+}
+
+.green_button:hover {
+    background: rgba(0, 194, 14, .5);
+}
+
+.cancel_button {
+    background-color: #0007d2;
+    border-radius: 10px;
+}
+
+.cancel_button:hover {
+    background: rgba(26, 38, 255, 0.5);
+}
+
+.decide_button {
+    background-color: #d20000;
+    border-radius: 10px;
+}
+
+.decide_button:hover {
+    background: rgba(255, 44, 44, 0.5);
 }

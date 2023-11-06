@@ -1,0 +1,18 @@
+.content {
+    margin: 0 auto;
+    width: 300px;
+    background-color: #00d20e;
+    border-radius: 10px;
+}
+
+.content:hover {
+    background: rgba(0, 194, 14, .5);
+}
+
+.button_text {
+    margin: 5px auto;
+    width: 250px;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+}

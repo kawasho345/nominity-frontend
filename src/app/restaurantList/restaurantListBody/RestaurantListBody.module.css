@@ -1,0 +1,10 @@
+.frame {
+    display: inline-block;
+    min-width: 500px;
+    max-width: 700px;
+    margin: 0 10px;
+    padding: 20px;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+    text-align: left;
+}

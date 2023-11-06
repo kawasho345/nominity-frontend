@@ -1,0 +1,27 @@
+.content {
+    display: inline-block;
+    min-width: 500px;
+    margin: 0 10px;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+}
+
+.newSchedule {
+    margin: 0 auto;
+    width: 300px;
+    padding: 5px 10px;
+    background-color: #00d20e;
+    border-radius: 8px;
+}
+
+.newSchedule:hover {
+    background: rgba(0, 194, 14, .5);
+}
+
+.link_text {
+    margin: 0 auto;
+    width: 250px;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+}

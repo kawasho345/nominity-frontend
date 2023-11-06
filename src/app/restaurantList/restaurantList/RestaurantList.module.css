@@ -1,0 +1,11 @@
+.title {
+    display: block;
+    margin: 0 0 20px 10px;
+    font-size: 20px;
+    /* font-weight: bold; */
+}
+
+.list {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #00000030;
+}

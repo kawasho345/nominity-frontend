@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation';
 import { fetchRequest } from '@/lib/fetch';
 
 const page = async({ params }) => {
+    //招待コード受理ページ
     const invitationCode = params.id;
     const session =  await getServerSession(handler);
 
