@@ -1,0 +1,21 @@
+.check_box {
+    display: none;
+}
+
+.middle_frame {
+    display: inline-block;
+    margin: 10px;
+}
+
+.element {
+    border-radius: 50px;
+    display: block;
+    border: 2px solid #00d20e60;
+    color: #00000060;
+    padding: 5px;
+}
+
+.check_box:checked~.element {
+    color: #000;
+    border: 2px solid #00d20e;
+}

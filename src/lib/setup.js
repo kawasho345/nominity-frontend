@@ -1,6 +1,9 @@
+import { getServerSession } from 'next-auth';
+import { handler } from '../app/api/auth/[...nextauth]/route';
 import { fetchRequest } from "./fetch"
 
-const setup = async(session, searchParamsGroupId) => {
+const setup = async(searchParamsGroupId) => {
+    //表示グループ選定関数
     const selectGroup = (searchParamsGroupId, joinGroupIds) => {
         let groupId = null;
         let hasGroupId = true;
@@ -17,10 +20,17 @@ const setup = async(session, searchParamsGroupId) => {
         groupId = joinGroupIds[0];
         return{ groupId, hasGroupId }
     }
+    
+    // const {
+    //     searchParamsGroupId = null 
+    // } = argment;
+
+    //セッション確認
+    const session =  await getServerSession(handler);
 
     //ユーザー情報取得
     const user = await fetchRequest({
-        url: "api/user/verification",
+        url: "/api/user/verification",
         method: "POST",
         body: ({
             username: session.user.name,
@@ -34,6 +44,7 @@ const setup = async(session, searchParamsGroupId) => {
         userIcon,
         joinGroupIds,
     } = user
+
     //表示グループ選定 
     const { groupId, hasGroupId } = selectGroup(searchParamsGroupId, joinGroupIds)
     if(groupId === null){
@@ -49,15 +60,13 @@ const setup = async(session, searchParamsGroupId) => {
         groupName,
         groupIcon,
     } = group
-    console.log(group)
+
     //グループメンバー取得
     const members = await fetchRequest({
         url: "/api/group/" + groupId + "/getMembers",
         method: "GET",
         element: "members"
     }); 
-
-    console.log(members)
     
     return {
         userId,

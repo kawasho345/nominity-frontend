@@ -27,7 +27,7 @@ const GroupList = (props) => {
                                 </div>
                             </Link>
                         </li>
-                        <li key="createGroup">
+                        <li key="signOut">
                             <button onClick={ () => signOut() } className="button">
                                 <div className={ styles.sign_out }>
                                     <p className={ styles.sign_out_text }>サインアウト</p>

@@ -32,7 +32,7 @@ const Leftbar = () => {
                 </Link>
             </li>
             <li className = { styles.leftbar }>
-                <Link href = "/restaurantList" className = "link">
+                <Link href = "/restaurants" className = "link">
                     <span className = { styles.icon }>
                         <Restaurant />
                     </span>

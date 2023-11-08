@@ -2,24 +2,23 @@
 import React from 'react'
 import styles from "./PutDelete.module.css";
 import DeleteIcon from '@mui/icons-material/Delete';
-import OnClick from '../onClick/OnClick';
+import OnClick from '../OnClick/OnClick';
 import { Edit } from '@mui/icons-material';
 
 const PutDelete = (props) => {
     const {
         putFunc,
         deleteFunc,
-        style,
     } = props
 
     return (
-        <div className={`${ styles.frame } ${ styles[style]}` }>
+        <div className={ styles.frame }>
             <div className={ styles.edit }>
                 <OnClick func={ () => putFunc() }>
                     <Edit />
                 </OnClick>
             </div>
-            <div className={ styles.delete_icon }>
+            <div className={ styles.delete }>
                 <OnClick func={ () => deleteFunc() }>
                     <DeleteIcon />
                 </OnClick>

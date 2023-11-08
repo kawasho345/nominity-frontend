@@ -1,0 +1,46 @@
+.frame {
+    padding: 5px;
+}
+
+.header {
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.name {
+    font-size: 24px;
+    word-break: break-word;
+}
+
+.main {
+    display: flex;
+}
+
+.details {
+    margin-right: 10px;
+}
+
+.element {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.key {
+    display: block;
+    white-space: nowrap;
+}
+
+.value {
+    display: block;
+    word-break: break-word;
+    margin-left: 10px;
+}
+
+.link {
+    color: blue;
+    text-decoration:underline;
+}
+
+.image {
+    margin: 0 0 0 auto
+}

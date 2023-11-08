@@ -1,0 +1,27 @@
+.heading {
+    font-size: 22px;
+}
+
+.default_button {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.default_text {
+    font-size: 18px;
+}
+
+.large_text {
+    font-size: 24px;
+    word-break: break-word;
+}
+
+.force_text {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.weak_text {
+    font-size: 16px;
+}

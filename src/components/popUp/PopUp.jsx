@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./PopUp.module.css";
-import Shadow from '../shadow/Shadow';
+import Shadow from '../Shadow/Shadow';
 
 const PopUp = (props) => {
     const {

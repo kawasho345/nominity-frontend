@@ -23,7 +23,7 @@ const GroupList = (props) => {
                     </div>
                     <ul className={ styles.frame }>
                         <li key="createGroup">
-                            <Link href = { "/createGroup/?groupId=" + groupId }>
+                            <Link href = { "/management/register/?groupId=" + groupId }>
                                 <div className={ styles.list }>
                                     <p className={ styles.text }>新しいグループを作る</p>
                                 </div>

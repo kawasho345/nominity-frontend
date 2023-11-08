@@ -2,6 +2,7 @@
 import React from 'react'
 import styles from "./EditText.module.css";
 import { useFormContext } from 'react-hook-form';
+import Font from '../Font/Font';
 
 const EditText = (props) => {
     const {
@@ -17,11 +18,11 @@ const EditText = (props) => {
     return (
         <>
             <label>
-                <p className={`${ styles.title } ${ styles[style] }`}>
+                <Font style="weak_button">
                     { title }
                     {required? <span className={ styles.required }>※必須</span> : ""}
-                </p>
-                { errors[name]?.type && <div className={`${ styles.error } ${ styles[style] }`}>{ errors[name].message }</div> }
+                </Font>
+                { errors[name]?.type && <div className={ styles.error }>{ errors[name].message }</div> }
                 <input
                     className={`${ styles.text } ${ styles[style] }`}
                     defaultValue={ value }

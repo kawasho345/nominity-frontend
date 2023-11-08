@@ -8,7 +8,7 @@ const NoGroup = () => {
         <h3 className={ styles.header }>グループがありません</h3>
         <p>グループを作ってノミニティを始めましょう</p>
         <div className = { styles.create_group }>
-            <Link href = "/createGroup" className='link'>
+            <Link href = "/management/register" className='link'>
                 <span className={ styles.create_group_text }>新しいグループを作る</span>
             </Link>
         </div>

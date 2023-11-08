@@ -1,14 +1,13 @@
 import React from 'react';
-import styles from "./page.module.css";
+import styles from "./styles/page.module.css";
 import Header from "@/components/header/Header";
-import ProfileForm from './profileForm/ProfileForm';
+import ProfileForm from './ProfileForm';
 import { setup } from '@/lib/setup';
-import { getServerSession } from "next-auth";
-import { handler } from "../api/auth/[...nextauth]/route";
+import BodyFrame from '@/components/BodyFrame/BodyFrame';
+import Heading from '@/components/Heading/Heading';
 
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
-    const session =  await getServerSession(handler);
     const {
         userId,
         username,
@@ -16,7 +15,7 @@ const page = async({ searchParams }) => {
         groupName,
         groupIcon,
         groupId,
-    } = await setup(session, searchParamsGroupId)
+    } = await setup(searchParamsGroupId)
 
     return (
         <>
@@ -31,13 +30,13 @@ const page = async({ searchParams }) => {
                 />
             </header>
             <main className={ styles.main }>
-                <div className={ styles.content }>
-                    <h1 className={ styles.title }>プロフィール変更</h1>
+                <BodyFrame>
+                    <Heading>プロフィール変更</Heading>
                     <ProfileForm
                         username={ username }
                         userIcon={ userIcon }
                     />
-                </div>
+                </BodyFrame>
             </main>
         </>
     )

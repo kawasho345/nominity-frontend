@@ -1,0 +1,54 @@
+.frame {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #00000030;
+}
+
+.header {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.main {
+    display: flex;
+}
+
+.details {
+    margin-right: 10px;
+}
+
+.element {
+    margin-bottom: 8px;
+    display: flex;
+}
+
+.date {
+    display: flex;
+}
+
+.restaurant {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.link {
+    color: blue;
+    text-decoration:underline;
+}
+
+.key {
+    display: block;
+    white-space: nowrap;
+}
+
+.value {
+    word-break: break-word;
+    margin-left: 10px;
+}
+
+.updateDate {
+    text-align: right;
+}
+
+.image {
+    margin: 0 0 0 auto
+}

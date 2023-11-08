@@ -12,7 +12,6 @@ main {
     text-align: center;
 }
 
-
 .button {
     display: inline-block;
     height: 100%;
@@ -31,6 +30,7 @@ main {
 }
 
 .green_button {
+    height: 40px;
     background-color: #00d20e;
     border-radius: 10px;
 }

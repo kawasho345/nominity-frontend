@@ -13,7 +13,7 @@ const Rightbar = async(props) => {
                     <li key={ member[0] } className={ styles.member }>
                         <div className={ styles.icon }>
                             <Image 
-                                src={ member[2] } 
+                                src={ member[2] || "/images/group_icon.png" } 
                                 width="25" 
                                 height="25" 
                                 alt="" 

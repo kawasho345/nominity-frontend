@@ -1,17 +1,15 @@
 import React from 'react'
-import styles from "./page.module.css";
+import styles from "./styles/page.module.css";
 import Header from '@/components/header/Header';
-import Leftbar from '@/components/leftbar/Leftbar';
-import Rightbar from '@/components/rightbar/Rightbar';
-import { getServerSession } from 'next-auth';
-import { handler } from '../api/auth/[...nextauth]/route';
+import Leftbar from '@/components/Leftbar/Leftbar';
+import Rightbar from '@/components/Rightbar/Rightbar';
 import { setup } from '@/lib/setup';
-import BodyFrame from '@/components/bodyFrame/BodyFrame';
-import NoGroup from '@/components/noGroup/NoGroup';
+import BodyFrame from '@/components/BodyFrame/BodyFrame';
+import NoGroup from '@/components/NoGroup/NoGroup';
+import Invitation from './Invitation';
 
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
-    const session =  await getServerSession(handler);
     const {
         userId,
         username,
@@ -21,7 +19,7 @@ const page = async({ searchParams }) => {
         members,
         groupId,
         hasGroupId,
-    } = await setup(session, searchParamsGroupId)
+    } = await setup(searchParamsGroupId)
     if(!hasGroupId){
         return(
             <>
@@ -54,7 +52,7 @@ const page = async({ searchParams }) => {
             <main className = {styles.group_content}>
                 <Leftbar />
                 <BodyFrame>
-
+                    <Invitation invitationCode="adkajfladjfakjfa;jfa;dkjf;ajd;asjdfdd;askfjdsa;l"/>
                 </BodyFrame>
                 <Rightbar members = { members }/>
             </main>

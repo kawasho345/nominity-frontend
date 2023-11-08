@@ -1,0 +1,12 @@
+.frame {
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+
+.favorite {
+    background-color: rgba(255, 0, 0, 0.07);
+}
+
+.hated {
+    background-color: rgba(25, 0, 255, 0.07);
+}
