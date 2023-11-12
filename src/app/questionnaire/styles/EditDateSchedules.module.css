@@ -22,3 +22,7 @@
 .radio_button:checked~.mark {
     color: #00d20e;
 }
+
+.button {
+    width: 75px;
+}
