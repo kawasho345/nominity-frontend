@@ -1,0 +1,28 @@
+.title {
+    text-align: left;
+}
+
+.error {
+    color: red;
+}
+
+.textarea {
+    padding: 0;
+    margin-top: 26px;
+    width: 100%;
+    display: block;
+    font-size: 24px;
+    border-bottom: 1px solid #00000030;
+    text-align: left;
+    align-items: flex-end;
+    resize: none;
+}
+
+.textarea:focus {
+    border-bottom: 1px solid #000000;
+    outline: none;
+}
+
+.post {
+    margin-top: 10px;
+}

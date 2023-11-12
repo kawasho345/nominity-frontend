@@ -1,0 +1,47 @@
+.content {
+    width: 220px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.list {
+    background: #fcfcfc;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.leftbar {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    box-shadow: 1px 3px 14px -7px #39608d;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 4px 6px;
+    cursor: pointer;
+} 
+
+.leftbar:hover {
+    background: rgba(0, 0, 0, .1);
+} 
+
+.icon {
+    color: #39608d;
+    position: relative;
+    padding: 0px 10px ;
+    float: left;
+}
+
+.text {
+    color: #39608d;
+    display: block;
+    padding-left: 3em;
+    margin-top: 2px;
+}
+
+.preference_icon {
+    color: #39608d;
+    position: relative;
+    padding: 10px ;
+    float: left;
+}

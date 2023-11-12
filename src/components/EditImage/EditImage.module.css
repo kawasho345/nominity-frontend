@@ -1,0 +1,27 @@
+.middle_frame {
+    text-align: right;
+    /* padding-bottom: 5px; */
+    padding-right: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items:flex-end;
+    border-bottom: 1px solid #00000030;
+}
+
+.text {
+    font-size: 24px;
+}
+
+.input {
+    display: none;
+}
+
+.image {
+    margin: 0 0 5px auto;
+}
+
+/* カスタム */
+.icon {
+    border-radius: 50%;
+    object-fit: cover;
+}
