@@ -1,0 +1,23 @@
+.frame {
+    display: flex;
+}
+
+.content {
+    margin-left: 10px;
+    width: 100%;
+}
+
+.heading {
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.name {
+    margin: auto 0;
+    font-weight: 500;
+}
+
+.date {
+    margin-top: 5px;
+    text-align: right;
+}

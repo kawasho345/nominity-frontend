@@ -6,8 +6,11 @@ import Rightbar from '@/components/Rightbar/Rightbar';
 import { setup } from '@/lib/setup';
 import BodyFrame from '@/components/BodyFrame/BodyFrame';
 import NoGroup from '@/components/NoGroup/NoGroup';
-import Invitation from './Invitation';
-import UpdateGroup from './UpdateGroup';
+import Heading from '@/components/Heading/Heading';
+import RegisterPost from './RegisterPost';
+import Post from './Post';
+import { getTimeline } from '@/lib/groupChat';
+import Font from '@/components/Font/Font';
 
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
@@ -20,7 +23,6 @@ const page = async({ searchParams }) => {
         members,
         groupId,
         hasGroupId,
-        invitationCode,
     } = await setup(searchParamsGroupId)
     if(!hasGroupId){
         return(
@@ -39,6 +41,8 @@ const page = async({ searchParams }) => {
         )
     }
 
+    const posts = await getTimeline(groupId);
+
     return (
         <>
             <header>
@@ -54,17 +58,32 @@ const page = async({ searchParams }) => {
             <main className = { styles.group_content }>
                 <Leftbar />
                 <BodyFrame>
-                    <div className={ styles.element }> 
-                        <Invitation invitationCode={ invitationCode }/>
-                    </div>
-                    <div className={ styles.element }>
-                        <UpdateGroup
-                            userId={ userId }
-                            groupId={ groupId }
-                            groupName={ groupName }
-                            groupIcon={ groupIcon }
-                        />
-                    </div>
+                    <Heading>掲示板</Heading>
+                    <RegisterPost 
+                        userId={ userId }
+                        groupId={ groupId } 
+                    />
+                    {posts.length?
+                        <ul className={ styles.frame }>
+                            {posts.map((post, index) => (
+                                <li className={ styles.element } key={ index }>
+                                    {!post.isBot?
+                                        <Post
+                                            userId={ userId }
+                                            postId={ post.postId }
+                                            postUserId={ post.postUserId }
+                                            postUsername={ post.postUsername }
+                                            postUserIcon={ post.postUserIcon }
+                                            postContent={ post.postContent }
+                                            postUpdatedAt={ post.postUpdatedAt }
+                                        />
+                                    :""}
+                                </li>
+                            ))}
+                        </ul>
+                    :
+                    <Font style="default_text">投稿はありません</Font>
+                    }
                 </BodyFrame>
                 <Rightbar members = { members }/>
             </main>

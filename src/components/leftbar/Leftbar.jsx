@@ -16,7 +16,7 @@ const Leftbar = () => {
                 </Link>
             </li>
             <li className = { styles.leftbar }>
-                <Link href = "/groupchat" className = "link">
+                <Link href = "/groupChat" className = "link">
                     <span className = { styles.icon }>
                         <Chat />
                     </span>
@@ -24,7 +24,7 @@ const Leftbar = () => {
                 </Link>
             </li>
             <li className = { styles.leftbar }>
-                <Link href = "/adjustment" className = "link">
+                <Link href = "/questionnaire" className = "link">
                     <span className = { styles.icon }>
                         <EditCalendar />
                     </span>

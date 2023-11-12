@@ -2,9 +2,6 @@ import React from 'react';
 import styles from "./styles/page.module.css";
 import Header from "@/components/header/Header";
 import { setup } from '@/lib/setup';
-import { getServerSession } from "next-auth";
-import { handler } from "../../api/auth/[...nextauth]/route";
-import CreateGroupForm from '../GroupForm';
 import BodyFrame from '@/components/BodyFrame/BodyFrame';
 import Heading from '@/components/Heading/Heading';
 import RegisterGroup from './RegisterGroup';
@@ -35,7 +32,7 @@ const page = async({ searchParams }) => {
             <main className={ styles.main }>
                 <BodyFrame>
                     <Heading>グループ作成</Heading>
-                    <RegisterGroup />
+                    <RegisterGroup userId={ userId } />
                 </BodyFrame>
             </main>
         </>

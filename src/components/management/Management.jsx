@@ -24,7 +24,7 @@ const Management = (props) => {
     };
 
     const updateGroup = async(groupName, groupIcon) => {
-        const status = await fetchRequest({
+        const response = await fetchRequest({
             url: "/api/group/" + groupId + "/put",
             method: "PUT",
             body:{
@@ -32,12 +32,7 @@ const Management = (props) => {
                 groupName,
                 groupIcon,
             },
-            // headers: {"Content-Type": "application/json"}
         })
-
-        if(status.status === 200){
-            console.log("成功")
-        }
     }
     
     return (

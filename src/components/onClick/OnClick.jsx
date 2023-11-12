@@ -9,6 +9,7 @@ const OnClick = (props) => {
         type = null,
         children,
         style = "center", 
+        form,
     } = props
 
     return (
@@ -22,7 +23,7 @@ const OnClick = (props) => {
                     <div className={ styles[style] }>{ children }</div>
                 </button>
             : type?
-                <button className={ styles.on_click } type={ type }>
+                <button className={ styles.on_click } type={ type } form={ form }>
                     <div className={ styles[style] }>{ children }</div>
                 </button>    
             :""}

@@ -15,12 +15,12 @@ const PutDelete = (props) => {
         <div className={ styles.frame }>
             <div className={ styles.edit }>
                 <OnClick func={ () => putFunc() }>
-                    <Edit />
+                    <Edit sx={{typography:{ fontSize: '2rem' }}}/>
                 </OnClick>
             </div>
             <div className={ styles.delete }>
                 <OnClick func={ () => deleteFunc() }>
-                    <DeleteIcon />
+                    <DeleteIcon sx={{typography:{ fontSize: '2rem' }}}/>
                 </OnClick>
             </div>
         </div>

@@ -29,7 +29,6 @@ const EditRestaurant = (props) => {
             method: "DELETE",
             body: { userId, }
         })
-        console.log(response)
         router.refresh();
     }
 

@@ -1,0 +1,64 @@
+.frame {
+    margin-top: 10px;
+}
+
+.register_date {
+    display: flex;
+}
+
+.edit_text {
+    width: 85%;
+    margin-right: 10px;
+}
+
+.has_id {
+    max-width: 70%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.submit {
+    margin-top: auto;
+    width: 75px;
+}
+
+.list {
+    max-height: 200px;
+    overflow: auto;
+    margin-top: 10px;
+}
+
+.element {
+    background-color: rgba(0, 255, 60, 0.1);
+    box-shadow: 1px 3px 14px -7px #39608d;
+    height: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.dragging {
+    background-color: rgba(0, 255, 60, 0.5);
+}
+
+.edit {
+    width: 70%;
+}
+
+.edit:focus {
+    border-bottom: 1px solid #000000;
+    outline: none;
+}
+
+.delete {
+    color: red;
+    margin: 0 20px 0 auto;
+}
+
+.delete:hover {
+    background-color: #00000020;
+}
+
+

@@ -1,0 +1,12 @@
+.frame {
+    display: flex;
+}
+
+.text_area {
+    width: 85%;
+}
+
+.button {
+    margin: auto 0 0 20px;
+    width: 70px;
+}

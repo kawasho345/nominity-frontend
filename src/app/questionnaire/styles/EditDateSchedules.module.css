@@ -1,0 +1,24 @@
+.element {
+    /* background-color: rgba(0, 255, 60, 0.1); */
+    box-shadow: 1px 3px 14px -7px #39608d;
+    height: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.radio {
+    margin: 0 10px 0 auto;
+    display: flex;
+}
+
+.mark {
+    margin: 0 5px;
+    color: #00d20e40;
+    font-size: 2.4rem;
+}
+
+.radio_button:checked~.mark {
+    color: #00d20e;
+}

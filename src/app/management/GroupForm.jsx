@@ -1,16 +1,9 @@
 "use client"
-import React, { useState } from 'react'
-import styles from "./styles/CreateGroupForm.module.css";
+import React, { useEffect } from 'react'
+import styles from "./styles/GroupForm.module.css";
 import EditText from '@/components/EditText/EditText';
 import { FormProvider, useForm } from 'react-hook-form';
-import CustomDialog from '@/components/customDialog/CustomDialog';
-import { useToggle } from 'react-use';
-import { useRouter } from 'next/navigation';
-import { fetchRequest } from '@/lib/fetch';
-import storage from '@/providers/firebase';
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import EditImage from '@/components/EditImage/EditImage';
-import { registerGroup } from '@/lib/management';
 import OnClick from '@/components/OnClick/OnClick';
 import Font from '@/components/Font/Font';
 
@@ -18,7 +11,12 @@ const GroupForm = (props) => {
     const { 
         submitText,
         submitFunc,
+        groupName,
+        groupIcon,
     } = props
+    useEffect(() => {
+        methods.reset()
+    },[])
     const methods = useForm();
     const onSubmit = (data) => submitFunc(data) 
 
@@ -30,6 +28,7 @@ const GroupForm = (props) => {
                         <EditText
                             name="groupName"
                             title="グループ名"
+                            value={ groupName }
                             required={ true }
                             maxLength="25"
                         />
@@ -38,7 +37,7 @@ const GroupForm = (props) => {
                         <EditImage
                             name="groupIcon"
                             title="グループアイコン"
-                            image=""
+                            image={ groupIcon }
                             width="50"
                             height="50"
                             noImage="/images/group_icon.png"

@@ -23,7 +23,6 @@ const RegisterScheduleBody = (props) => {
     const [currentRestaurant, setCurrentRestaurant] = useState("");
     const onSubmit = async(data) => {
         const response = await registerSchedule(data, userId, groupId);
-        console.log(response);
         router.refresh();
         router.push("/")
     }

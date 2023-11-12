@@ -32,7 +32,7 @@ const GroupList = (props) => {
                         {joinGroups !== "undefind"?
                             joinGroups.map((group) => (
                                 <li key={ group[0] }>
-                                    <Link href = { "/?groupId=" + group[0] }>
+                                    <Link href = { "/schedules?groupId=" + group[0] }>
                                         <div className={ styles.list }>
                                             <div className={ styles.icon }>
                                                 <Image 

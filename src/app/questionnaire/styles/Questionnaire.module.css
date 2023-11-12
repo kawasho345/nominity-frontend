@@ -1,0 +1,64 @@
+.frame {
+    width: 100%;
+}
+
+.headding {
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.table_wrap {
+    overflow-x: auto;
+}
+
+.schedules {
+    margin-top: 10px;
+}
+
+.first {
+    min-width: 120px;
+    max-width: 120px;
+    border: 1px solid;
+}
+
+.header {
+    min-width: 75px;
+    max-width: 75px;
+    text-align: center;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    font-weight: 400;
+}
+
+.date {
+    margin: 5px;
+}
+
+.left {
+    height: 40px;
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    font-weight: 400;
+}
+
+.name {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mark {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.data {
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    color: #00d20e;
+}

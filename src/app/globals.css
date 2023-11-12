@@ -1,3 +1,7 @@
+HTML {
+    font-size: 62.5%
+}
+
 body {
     background: #e3f6d7;
     padding-bottom: 150px;
@@ -5,11 +9,13 @@ body {
 
 header {
     height: 75px;
+    font-size: 1.6rem;
 }
 
 main {
     padding: 20px 10px 0;
     text-align: center;
+    font-size: 1.6rem;
 }
 
 .button {

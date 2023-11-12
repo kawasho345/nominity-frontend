@@ -3,7 +3,6 @@ import storage from '@/providers/firebase';
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 const registerSchedule = async(data, userId, groupId) => {
-    console.log(data)
     let fileUrl
     if(data.imageUrl){
         fileUrl = data.imageUrl

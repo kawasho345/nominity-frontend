@@ -20,10 +20,6 @@ const setup = async(searchParamsGroupId) => {
         groupId = joinGroupIds[0];
         return{ groupId, hasGroupId }
     }
-    
-    // const {
-    //     searchParamsGroupId = null 
-    // } = argment;
 
     //セッション確認
     const session =  await getServerSession(handler);
@@ -59,6 +55,7 @@ const setup = async(searchParamsGroupId) => {
     const {
         groupName,
         groupIcon,
+        invitationCode,
     } = group
 
     //グループメンバー取得
@@ -77,6 +74,7 @@ const setup = async(searchParamsGroupId) => {
         members,
         groupId,
         hasGroupId,
+        invitationCode,
     }
 }
 
