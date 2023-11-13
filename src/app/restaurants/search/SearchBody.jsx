@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from "./styles/SearchBody.module.css";
 import BodyFrame from '@/components/BodyFrame/BodyFrame';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -28,8 +28,8 @@ const SearchForm = (props) => {
     const setRestaurant = useRef();
 
     const onSubmit = (data) => {
-        setStart(1)
-        setKeyword(data.keyword)
+        setStart(1);
+        setKeyword(data.keyword);
     }
 
     const setValue = (restaurant) => {
@@ -45,18 +45,18 @@ const SearchForm = (props) => {
         }
     } 
 
-    useUpdateEffect(() => {
+    useEffect(() => {
         const search = async() => {    
-            const restaurantsArray = await searchRestaurants(keyword, start)
-            setRestaurants(restaurantsArray)
+            const restaurantsArray = await searchRestaurants(keyword, start);
+            setRestaurants(restaurantsArray);
         }
         //初回レンダリングでの実行と空欄での検索を防ぐ
-        if(countRender.current<2 || !keyword){
+        if(countRender.current<1 || !keyword){
             countRender.current+=1;
             return;
         }
-        search()
-        window.scrollTo(0, 0)
+        search();
+        window.scrollTo(0, 0);
     },[keyword, start])
 
     return (
