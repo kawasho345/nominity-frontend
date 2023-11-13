@@ -22,10 +22,10 @@ const ScheduleForm = (props) => {
         scheduleNumberPeople,
         scheduleRemarks,
     } = props
-    const methods = useForm()
-    const onSubmit = (data) => submitFunc(data)
+    const methods = useForm();
+    const onSubmit = (data) => submitFunc(data);
     useEffect(() => {
-        methods.reset()
+        methods.reset();
     },[restaurantId])
     
     return (        
