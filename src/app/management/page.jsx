@@ -8,6 +8,7 @@ import BodyFrame from '@/components/BodyFrame/BodyFrame';
 import NoGroup from '@/components/NoGroup/NoGroup';
 import Invitation from './Invitation';
 import UpdateGroup from './UpdateGroup';
+import MemberManagement from './MemberManagement';
 
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
@@ -63,6 +64,12 @@ const page = async({ searchParams }) => {
                             groupId={ groupId }
                             groupName={ groupName }
                             groupIcon={ groupIcon }
+                        />
+                    </div>
+                    <div className={ styles.element }>
+                        <MemberManagement
+                            userId={ userId }
+                            groupId={ groupId }
                         />
                     </div>
                 </BodyFrame>

@@ -1,0 +1,11 @@
+.red_button {
+    height: 40px;
+    width: 250px;
+    background-color: #ff0000;
+    border-radius: 10px;
+    margin: 20px auto 0;
+}
+
+.red_button:hover {
+    background-color: #ff000060;
+}

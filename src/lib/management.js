@@ -74,8 +74,19 @@ const updateUser = async(data, userId) => {
     return response;
 }
 
+const withdrawal = async(groupId, userId) => {
+    const response = await fetchRequest({
+        url: "/api/group/" + groupId + "/withdrawal",
+        method: "PUT",
+        body: { userIds: [userId] }
+    })
+
+    return response;
+}
+
 export { 
     registerGroup, 
     updateGroup, 
     updateUser,
+    withdrawal,
 }
