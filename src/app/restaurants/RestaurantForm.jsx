@@ -75,17 +75,10 @@ const RestaurantForm = (props) => {
                             />
                         </li>
                     </ul>
-                    <div className={ styles.buttons }>
-                        <div className={`${ styles.cancel_button } ${ "cancel_button" }`}>
-                            <OnClick func={ () => cancelFucn() }>
-                                <Font style="default_button">キャンセル</Font>
-                            </OnClick>
-                        </div>
-                        <div className={`${ styles.decide_button } ${ "decide_button" }`}>
-                            <OnClick type="submit">
-                                <Font style="default_button">登録</Font>
-                            </OnClick>
-                        </div>
+                    <div className={`${ styles.button } ${ "green_button" }`}>
+                        <OnClick type="submit">
+                            <Font style="default_button">登録</Font>
+                        </OnClick>
                     </div>
                 </form>
             </FormProvider>

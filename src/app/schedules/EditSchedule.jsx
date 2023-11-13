@@ -6,6 +6,9 @@ import { deleteSchedule, updateSchedule } from '@/lib/schedules';
 import { useRouter } from 'next/navigation';
 import PutDelete from '@/components/PutDelete/PutDelete';
 import PopUp from '@/components/PopUp/PopUp';
+import styles from "./styles/EditSchedule.module.css";
+import Heading from '@/components/Heading/Heading';
+import Cancel from '@/components/Cancel/Cancel';
 
 const EditSchedule = (props) => {
     const {
@@ -42,6 +45,10 @@ const EditSchedule = (props) => {
             />
             {hasForm?
                 <PopUp>
+                    <div className={ styles.header }>
+                        <Heading>お知らせ編集</Heading>
+                        <Cancel cancelFunc={ () => setHasForm(false) } />
+                    </div>
                     <ScheduleForm
                         submitFunc={ (data) => updateFunc(data) }
                         cancelFunc={ () => setHasForm(false) }

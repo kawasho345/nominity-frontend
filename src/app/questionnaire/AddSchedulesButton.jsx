@@ -8,6 +8,8 @@ import PopUp from '@/components/PopUp/PopUp';
 import EditDateSchedules from './EditDateSchedules';
 import { updateDateSchedules } from '@/lib/questionnaire';
 import { useRouter } from 'next/navigation';
+import Heading from '@/components/Heading/Heading';
+import Cancel from '@/components/Cancel/Cancel';
 
 const AddSchedulesButton = (props) => {
     const {
@@ -39,6 +41,10 @@ const AddSchedulesButton = (props) => {
             </OnClick>
             {hasForm?
                 <PopUp>
+                    <div className={ styles.header }>
+                        <Heading>予定を記入</Heading>
+                        <Cancel cancelFunc={ () => setHasForm(false)} />
+                    </div>
                     <EditDateSchedules
                         questionnaireDates={ questionnaireDates }
                         submitFunc={ (data) => updateFunc(data) }

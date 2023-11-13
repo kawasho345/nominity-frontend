@@ -1,7 +1,6 @@
 import Font from '@/components/Font/Font';
 import React from 'react'
 import styles from "./styles/EditDateSchedules.module.css";
-import Heading from '@/components/Heading/Heading';
 import { useForm } from 'react-hook-form';
 import { ChangeHistory, Close, RadioButtonUnchecked } from '@mui/icons-material';
 import OnClick from '@/components/OnClick/OnClick';
@@ -20,7 +19,6 @@ const EditDateSchedules = (props) => {
 
     return (
         <>
-            <Heading>予定を記入</Heading>
             <form onSubmit={ handleSubmit(onSubmit) }>
                 <ul>
                     {questionnaireDates.map((date, index) => (

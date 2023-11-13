@@ -9,9 +9,9 @@
     margin-right: 20px;
 }
 
-.decide_button {
+.button {
     width: 70px;
-    height: 40px;
+    margin: 20px auto 0;
 }
 
 .element {

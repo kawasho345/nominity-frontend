@@ -1,0 +1,13 @@
+.button {
+    width: 120px;
+    height: 2.4rem;
+    margin: 0 5px auto auto;
+}
+
+.button:hover {
+    background-color: #00000010;
+}
+
+.text {
+    display: flex;
+}

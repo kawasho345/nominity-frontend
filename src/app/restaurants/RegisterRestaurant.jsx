@@ -4,6 +4,8 @@ import RestaurantForm from './RestaurantForm';
 import { useRouter } from 'next/navigation';
 import Heading from '@/components/Heading/Heading';
 import { registerRestaurant } from '@/lib/restaurants';
+import styles from "./styles/RegisterRestaurant.module.css";
+import Cancel from '@/components/Cancel/Cancel';
 
 const RegisterRestaurant = (props) => {
     const {
@@ -26,7 +28,10 @@ const RegisterRestaurant = (props) => {
 
     return (
         <PopUp>
-            <Heading>リスト登録</Heading>
+            <div className={ styles.header }>
+                <Heading>リスト登録</Heading>
+                <Cancel cancelFunc={ () => setHasRegisterForm(false) } />
+            </div>
             <RestaurantForm
                 submitFunc={ (data) => onSubmit(data) }
                 cancelFucn={ () => setHasRegisterForm(false) }

@@ -6,6 +6,9 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useToggle } from 'react-use'
 import QuestionnaireForm from './QuestionnaireForm'
+import styles from "./styles/EditQuestionnaire.module.css";
+import Heading from '@/components/Heading/Heading'
+import Cancel from '@/components/Cancel/Cancel'
 
 const EditQuestionnaire = (props) => {
     const { 
@@ -36,6 +39,10 @@ const EditQuestionnaire = (props) => {
             />
             {hasForm?
                 <PopUp>
+                    <div className={ styles.header }>
+                        <Heading>日程調整編集</Heading>
+                        <Cancel cancelFunc={ () => setHasForm(false) } />
+                    </div>
                     <QuestionnaireForm
                         questionnaireName={ questionnaireName }
                         questionnaireOverview={ questionnaireOverview }
