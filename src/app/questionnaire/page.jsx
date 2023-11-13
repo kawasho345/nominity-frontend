@@ -55,7 +55,7 @@ const page = async({ searchParams }) => {
                 />
             </header>
             <main>
-                <Leftbar />
+                <Leftbar groupId={ groupId } />
                 <BodyFrame>
                     <Heading>日程調整</Heading>
                     {questionnaires.map((questionnaire, index) => (

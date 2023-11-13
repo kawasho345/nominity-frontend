@@ -58,7 +58,7 @@ const page = async({ searchParams }) => {
                 />
             </header>
             <main className = {styles.group_content}>
-                <Leftbar />
+                <Leftbar groupId={ groupId } />
                 <BodyFrame>
                     <Heading>好き/嫌い・アレルギーリスト</Heading>
                     <ul>

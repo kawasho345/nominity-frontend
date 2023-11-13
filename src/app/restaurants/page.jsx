@@ -54,7 +54,7 @@ const page = async({ searchParams }) => {
                 />
             </header>
             <main className = {styles.group_content}>
-                <Leftbar />
+                <Leftbar groupId={ groupId } />
                 <BodyFrame>
                     <AddToList 
                         groupId={ groupId }

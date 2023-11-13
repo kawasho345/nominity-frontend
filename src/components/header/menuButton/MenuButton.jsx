@@ -9,6 +9,7 @@ import UserMenu from "./userMenu/UserMenu"
 
 const MenuButton = (props) => {
     const {
+        type,
         name,
         icon,
         groupId = null,
@@ -32,7 +33,7 @@ const MenuButton = (props) => {
                 </div>
                 <div className={ !groupId? styles.user : styles.group }>
                     <p className={ styles.heading }>
-                        { !groupId? "ユーザー" : "グループ" }
+                        { (type === "user")? "ユーザー" : "グループ" }
                     </p>
                     <div className={ styles.detail }>
                         <span className={ styles.name }>{ name || "グループがありません" }</span>
@@ -40,7 +41,7 @@ const MenuButton = (props) => {
                     </div>
                 </div>        
             </button>
-            { groupId?
+            { (type === "group")?
                 <GroupList
                     hasMenu={ hasMenu }
                     setHasMenu={ setHasMenu }
@@ -49,8 +50,9 @@ const MenuButton = (props) => {
                 />
             :
                 <UserMenu 
-                hasMenu={ hasMenu }
-                setHasMenu={ setHasMenu }
+                    hasMenu={ hasMenu }
+                    setHasMenu={ setHasMenu }
+                    groupId={ groupId }
                 />
             }
         </div>

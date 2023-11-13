@@ -5,9 +5,14 @@ import { signOut } from 'next-auth/react'
 
 const GroupList = (props) => {
     const {
+        groupId,
         hasMenu,
         setHasMenu,
     } = props;
+    let query = "";
+    if(groupId){
+        query = "?groupId=" + groupId;
+    }
 
     return(
         <>
@@ -21,7 +26,7 @@ const GroupList = (props) => {
                     </div>
                     <ul className={ styles.frame }>
                         <li key="createGroup">
-                            <Link href = { "/profile" } className={ styles.aaa }>
+                            <Link href = { "/profile" + query } className={ styles.aaa }>
                                 <div className={ styles.list }>
                                     <p className={ styles.text }>プロフィール変更</p>
                                 </div>

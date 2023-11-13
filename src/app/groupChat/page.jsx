@@ -56,7 +56,7 @@ const page = async({ searchParams }) => {
                 />
             </header>
             <main className = { styles.group_content }>
-                <Leftbar />
+                <Leftbar groupId={ groupId } />
                 <BodyFrame>
                     <Heading>掲示板</Heading>
                     <RegisterPost 

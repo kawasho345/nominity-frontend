@@ -12,6 +12,7 @@
 
 .leftbar {
     width: 200px;
+    min-height: 30px;
     display: flex;
     align-items: center;
     box-shadow: 1px 3px 14px -7px #39608d;
@@ -25,23 +26,16 @@
     background: rgba(0, 0, 0, .1);
 } 
 
-.icon {
+.element {
+    width: 160px;
     color: #39608d;
-    position: relative;
-    padding: 0px 10px ;
-    float: left;
+    display: flex;
+}
+
+.icon {
+    margin: auto auto auto 0;
 }
 
 .text {
-    color: #39608d;
-    display: block;
-    padding-left: 3em;
-    margin-top: 2px;
-}
-
-.preference_icon {
-    color: #39608d;
-    position: relative;
-    padding: 10px ;
-    float: left;
+    margin: auto;
 }

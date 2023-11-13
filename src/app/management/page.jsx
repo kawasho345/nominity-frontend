@@ -53,7 +53,7 @@ const page = async({ searchParams }) => {
                 />
             </header>
             <main className = { styles.group_content }>
-                <Leftbar />
+                <Leftbar groupId={ groupId } />
                 <BodyFrame>
                     <div className={ styles.element }> 
                         <Invitation invitationCode={ invitationCode }/>
