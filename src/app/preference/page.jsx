@@ -20,6 +20,12 @@ const page = async({ searchParams }) => {
         members,
         groupId,
         hasGroupId,
+        groupFavoriteFood,
+        groupHatedFood,
+        groupFavoriteAlcohol,
+        groupHatedAlcohol,
+        groupAllergy,
+        groupAllergyText,
     } = await setup(searchParamsGroupId);
 
     if(!hasGroupId){
@@ -59,25 +65,37 @@ const page = async({ searchParams }) => {
                         <li className={ styles.element }>
                             <Preference
                                 heading="メンバーの好きな料理・食材"
-                                content="納豆・きゅうり・まぐろ・イタリアン"
+                                content={ groupFavoriteFood || "特になし" }
                                 style="favorite"/>
                         </li>
                         <li className={ styles.element }>
                             <Preference
                                 heading="メンバーの苦手な料理・食材"
-                                content="中華調理・かぼちゃ・里芋"
+                                content={ groupHatedFood || "特になし" }
                                 style="hated"/>
                         </li>
                         <li className={ styles.element }>
                             <Preference
                                 heading="メンバーの好きなお酒"
-                                content="ビール・芋焼酎"
+                                content={ groupFavoriteAlcohol || "特になし" }
                                 style="favorite"/>
                         </li>
                         <li className={ styles.element }>
                             <Preference
                                 heading="メンバーの苦手なお酒"
-                                content="麦焼酎・マッコリ"
+                                content={ groupHatedAlcohol || "特になし" }
+                                style="hated"/>
+                        </li>
+                        <li className={ styles.element }>
+                            <Preference
+                                heading="メンバーの持つアレルギー"
+                                content={ groupAllergy || "特になし" }
+                                style="hated"/>
+                        </li>
+                        <li className={ styles.element }>
+                            <Preference
+                                heading="メンバーの持つその他アレルギー"
+                                content={ groupAllergyText || "特になし" }
                                 style="hated"/>
                         </li>
                     </ul>

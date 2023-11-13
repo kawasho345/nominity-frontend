@@ -15,6 +15,12 @@ const page = async({ searchParams }) => {
         groupName,
         groupIcon,
         groupId,
+        userFavoriteFood,
+        userHatedFood,
+        userFavoriteAlcohol,
+        userHatedAlcohol,
+        userAllergy,
+        userAllergyText,
     } = await setup(searchParamsGroupId)
 
     return (
@@ -33,8 +39,15 @@ const page = async({ searchParams }) => {
                 <BodyFrame>
                     <Heading>プロフィール変更</Heading>
                     <ProfileForm
+                        userId={ userId }
                         username={ username }
                         userIcon={ userIcon }
+                        favoriteFood={ userFavoriteFood }
+                        hatedFood={ userHatedFood }
+                        favoriteAlcohol={ userFavoriteAlcohol }
+                        hatedAlcohol={ userHatedAlcohol }
+                        allergy={ userAllergy }
+                        allergyText={ userAllergyText }
                     />
                 </BodyFrame>
             </main>

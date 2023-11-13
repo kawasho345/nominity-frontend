@@ -7,6 +7,7 @@ import { useToggle } from 'react-use';
 import PopUp from '@/components/PopUp/PopUp';
 import EditDateSchedules from './EditDateSchedules';
 import { updateDateSchedules } from '@/lib/questionnaire';
+import { useRouter } from 'next/navigation';
 
 const AddSchedulesButton = (props) => {
     const {
@@ -16,8 +17,10 @@ const AddSchedulesButton = (props) => {
         membersSchedule,
     } = props
     const [hasForm, setHasForm] = useToggle(false);
+    const router = useRouter()
     const updateFunc = async(data) =>  {
         const response = await updateDateSchedules(data, userId, questionnaireDates, questionnaireId);
+        router.refresh();
         setHasForm(false);
     } 
 

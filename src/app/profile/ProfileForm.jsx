@@ -6,14 +6,26 @@ import EditImage from '@/components/EditImage/EditImage';
 import { FormProvider, useForm } from 'react-hook-form';
 import EditTextArea from '@/components/EditTextArea/EditTextArea';
 import EditCheckBox from '@/components/EditCheckBox/EditCheckBox';
+import OnClick from '@/components/OnClick/OnClick';
+import Font from '@/components/Font/Font';
+import { updateUser } from '@/lib/management';
 
 const ProfileForm = (props) => {
     const {
+        userId,
         username, 
-        userIcon 
+        userIcon,
+        favoriteFood,
+        hatedFood,
+        favoriteAlcohol,
+        hatedAlcohol,
+        allergy,
+        allergyText, 
     } = props
     const methods = useForm();
-    const onSubmit = (data) => console.log(data)
+    const onSubmit = async(data) => {
+        const response = await updateUser(data, userId)
+    }
     const allergies=["えび", "かに", "たまご", "そば", "乳", "落花生", "あわび", "いか", "いくら", 
                     "オレンジ", "カシューナッツ", "キュウイフルーツ", "牛肉", "くるみ", "ごま", "さけ", 
                     "さば", "大豆", "豚肉", "バナナ", "鶏肉", "まつたけ", "もも", "やまいも", "りんご", "ゼラチン", "アーモンド"]
@@ -43,20 +55,23 @@ const ProfileForm = (props) => {
                         <EditTextArea
                             name="favoriteFood"
                             title="好きな料理"
+                            value={ favoriteFood }
                             maxLength="200"
                         />
                     </li>
                     <li className={ styles.element }>
                         <EditTextArea
                             name="hatedFood"
-                            title="好きなお酒"
+                            title="苦手な料理"
+                            value={ hatedFood }
                             maxLength="200"
                         />
                     </li>
                     <li className={ styles.element }>
                         <EditTextArea
                             name="favoriteAlcohol"
-                            title="苦手な料理"
+                            title="好きなお酒"
+                            value={ favoriteAlcohol }
                             maxLength="200"
                         />
                     </li>
@@ -64,6 +79,7 @@ const ProfileForm = (props) => {
                         <EditTextArea
                             name="hatedAlcohol"
                             title="苦手なお酒"
+                            value={ hatedAlcohol }
                             maxLength="200"
                         />
                     </li>
@@ -71,6 +87,7 @@ const ProfileForm = (props) => {
                         <EditCheckBox
                             name="allergy"
                             title="アレルギー"
+                            value={ allergy }
                             elements={ allergies }
                         />
                     </li>
@@ -78,16 +95,15 @@ const ProfileForm = (props) => {
                         <EditTextArea
                             name="allergyText"
                             title="その他アレルギー"
+                            value={ allergyText }
                             maxLength="200"
                         />
                     </li>
                 </ul>
-                <div className={ styles.submit_button }>
-                    <div className="button_frame">
-                        <button type="submit" className="button">
-                            <span className="button_text">更新</span>
-                        </button>
-                    </div>
+                <div className={`${ styles.button } ${ "green_button"}`}>
+                    <OnClick type="submit">
+                        <Font style="default_button">更新</Font>
+                    </OnClick>
                 </div>
             </form>
         </FormProvider>

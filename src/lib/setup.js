@@ -39,6 +39,12 @@ const setup = async(searchParamsGroupId) => {
         username,
         userIcon,
         joinGroupIds,
+        userFavoriteFood,
+        userHatedFood,
+        userFavoriteAlcohol,
+        userHatedAlcohol,
+        userAllergy,
+        userAllergyText,
     } = user
 
     //表示グループ選定 
@@ -56,6 +62,12 @@ const setup = async(searchParamsGroupId) => {
         groupName,
         groupIcon,
         invitationCode,
+        groupFavoriteFood,
+        groupHatedFood,
+        groupFavoriteAlcohol,
+        groupHatedAlcohol,
+        groupAllergy,
+        groupAllergyText,
     } = group
 
     //グループメンバー取得
@@ -75,6 +87,18 @@ const setup = async(searchParamsGroupId) => {
         groupId,
         hasGroupId,
         invitationCode,
+        userFavoriteFood,
+        userHatedFood,
+        userFavoriteAlcohol,
+        userHatedAlcohol,
+        userAllergy,
+        userAllergyText,
+        groupFavoriteFood,
+        groupHatedFood,
+        groupFavoriteAlcohol,
+        groupHatedAlcohol,
+        groupAllergy,
+        groupAllergyText,
     }
 }
 

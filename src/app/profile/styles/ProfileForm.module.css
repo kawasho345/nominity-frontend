@@ -2,6 +2,11 @@
     margin-bottom: 10px;
 }
 
+.button {
+    margin: 0 auto;
+    width: 75px;
+}
+
 .submit_button {
     text-align: center;
     margin-top: 30px;

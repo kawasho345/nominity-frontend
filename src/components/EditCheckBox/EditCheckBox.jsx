@@ -7,6 +7,7 @@ const EditCheckBox = (props) => {
     const {
         title,
         name,
+        value,
         elements,
     } = props
     const { register } = useFormContext();
@@ -24,6 +25,7 @@ const EditCheckBox = (props) => {
                                 { ...register(name) }
                                 type="checkbox"
                                 value={ element }
+                                defaultChecked={ value.includes(element) }
                                 />
                             <label 
                                 className={ styles.element } 
