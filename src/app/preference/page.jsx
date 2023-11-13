@@ -28,6 +28,14 @@ const page = async({ searchParams }) => {
         groupAllergyText,
     } = await setup(searchParamsGroupId);
 
+    const allergyText = () => {
+        let list = []
+        groupAllergyText.map((text) => {
+            list.push(<>{ text }<br/></>)
+        })
+        return <>{ list }</>
+    }
+
     if(!hasGroupId){
         return(
             <>
@@ -95,7 +103,7 @@ const page = async({ searchParams }) => {
                         <li className={ styles.element }>
                             <Preference
                                 heading="メンバーの持つその他アレルギー"
-                                content={ groupAllergyText || "特になし" }
+                                content={ allergyText() || "特になし" }
                                 style="hated"/>
                         </li>
                     </ul>

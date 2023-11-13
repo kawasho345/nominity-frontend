@@ -7,15 +7,13 @@ const setup = async(searchParamsGroupId) => {
     const selectGroup = (searchParamsGroupId, joinGroupIds) => {
         let groupId = null;
         let hasGroupId = true;
-        if(searchParamsGroupId){
-            if(joinGroupIds.includes(searchParamsGroupId)){
-                groupId = searchParamsGroupId;
-                return{ groupId, hasGroupId }
-            }
-            hasGroupId = false;
-        }
         if(!joinGroupIds.length){
-            return(groupId, hasGroupId)
+            hasGroupId = false;
+            return(groupId, hasGroupId);
+        }
+        if(joinGroupIds.includes(searchParamsGroupId)){
+            groupId = searchParamsGroupId;
+            return{ groupId, hasGroupId }
         }
         groupId = joinGroupIds[0];
         return{ groupId, hasGroupId }
