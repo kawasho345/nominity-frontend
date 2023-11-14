@@ -4,7 +4,7 @@ import styles from "./styles/AddSchedulesButton.module.css";
 import OnClick from '@/components/OnClick/OnClick';
 import Font from '@/components/Font/Font';
 import { useToggle } from 'react-use';
-import PopUp from '@/components/PopUp/PopUp';
+import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
 import EditDateSchedules from './EditDateSchedules';
 import { updateDateSchedules } from '@/lib/questionnaire';
 import { useRouter } from 'next/navigation';
@@ -40,7 +40,7 @@ const AddSchedulesButton = (props) => {
                 <Font style="default_button">予定を記入する</Font>
             </OnClick>
             {hasForm?
-                <PopUp>
+                <EmphasisFrame>
                     <div className={ styles.header }>
                         <Heading>予定を記入</Heading>
                         <Cancel cancelFunc={ () => setHasForm(false)} />
@@ -50,7 +50,7 @@ const AddSchedulesButton = (props) => {
                         submitFunc={ (data) => updateFunc(data) }
                         userSchedule={ userSchedule }
                     />
-                </PopUp>
+                </EmphasisFrame>
             :""}
         </div>
     )

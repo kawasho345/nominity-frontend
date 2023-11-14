@@ -1,5 +1,5 @@
 import React from 'react'
-import PopUp from '@/components/PopUp/PopUp';
+import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
 import RestaurantForm from './RestaurantForm';
 import { useRouter } from 'next/navigation';
 import Heading from '@/components/Heading/Heading';
@@ -27,7 +27,7 @@ const RegisterRestaurant = (props) => {
     }
 
     return (
-        <PopUp>
+        <EmphasisFrame>
             <div className={ styles.header }>
                 <Heading>リスト登録</Heading>
                 <Cancel cancelFunc={ () => setHasRegisterForm(false) } />
@@ -41,7 +41,7 @@ const RegisterRestaurant = (props) => {
                 restaurantUrl={ restaurantUrl }
                 restaurantRemarks={ restaurantRemarks }
             />
-        </PopUp>
+        </EmphasisFrame>
     )
 }
 

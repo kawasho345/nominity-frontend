@@ -5,10 +5,13 @@ import { useToggle } from 'react-use';
 import { deleteSchedule, updateSchedule } from '@/lib/schedules';
 import { useRouter } from 'next/navigation';
 import PutDelete from '@/components/PutDelete/PutDelete';
-import PopUp from '@/components/PopUp/PopUp';
+import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
 import styles from "./styles/EditSchedule.module.css";
 import Heading from '@/components/Heading/Heading';
 import Cancel from '@/components/Cancel/Cancel';
+import Modal from '@/components/Modal/Modal';
+import Dialog from '@/components/Dialog/Dialog';
+import Font from '@/components/Font/Font';
 
 const EditSchedule = (props) => {
     const {
@@ -24,12 +27,14 @@ const EditSchedule = (props) => {
         scheduleRemarks,
         userId,
     } = props
-    const[hasForm, setHasForm] = useToggle(false);
+    const [hasForm, setHasForm] = useToggle(false);
+    const [hasDialog, setHasDialog] = useToggle(false);
     const router = useRouter()
     
     const deleteFunc = async() => {
         await deleteSchedule(userId, scheduleId);
         router.refresh();
+        setHasDialog(false);
     }
     const updateFunc = async(data) => {
         const response = await updateSchedule(data, userId, scheduleId);
@@ -41,10 +46,10 @@ const EditSchedule = (props) => {
         <>
             <PutDelete
                 putFunc={ () => setHasForm(true) }
-                deleteFunc={ () => deleteFunc() }
+                deleteFunc={ () => setHasDialog(true) }
             />
             {hasForm?
-                <PopUp>
+                <EmphasisFrame>
                     <div className={ styles.header }>
                         <Heading>お知らせ編集</Heading>
                         <Cancel cancelFunc={ () => setHasForm(false) } />
@@ -62,7 +67,19 @@ const EditSchedule = (props) => {
                         schedulePrice={ schedulePrice }
                         scheduleNumberPeople={ scheduleNumberPeople }                   
                     />
-                </PopUp>
+                </EmphasisFrame>
+            :""}
+            {hasDialog?
+                <EmphasisFrame>
+                    <Dialog 
+                        yesFunc={ () => deleteFunc() }
+                        noFunc={ () => setHasDialog(false) }>
+                        <Font style="large_text" tag="div">
+                            <p>お知らせ：{ scheduleName }</p>
+                            <p>を削除します。本当によろしいですか</p>
+                        </Font>
+                    </Dialog>
+                </EmphasisFrame>
             :""}
         </>
     )

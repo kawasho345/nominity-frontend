@@ -5,7 +5,7 @@ import OnClick from '@/components/OnClick/OnClick';
 import Font from '@/components/Font/Font';
 import { useToggle } from 'react-use';
 import QuestionnaireForm from './QuestionnaireForm';
-import PopUp from '@/components/PopUp/PopUp';
+import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
 import Heading from '@/components/Heading/Heading';
 import { registerQuestionnaire } from '@/lib/questionnaire';
 
@@ -27,13 +27,13 @@ const RegisterQuestionnaire = (props) => {
                 </OnClick>
             </div>
             {hasForm?
-                <PopUp>
+                <EmphasisFrame>
                     <Heading>日程調整作成</Heading>
                     <QuestionnaireForm 
                         submitFunc={ (data, dates) => onSubmit(data, dates)}
                         submitText="登録"
                     />
-                </PopUp>
+                </EmphasisFrame>
             :""}
         </>
     )

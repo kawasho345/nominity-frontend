@@ -8,7 +8,7 @@ import { registerSchedule } from '@/lib/schedules';
 import OnClick from '@/components/OnClick/OnClick';
 import { useToggle } from 'react-use';
 import Restaurant from '@/app/restaurants/Restaurant';
-import PopUp from '@/components/PopUp/PopUp';
+import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
 import Heading from '@/components/Heading/Heading';
 
 const RegisterScheduleBody = (props) => {
@@ -18,7 +18,7 @@ const RegisterScheduleBody = (props) => {
         restaurants
     } = props
     const router = useRouter();
-    const [hasPopUp, setHasPopUp] = useToggle(false);
+    const [hasEmphasisFrame, setHasEmphasisFrame] = useToggle(false);
     const cancel = () => router.push("/");
     const [currentRestaurant, setCurrentRestaurant] = useState("");
     const onSubmit = async(data) => {
@@ -28,7 +28,7 @@ const RegisterScheduleBody = (props) => {
     }
     const selectRestaurant = (restaurant) => {
         setCurrentRestaurant(restaurant)
-        setHasPopUp(false);
+        setHasEmphasisFrame(false);
     }
 
     return (
@@ -36,7 +36,7 @@ const RegisterScheduleBody = (props) => {
             <div className={ styles.header }>
                 <Heading>お知らせ作成</Heading>
                 <div className={`${"green_button"} ${styles.button}`}>
-                    <OnClick func={ () => setHasPopUp(true)}>
+                    <OnClick func={ () => setHasEmphasisFrame(true)}>
                         <Font style="default_button">お店リストから作成</Font>
                     </OnClick>
                 </div>
@@ -51,8 +51,8 @@ const RegisterScheduleBody = (props) => {
                 restaurantImage={ currentRestaurant.restaurantImage }
                 restaurantRemarks={ currentRestaurant.restaurantRemarks }
             />
-            {hasPopUp?
-                <PopUp func={ () => setHasPopUp(false) }>
+            {hasEmphasisFrame?
+                <EmphasisFrame func={ () => setHasEmphasisFrame(false) }>
                     {restaurants.length?
                         <ul>
                             {restaurants.map((restaurant, index) => (
@@ -78,7 +78,7 @@ const RegisterScheduleBody = (props) => {
                     :
                         <Font style="default_text">リストに登録がありません</Font>
                     }
-                </PopUp>
+                </EmphasisFrame>
             :""}
         </>
     )

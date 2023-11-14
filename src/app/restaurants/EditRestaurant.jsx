@@ -3,12 +3,14 @@ import React from 'react'
 import { fetchRequest } from '@/lib/fetch';
 import PutDelete from '@/components/PutDelete/PutDelete';
 import { useToggle } from 'react-use';
-import PopUp from '@/components/PopUp/PopUp';
+import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
 import RestaurantForm from './RestaurantForm';
 import { useRouter } from 'next/navigation';
 import storage from '@/providers/firebase';
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import Heading from '@/components/Heading/Heading';
+import Dialog from '@/components/Dialog/Dialog';
+import Font from '@/components/Font/Font';
 
 const EditRestaurant = (props) => {
     const {
@@ -21,9 +23,10 @@ const EditRestaurant = (props) => {
         userId,
     } = props
     const [hasForm, setHasForm] = useToggle(false);
+    const [hasDialog, setHasDialog] = useToggle(false);
     const router = useRouter()
 
-    const deleteRestaurant = async() => {
+    const deleteFunc = async() => {
         const response = await fetchRequest({
             url: "/api/restaurant/" + restaurantId + "/delete",
             method: "DELETE",
@@ -64,10 +67,10 @@ const EditRestaurant = (props) => {
         <>
             <PutDelete
                 putFunc={ () => setHasForm(true) }
-                deleteFunc={ () => deleteRestaurant() }
+                deleteFunc={ () => setHasDialog(true) }
             />
             {hasForm?
-                <PopUp>
+                <EmphasisFrame>
                     <Heading>お店情報更新</Heading>
                     <RestaurantForm
                         submitFunc={ (data) => updateRestaurant(data) }
@@ -78,7 +81,19 @@ const EditRestaurant = (props) => {
                         restaurantUrl={ restaurantUrl }
                         restaurantRemarks={ restaurantRemarks }
                     />
-                </PopUp>
+                </EmphasisFrame>
+            :""}
+            {hasDialog?
+                <EmphasisFrame>
+                    <Dialog
+                        yesFunc={ () => deleteFunc() }
+                        noFunc={ () => setHasDialog(false) }>
+                        <Font style="large_text" tag="div">
+                            <p>お店リスト：{ restaurantName }</p>
+                            <p>を削除します。本当によろしいですか</p>
+                        </Font>
+                    </Dialog>
+                </EmphasisFrame>  
             :""}
         </>
     )

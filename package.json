@@ -19,6 +19,7 @@
     "next": "13.5.4",
     "next-auth": "^4.23.2",
     "react": "^18",
+    "react-datepicker": "^4.21.0",
     "react-dom": "^18",
     "react-hook-form": "^7.47.0",
     "react-use": "^17.4.0",

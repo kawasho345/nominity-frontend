@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from "./PopUp.module.css";
+import styles from "./Emphasis.module.css";
 import Shadow from '../Shadow/Shadow';
 
-const PopUp = (props) => {
+const EmphasisFrame = (props) => {
     const {
         children,
         func,
@@ -17,4 +17,4 @@ const PopUp = (props) => {
     )
 }
 
-export default PopUp
+export default EmphasisFrame

@@ -1,0 +1,32 @@
+.frame {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    margin-top: 20px;
+}
+
+.yes {
+    height: 30px;
+    width: 70px;
+    margin: 0 auto;
+    background-color: red;
+    border-radius: 10px;
+}
+
+.yes:hover {
+    background-color: rgba(255, 0, 0, 0.6);
+}
+
+.no {
+    height: 30px;
+    width: 70px;
+    margin: 0 auto;
+    background-color: blue;
+    border-radius: 10px;
+}
+
+.no:hover {
+    background-color: rgba(0, 0, 255, 0.6);
+}

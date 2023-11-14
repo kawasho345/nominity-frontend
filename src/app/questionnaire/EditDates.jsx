@@ -58,6 +58,7 @@ const EditDates = (props) => {
     return (
         <div className={ styles.frame }>
             <Font>日程の編集(ドラッグアンドドロップで順番変更)</Font>
+            <input type="date" />
             {dates?
                 <ul className={ styles.list }>
                     {dates.map((date, index) => (

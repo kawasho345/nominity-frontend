@@ -1,5 +1,5 @@
 "use client"
-import PopUp from '@/components/PopUp/PopUp'
+import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame'
 import PutDelete from '@/components/PutDelete/PutDelete'
 import { deleteQuestionnaire, updateQuestionnaire } from '@/lib/questionnaire'
 import { useRouter } from 'next/navigation'
@@ -9,6 +9,8 @@ import QuestionnaireForm from './QuestionnaireForm'
 import styles from "./styles/EditQuestionnaire.module.css";
 import Heading from '@/components/Heading/Heading'
 import Cancel from '@/components/Cancel/Cancel'
+import Dialog from '@/components/Dialog/Dialog'
+import Font from '@/components/Font/Font'
 
 const EditQuestionnaire = (props) => {
     const { 
@@ -20,6 +22,7 @@ const EditQuestionnaire = (props) => {
     } = props
     const router = useRouter()
     const [hasForm, setHasForm] = useToggle(false);
+    const [hasDialog, setHasDialog] = useToggle(false);
 
     const deleteFunc = async() => {
         await deleteQuestionnaire(userId, questionnaireId);
@@ -35,10 +38,10 @@ const EditQuestionnaire = (props) => {
         <>
             <PutDelete
                 putFunc={ () => setHasForm(true) }
-                deleteFunc={ () => deleteFunc() }
+                deleteFunc={ () => setHasDialog(true) }
             />
             {hasForm?
-                <PopUp>
+                <EmphasisFrame>
                     <div className={ styles.header }>
                         <Heading>日程調整編集</Heading>
                         <Cancel cancelFunc={ () => setHasForm(false) } />
@@ -50,7 +53,19 @@ const EditQuestionnaire = (props) => {
                         submitFunc={ (data, dates) => updateFunc(data, dates)}
                         submitText="更新"
                     />
-                </PopUp>
+                </EmphasisFrame>
+            :""}
+            {hasDialog?
+                <EmphasisFrame>
+                    <Dialog
+                        yesFunc={ () => deleteFunc() }
+                        noFunc={ () => setHasDialog(false) }>
+                        <Font style="large_text" tag="div">
+                            <p>日程調整：{ questionnaireName }</p>
+                            <p>を削除します。本当によろしいですか</p>
+                        </Font>
+                    </Dialog>
+                </EmphasisFrame>  
             :""}
         </>
     )
