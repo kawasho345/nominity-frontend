@@ -7,6 +7,7 @@ const setup = async(searchParamsGroupId) => {
     const selectGroup = (searchParamsGroupId, joinGroupIds) => {
         let groupId = null;
         let hasGroupId = true;
+        console.log(joinGroupIds)
         if(!joinGroupIds.length){
             hasGroupId = false;
             return(groupId, hasGroupId);

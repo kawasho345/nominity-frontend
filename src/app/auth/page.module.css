@@ -26,3 +26,8 @@
 .signin:hover {
     background: rgba(206, 206, 206, 0.8);
 }
+
+.signin_guest {
+    margin: 20px auto;
+    width: 200px;
+}

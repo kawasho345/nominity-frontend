@@ -29,7 +29,7 @@ const EditImage = (props) => {
      return (
         <>
             <label>
-                <Font type="weak_text">{ title }</Font>
+                <Font type="minimum">{ title }</Font>
                 <div className={ styles.middle_frame }>
                     <input 
                         accept=".jpg, .jpeg, .png, .gif" 

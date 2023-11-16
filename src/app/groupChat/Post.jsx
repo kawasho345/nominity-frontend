@@ -40,7 +40,7 @@ const Post = (props) => {
                     <p>{ postContent }</p>
                 </Font>
                 <div className={ styles.date }>
-                    <Font style="weak_text">最終更新日：{ updateDate.toLocaleString() }</Font>
+                    <Font style="minimum">最終更新日：{ updateDate.toLocaleString() }</Font>
                 </div>
             </div>
         </div>

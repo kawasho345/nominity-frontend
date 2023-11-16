@@ -30,7 +30,7 @@ const Invitation = (props) => {
     return (
         <>
             <Heading>招待URL</Heading>
-            {hasCliped? <Font style="weak_text">コピーしました</Font>:""}
+            {hasCliped? <Font style="minimum">コピーしました</Font>:""}
             <div className={ styles.frame }>
                 <input
                     className={ styles.url }

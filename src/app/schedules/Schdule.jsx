@@ -91,7 +91,7 @@ const Schdule = (props) => {
                 />
             </div>
             <div className={ styles.updateDate }>
-                <Font style="weak_text">最終更新日：{ updateDate.toLocaleString() }</Font>
+                <Font style="minimum">最終更新日：{ updateDate.toLocaleString() }</Font>
             </div>
         </div>
     )

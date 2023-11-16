@@ -64,7 +64,7 @@ const Questionnaire = (props) => {
                             {questionnaireDates.map((date, index) => (
                                 <th className={ styles.header } key={ index }>
                                     <div className={ styles.date }>
-                                        <Font style="weak_text">{ date[1] }</Font>
+                                        <Font style="minimum">{ date[1] }</Font>
                                     </div>
                                 </th>
                             ))}

@@ -12,6 +12,10 @@
     font-size: 1.8rem;
 }
 
+.minimum {
+    font-size: 1.4rem;
+}
+
 .button {
     color: #fff;
     font-size: 2.0rem;
@@ -22,8 +26,4 @@
 .force {
     font-size: 1.8rem;
     font-weight: bold;
-}
-
-.weak_text {
-    font-size: 1.4rem;
 }
