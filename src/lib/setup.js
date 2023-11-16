@@ -48,7 +48,19 @@ const setup = async(searchParamsGroupId) => {
     //表示グループ選定 
     const { groupId, hasGroupId } = selectGroup(searchParamsGroupId, joinGroupIds);
     if(groupId === null){
-        return{ userId, username, userIcon, hasGroupId };
+        return{ 
+            userId, 
+            username, 
+            userIcon, 
+            hasGroupId,
+            joinGroupIds,
+            userFavoriteFood,
+            userHatedFood,
+            userFavoriteAlcohol,
+            userHatedAlcohol,
+            userAllergy,
+            userAllergyText,
+        };
     }
 
     //グループデータ取得

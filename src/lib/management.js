@@ -50,7 +50,7 @@ const updateGroup = async(data, userId, groupId) => {
 const updateUser = async(data, userId) => {
     let fileUrl;
     if(data.userIcon.length){
-        const file = data.groupIcon[0]
+        const file = data.userIcon[0]
         const storageRef = ref(storage, "image/userIcon/" + file.name)
         fileUrl = await uploadBytes(storageRef, file).then((snapshot) => {
             return ref(storage, process.env.NEXT_PUBLIC_FIREBASE_URL + snapshot.metadata.fullPath);
