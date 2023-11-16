@@ -56,6 +56,8 @@ const registerRestaurant = async(data, groupId, userId) => {
             userId,
         }
     })
+
+    return response;
 }
 
 export {

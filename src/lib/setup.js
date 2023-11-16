@@ -7,10 +7,9 @@ const setup = async(searchParamsGroupId) => {
     const selectGroup = (searchParamsGroupId, joinGroupIds) => {
         let groupId = null;
         let hasGroupId = true;
-        console.log(joinGroupIds)
         if(!joinGroupIds.length){
             hasGroupId = false;
-            return(groupId, hasGroupId);
+                return{ groupId, hasGroupId };
         }
         if(joinGroupIds.includes(searchParamsGroupId)){
             groupId = searchParamsGroupId;
@@ -47,9 +46,9 @@ const setup = async(searchParamsGroupId) => {
     } = user
 
     //表示グループ選定 
-    const { groupId, hasGroupId } = selectGroup(searchParamsGroupId, joinGroupIds)
+    const { groupId, hasGroupId } = selectGroup(searchParamsGroupId, joinGroupIds);
     if(groupId === null){
-        return(userId, username, userIcon, hasGroupId)
+        return{ userId, username, userIcon, hasGroupId };
     }
 
     //グループデータ取得

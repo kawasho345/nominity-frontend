@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
 import RestaurantForm from './RestaurantForm';
 import { useRouter } from 'next/navigation';
@@ -19,29 +19,30 @@ const RegisterRestaurant = (props) => {
         userId,
     } = props
     const router = useRouter();
-
     const onSubmit = async(data) => {
-        await registerRestaurant(data, groupId, userId)
+        const response = await registerRestaurant(data, groupId, userId);
         router.refresh();
         setHasRegisterForm(false);
     }
 
     return (
-        <EmphasisFrame>
-            <div className={ styles.header }>
-                <Heading>リスト登録</Heading>
-                <Cancel cancelFunc={ () => setHasRegisterForm(false) } />
-            </div>
-            <RestaurantForm
-                submitFunc={ (data) => onSubmit(data) }
-                cancelFucn={ () => setHasRegisterForm(false) }
-                restaurantName={ restaurantName }
-                restaurantAddress={ restaurantAddress }
-                restaurantImage={ restaurantImage }
-                restaurantUrl={ restaurantUrl }
-                restaurantRemarks={ restaurantRemarks }
-            />
-        </EmphasisFrame>
+        <>
+            <EmphasisFrame>
+                <div className={ styles.header }>
+                    <Heading>リスト登録</Heading>
+                    <Cancel cancelFunc={ () => setHasRegisterForm(false) } />
+                </div>
+                <RestaurantForm
+                    submitFunc={ (data) => onSubmit(data) }
+                    cancelFucn={ () => setHasRegisterForm(false) }
+                    restaurantName={ restaurantName }
+                    restaurantAddress={ restaurantAddress }
+                    restaurantImage={ restaurantImage }
+                    restaurantUrl={ restaurantUrl }
+                    restaurantRemarks={ restaurantRemarks }
+                />
+            </EmphasisFrame>
+        </>
     )
 }
 

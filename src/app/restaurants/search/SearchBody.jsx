@@ -8,7 +8,7 @@ import OnClick from '@/components/OnClick/OnClick';
 import Font from '@/components/Font/Font';
 import Restaurant from '../Restaurant';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
-import { useToggle, useUpdateEffect } from 'react-use';
+import { useToggle } from 'react-use';
 import RegisterRestaurant from '../RegisterRestaurant';
 import Image from 'next/image';
 import Heading from '@/components/Heading/Heading';

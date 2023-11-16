@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import styles from "./styles/ProfileForm.module.css";
 import EditText from '@/components/EditText/EditText';
 import EditImage from '@/components/EditImage/EditImage';
@@ -9,6 +9,7 @@ import EditCheckBox from '@/components/EditCheckBox/EditCheckBox';
 import OnClick from '@/components/OnClick/OnClick';
 import Font from '@/components/Font/Font';
 import { updateUser } from '@/lib/management';
+import PopUp from '@/components/PopUp/PopUp';
 
 const ProfileForm = (props) => {
     const {
@@ -23,12 +24,24 @@ const ProfileForm = (props) => {
         allergyText, 
     } = props
     const methods = useForm();
+    const [popUp, setPopUp] = useState([]);
     const onSubmit = async(data) => {
-        const response = await updateUser(data, userId)
+        const response = await updateUser(data, userId);
+        if(response.status === 200){
+            setPopUp([true, "success", "更新完了"]);
+            setTimeout(() => {
+                setPopUp([false,,]);
+            }, 3000)
+        }else{
+            setPopUp([true, "failed", "更新失敗"]);
+            setTimeout(() => {
+                setPopUp([false,,]);
+            }, 3000)
+        }
     }
     const allergies=["えび", "かに", "たまご", "そば", "乳", "落花生", "あわび", "いか", "いくら", 
                     "オレンジ", "カシューナッツ", "キュウイフルーツ", "牛肉", "くるみ", "ごま", "さけ", 
-                    "さば", "大豆", "豚肉", "バナナ", "鶏肉", "まつたけ", "もも", "やまいも", "りんご", "ゼラチン", "アーモンド"]
+                    "さば", "大豆", "豚肉", "バナナ", "鶏肉", "まつたけ", "もも", "やまいも", "りんご", "ゼラチン", "アーモンド"];
 
     return (
         <FormProvider { ...methods }>
@@ -47,7 +60,7 @@ const ProfileForm = (props) => {
                         <EditImage
                             name="userIcon"
                             title="ユーザーアイコン"
-                            image={ userIcon }
+                            image={ userIcon || "/images/group_icon.png" }
                             style="icon"
                         />
                     </li>
@@ -106,6 +119,9 @@ const ProfileForm = (props) => {
                     </OnClick>
                 </div>
             </form>
+            {(popUp[0] === true)?
+                <PopUp style={ popUp[1] }>{ popUp[2] }</PopUp>
+            :""}
         </FormProvider>
     )
 }
