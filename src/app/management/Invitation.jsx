@@ -41,9 +41,9 @@ const Invitation = (props) => {
                     ref={ urlRef }
                     onClick={() => urlRef.current.select()}
                 />
-                <div className={`${ styles.button } ${ "green_button" }`}>
+                <div className={`${ styles.button } ${ "button" }`}>
                     <OnClick func={ () => copyToClipboard() }>
-                        <Font style="default_button">コピー</Font>
+                        <Font style="button">コピー</Font>
                     </OnClick>
                 </div>
             </div>

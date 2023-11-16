@@ -10,7 +10,6 @@ import EditImage from '@/components/EditImage/EditImage';
 const ScheduleForm = (props) => {
     const {
         submitFunc,
-        cancelFunc,
         scheduleName,
         scheduleDate,
         restaurantId,
@@ -115,9 +114,9 @@ const ScheduleForm = (props) => {
                     </li>
                 </ul>
                 {/* <div className={ styles.buttons }> */}
-                    <div className={`${ styles.button } ${ "green_button" }`}>
+                    <div className={`${ styles.button } ${ "button" }`}>
                         <OnClick type="submit">
-                            <Font style="default_button">登録</Font>
+                            <Font style="button">登録</Font>
                         </OnClick>
                     </div>
                 {/* </div> */}

@@ -35,9 +35,9 @@ const AddSchedulesButton = (props) => {
     })()
 
     return (
-        <div className={`${ styles.button } ${ "green_button" }`}>
+        <div className={`${ styles.button } ${ "button" }`}>
             <OnClick func={ () => setHasForm(true) }>
-                <Font style="default_button">予定を記入する</Font>
+                <Font style="button">予定を記入する</Font>
             </OnClick>
             {hasForm?
                 <EmphasisFrame>

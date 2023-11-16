@@ -51,7 +51,7 @@ const EditPost = (props) => {
                     <Dialog
                         yesFunc={ () => deleteFunc() }
                         noFunc={ () => setHasDialog(false) }>
-                        <Font style="large_text">投稿を削除します。よろしいですか</Font>
+                        <Font style="large">投稿を削除します。よろしいですか</Font>
                     </Dialog>
                 </EmphasisFrame>  
             :""}

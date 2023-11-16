@@ -17,16 +17,16 @@ const AddToList = (props) => {
     return (
         <div className={ styles.frame }>
             <Heading>リスト登録</Heading>
-            <div className={`${ styles.button } ${ "green_button" }`}>
+            <div className={`${ styles.button } ${ "button" }`}>
                 <OnClick link="/restaurants/search" style="center">
-                    <Font style="default_button">
+                    <Font style="button">
                         ホットペッパーグルメから探す
                     </Font>
                 </OnClick>
             </div>
-            <div className={`${ styles.button } ${ "green_button" }`}>
+            <div className={`${ styles.button } ${ "button" }`}>
                 <OnClick func={ () => setHasRegisterForm(true) } style="center">
-                    <Font style="default_button">
+                    <Font style="button">
                         記入して登録する
                     </Font>
                 </OnClick>

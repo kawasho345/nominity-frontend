@@ -16,12 +16,12 @@ const Dialog = (props) => {
             <div className={ styles.buttons }>
                 <div className={ styles.no }>
                     <OnClick func={ () => noFunc() }>
-                        <Font style="default_button">No</Font>
+                        <Font style="button">No</Font>
                     </OnClick>
                 </div>  
                 <div className={ styles.yes }>
                     <OnClick func={ () => yesFunc() }>
-                        <Font style="default_button">Yes</Font>
+                        <Font style="button">Yes</Font>
                     </OnClick>
                 </div>
             </div>

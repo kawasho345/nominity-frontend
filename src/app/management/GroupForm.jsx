@@ -45,9 +45,9 @@ const GroupForm = (props) => {
                         />
                     </li>
                 </ul>
-                <div className={`${ styles.button } ${ "green_button" }`}>
+                <div className={`${ styles.button } ${ "button" }`}>
                     <OnClick type="submit">
-                        <Font style="default_button">
+                        <Font style="button">
                             { submitText }    
                         </Font>    
                     </OnClick>             

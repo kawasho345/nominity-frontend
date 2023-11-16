@@ -9,7 +9,6 @@ import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
 import styles from "./styles/EditSchedule.module.css";
 import Heading from '@/components/Heading/Heading';
 import Cancel from '@/components/Cancel/Cancel';
-import Modal from '@/components/Modal/Modal';
 import Dialog from '@/components/Dialog/Dialog';
 import Font from '@/components/Font/Font';
 
@@ -74,7 +73,7 @@ const EditSchedule = (props) => {
                     <Dialog 
                         yesFunc={ () => deleteFunc() }
                         noFunc={ () => setHasDialog(false) }>
-                        <Font style="large_text" tag="div">
+                        <Font style="large" tag="div">
                             <p>お知らせ：{ scheduleName }</p>
                             <p>を削除します。本当によろしいですか</p>
                         </Font>

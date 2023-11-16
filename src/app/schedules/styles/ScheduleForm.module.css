@@ -1,16 +1,4 @@
-.buttons {
-    display: flex;
-    margin-top: 20px;
-}
-
-.cancel_button {
-    width: 150px;
-    height: 40px;
-    margin-right: 20px;
-}
-
 .button {
-    width: 70px;
     margin: 20px auto 0;
 }
 

@@ -18,47 +18,18 @@ main {
     font-size: 1.6rem;
 }
 
-.button {
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-}
-
-.link {
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-}
-
 .icon {
     border-radius: 50%;
     object-fit: cover;
 }
 
-.green_button {
-    height: 40px;
+.button {
+    height: 30px;
+    width: 60px;
     background-color: #00d20e;
     border-radius: 10px;
 }
 
-.green_button:hover {
-    background: rgba(0, 194, 14, .5);
-}
-
-.cancel_button {
-    background-color: #0007d2;
-    border-radius: 10px;
-}
-
-.cancel_button:hover {
-    background: rgba(26, 38, 255, 0.5);
-}
-
-.decide_button {
-    background-color: #d20000;
-    border-radius: 10px;
-}
-
-.decide_button:hover {
-    background: rgba(255, 44, 44, 0.5);
+.button:hover {
+    background-color: #00d20e60;
 }

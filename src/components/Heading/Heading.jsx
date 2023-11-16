@@ -12,7 +12,7 @@ const Heading = (props) => {
         <>
             {(style === "heading")?
                 <div className={ styles.frame }>
-                    <Font style="heading">{ children }</Font>
+                    <Font style="large">{ children }</Font>
                 </div>
             :(style === "middle")?
                 <div className={ styles.middle_frame }>

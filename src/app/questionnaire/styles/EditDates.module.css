@@ -61,4 +61,19 @@
     background-color: #00000020;
 }
 
+.date_picker {
+    margin-top: 35px;
+    transform: scale(1.4, 1.4);
+}
 
+.calender {
+    /* background-color: aqua; */
+    height: 250px;
+    width: 220px;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.add_schedule {
+    display: flex;
+}

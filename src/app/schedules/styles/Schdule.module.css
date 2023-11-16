@@ -1,10 +1,13 @@
 .frame {
     margin-bottom: 20px;
-    border-bottom: 1px solid #00000030;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 1px 3px 14px -7px #39608d;
 }
 
 .header {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     display: flex;
 }
 
@@ -23,6 +26,7 @@
 
 .date {
     display: flex;
+    margin-bottom: 1px;
 }
 
 .restaurant {

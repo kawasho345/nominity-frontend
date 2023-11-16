@@ -11,9 +11,9 @@ const RegisterSchedule = (props) => {
 
     return (
         <div className={ styles.frame }>
-            <div className={`${ "green_button" } ${ styles.button }`}>
+            <div className={`${ "button" } ${ styles.button }`}>
                 <OnClick link="/schedules/register">
-                    <Font style="default_button">
+                    <Font style="button">
                         お知らせ作成
                     </Font>
                 </OnClick>

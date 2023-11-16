@@ -28,9 +28,9 @@ const PostForm = (props) => {
                         maxLength="400"
                     />
                 </div>
-                <div className={`${ styles.button } ${ "green_button" }`}>
+                <div className={`${ styles.button } ${ "button" }`}>
                     <OnClick type="submit">
-                        <Font style="default_button">{ submitText }</Font>
+                        <Font style="button">{ submitText }</Font>
                     </OnClick>
                 </div>
             </form>

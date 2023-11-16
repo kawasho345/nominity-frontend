@@ -38,7 +38,7 @@ const Questionnaire = (props) => {
     return (
         <div className={ styles.frame }>
             <div className={ styles.headding }>
-                <Font style="large_text">{ questionnaireName }</Font>
+                <Font style="large">{ questionnaireName }</Font>
                 <EditQuestionnaire 
                     userId={ userId }
                     questionnaireId={ questionnaireId }
@@ -47,13 +47,15 @@ const Questionnaire = (props) => {
                     questionnaireDates={ questionnaireDates }
                 />
             </div>
-            <Font>{ questionnaireOverview }</Font>
+            <div className={ styles.remarks }>
+                <Font>{ questionnaireOverview }</Font>
+            </div>
             <AddSchedulesButton
                 userId={ userId }
                 questionnaireDates={ questionnaireDates }
                 membersSchedule={ membersSchedule }
                 questionnaireId={ questionnaireId }
-            />
+                />
             <div className={ styles.table_wrap }>
                 <table className={ styles.schedules }>
                     <thead>

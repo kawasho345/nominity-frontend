@@ -1,5 +1,6 @@
 "use client"
 import React from 'react'
+import styles from "./styles/EditRestaurant.module.css"
 import { fetchRequest } from '@/lib/fetch';
 import PutDelete from '@/components/PutDelete/PutDelete';
 import { useToggle } from 'react-use';
@@ -11,6 +12,7 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import Heading from '@/components/Heading/Heading';
 import Dialog from '@/components/Dialog/Dialog';
 import Font from '@/components/Font/Font';
+import Cancel from '@/components/Cancel/Cancel';
 
 const EditRestaurant = (props) => {
     const {
@@ -71,7 +73,10 @@ const EditRestaurant = (props) => {
             />
             {hasForm?
                 <EmphasisFrame>
-                    <Heading>お店情報更新</Heading>
+                    <div className={ styles.header }>
+                        <Heading>お店情報更新</Heading>
+                        <Cancel cancelFunc={ () => setHasForm(false)} />
+                    </div>
                     <RestaurantForm
                         submitFunc={ (data) => updateRestaurant(data) }
                         cancelFucn={ () => setHasForm(false) }
@@ -88,7 +93,7 @@ const EditRestaurant = (props) => {
                     <Dialog
                         yesFunc={ () => deleteFunc() }
                         noFunc={ () => setHasDialog(false) }>
-                        <Font style="large_text" tag="div">
+                        <Font style="large" tag="div">
                             <p>お店リスト：{ restaurantName }</p>
                             <p>を削除します。本当によろしいですか</p>
                         </Font>

@@ -11,6 +11,7 @@
 }
 
 .leftbar {
+    background-color: #fff;
     width: 200px;
     min-height: 30px;
     display: flex;
@@ -23,7 +24,7 @@
 } 
 
 .leftbar:hover {
-    background: rgba(0, 0, 0, .1);
+    background: #f1f1f1
 } 
 
 .element {

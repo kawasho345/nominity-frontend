@@ -70,9 +70,9 @@ const SearchForm = (props) => {
                             style="search"
                             // required={ true }
                         />
-                        <div className={`${ styles.search_button } ${ "green_button" }`}>
+                        <div className={`${ styles.search_button } ${ "button" }`}>
                             <OnClick type="submit">
-                                <Font style="default_button">検索</Font>
+                                <Font style="button">検索</Font>
                             </OnClick>
                         </div>
                     </div>
@@ -89,9 +89,9 @@ const SearchForm = (props) => {
                                 restaurantUrl={ restaurant.url }
                                 restaurantImage= { restaurant.image }
                             />
-                            <div className={`${ styles.add_button } ${ "green_button" }`}>
+                            <div className={`${ styles.add_button } ${ "button" }`}>
                                 <OnClick func={ () => setValue(restaurant) }>
-                                    <Font style="default_button">リストに登録する</Font>
+                                    <Font style="button">リストに登録する</Font>
                                 </OnClick>
                             </div>
                             </li>
@@ -102,7 +102,7 @@ const SearchForm = (props) => {
                             <div className={ styles.footer_button }>
                                 <OnClick func={ () => changePage("back")}>
                                     <div className={ styles.back }>
-                                        <ArrowBackIos className={ styles.arrow } />
+                                        <ArrowBackIos className={ styles.arrow } sx={{typography:{ fontSize: '2rem' }}} />
                                         <Font style="default_text">前のページ</Font>
                                     </div>
                                 </OnClick>
@@ -113,7 +113,7 @@ const SearchForm = (props) => {
                                 <OnClick func={ () => changePage("next")}>
                                     <div className={ styles.next }>
                                         <Font style="default_text">次のページ</Font>
-                                        <ArrowForwardIos className={ styles.arrow } />
+                                        <ArrowForwardIos className={ styles.arrow }  sx={{typography:{ fontSize: '2rem' }}} />
                                     </div>
                                 </OnClick>
                             </div>

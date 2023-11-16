@@ -48,9 +48,9 @@ const QuestionnaireForm = (props) => {
                 dates={ dates }
                 setDates={ setDates }
             />
-            <div className={`${ "green_button" } ${ styles.submit }`}>
+            <div className={`${ "button" } ${ styles.submit }`}>
                 <OnClick type="submit" form="dateForm">
-                    <Font style="default_button">
+                    <Font style="button">
                         { submitText }
                     </Font>
                 </OnClick>

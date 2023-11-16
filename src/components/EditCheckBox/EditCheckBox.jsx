@@ -16,7 +16,7 @@ const EditCheckBox = (props) => {
         <>
             <Font style="weak_button">{ title }</Font>
             <div className={ styles.frmae }>
-                <Font style="large_text" tag="div">
+                <Font style="large" tag="div">
                     {elements.map((element, index) => (
                         <div className={ styles.middle_frame } key={ index }>
                             <input

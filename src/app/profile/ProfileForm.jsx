@@ -100,9 +100,9 @@ const ProfileForm = (props) => {
                         />
                     </li>
                 </ul>
-                <div className={`${ styles.button } ${ "green_button"}`}>
+                <div className={`${ styles.button } ${ "button"}`}>
                     <OnClick type="submit">
-                        <Font style="default_button">更新</Font>
+                        <Font style="button">更新</Font>
                     </OnClick>
                 </div>
             </form>

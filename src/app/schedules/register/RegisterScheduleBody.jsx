@@ -35,9 +35,9 @@ const RegisterScheduleBody = (props) => {
         <>
             <div className={ styles.header }>
                 <Heading>お知らせ作成</Heading>
-                <div className={`${"green_button"} ${styles.button}`}>
+                <div className={`${"button"} ${styles.button}`}>
                     <OnClick func={ () => setHasEmphasisFrame(true)}>
-                        <Font style="default_button">お店リストから作成</Font>
+                        <Font style="button">お店リストから作成</Font>
                     </OnClick>
                 </div>
             </div>
@@ -66,9 +66,9 @@ const RegisterScheduleBody = (props) => {
                                         groupId={ groupId }
                                         userId={ userId }
                                     />
-                                    <div className={`${ "green_button" } ${ styles.restaurant_button }`}>
+                                    <div className={`${ "button" } ${ styles.restaurant_button }`}>
                                         <OnClick func={ () => selectRestaurant(restaurant)}>
-                                            <Font style="default_button">このお店でお知らせを作る</Font>
+                                            <Font style="button">このお店でお知らせを作る</Font>
                                         </OnClick>
                                     </div>
                                 </li>

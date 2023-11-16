@@ -60,7 +60,7 @@ const EditQuestionnaire = (props) => {
                     <Dialog
                         yesFunc={ () => deleteFunc() }
                         noFunc={ () => setHasDialog(false) }>
-                        <Font style="large_text" tag="div">
+                        <Font style="large" tag="div">
                             <p>日程調整：{ questionnaireName }</p>
                             <p>を削除します。本当によろしいですか</p>
                         </Font>

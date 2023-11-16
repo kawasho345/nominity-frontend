@@ -1,28 +1,25 @@
-.heading {
-    font-size: 2.0rem;
+.maximum {
+    font-size: 2.2rem;
+    word-break: break-word;
 }
 
-.default_button {
+.large {
+    font-size: 2.0rem;
+    word-break: break-word;
+}
+
+.middle {
+    font-size: 1.8rem;
+}
+
+.button {
     color: #fff;
-    font-size: 2.4rem;
+    font-size: 2.0rem;
     font-weight: bold;
 }
 
-.default_text {
-    font-size: 1.6rem;
-}
 
-.large_text {
-    font-size: 2.4rem;
-    word-break: break-word;
-}
-
-.middle_text {
-    font-size: 2.0rem;
-    word-break: break-word;
-}
-
-.force_text {
+.force {
     font-size: 1.8rem;
     font-weight: bold;
 }

@@ -28,7 +28,7 @@ const MemberManagement = (props) => {
             <Heading>メンバー管理</Heading>
             <div className={ styles.red_button }>
                 <OnClick func={ () => setHasDialog(true) }>
-                    <Font style="default_button">グループを退会する</Font>
+                    <Font style="button">グループを退会する</Font>
                 </OnClick>
             </div>
             {hasDialog?
@@ -36,7 +36,7 @@ const MemberManagement = (props) => {
                     <Dialog
                         yesFunc={ () => deleteFunc() }
                         noFunc={ () => setHasDialog(false) }>
-                        <Font style="large_text">本当にグループを退会しますか</Font>
+                        <Font style="large">本当にグループを退会しますか</Font>
                     </Dialog>
                 </EmphasisFrame>  
             :""}

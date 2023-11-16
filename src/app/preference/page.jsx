@@ -98,13 +98,13 @@ const page = async({ searchParams }) => {
                             <Preference
                                 heading="メンバーの持つアレルギー"
                                 content={ groupAllergy || "特になし" }
-                                style="hated"/>
+                                style="allergy"/>
                         </li>
                         <li className={ styles.element }>
                             <Preference
                                 heading="メンバーの持つその他アレルギー"
                                 content={ allergyText() || "特になし" }
-                                style="hated"/>
+                                style="allergy"/>
                         </li>
                     </ul>
                 </BodyFrame>

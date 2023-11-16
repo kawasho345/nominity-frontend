@@ -21,29 +21,26 @@
     width: 200px;
 }
 
-.list {
-    display: flex;
-    border-bottom: 1px solid #00000030;
+.element {
+    width: 200px;
+    height: 50px;
 }
 
-.list:hover {
-    background: rgba(206, 206, 206, 0.8);
+.element:hover {
+    background-color: #f1f1f1;
 }
 
 .sign_out {
+    width: 200px;
     height: 50px;
     background-color: red;
+    color: #fcfcfc;
 }
 
 .sign_out:hover {
-    background-color: rgba(255, 50, 50, 0.698);
+    background-color: rgba(255, 0, 0, 0.4);
 }
 
 .text {
-    padding: 15px 0 15px 10px;
-}
-
-.sign_out_text {
-    padding: 15px 0 15px 10px;
-    color: #fcfcfc;
+    margin-left: 15px;
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./Header.module.css";
-import MenuButton from "./menuButton/MenuButton";
+import styles from "./styles/Header.module.css";
+import MenuButton from "./MenuButton";
 import Image from "next/image";
 import { fetchRequest } from "@/lib/fetch";
 import Link from "next/link";

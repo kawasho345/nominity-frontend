@@ -3,8 +3,6 @@ import styles from "./styles/page.module.css";
 import Header from '@/components/header/Header';
 import Leftbar from '@/components/Leftbar/Leftbar';
 import Rightbar from '@/components/Rightbar/Rightbar';
-import { getServerSession } from 'next-auth';
-import { handler } from '../../api/auth/[...nextauth]/route';
 import { setup } from '@/lib/setup';
 import BodyFrame from '@/components/BodyFrame/BodyFrame';
 import RegisterScheduleBody from './RegisterScheduleBody';

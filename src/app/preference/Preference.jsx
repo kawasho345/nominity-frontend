@@ -13,7 +13,7 @@ const Preference = (props) => {
         <>
             <div className={`${ styles.frame } ${ styles[style] }`}>
                 <Heading style="middle">{ heading }</Heading>
-                <Font style="large_text">{ content }</Font>
+                <Font style="large">{ content }</Font>
             </div>
         </>
     )

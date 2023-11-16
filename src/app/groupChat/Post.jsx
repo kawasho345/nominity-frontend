@@ -26,7 +26,7 @@ const Post = (props) => {
                 className={`${ styles.image } ${ "icon" }`}
             />
             <div className={ styles.content }>
-                <Font style="middle_text" tag="div">
+                <Font style="large" tag="div">
                     <div className={ styles.heading }>
                         <p className={ styles.name }>{ postUsername }</p>
                         {(userId === postUserId)? 

@@ -12,9 +12,9 @@ const Modal = (props) => {
     return (
         <div className={ styles.frame }>
             { children }
-            <div className={`${ "green_button" } ${ styles.button }`}>
+            <div className={`${ "button" } ${ styles.button }`}>
                 <OnClick func={ () => okFunc() }>
-                    <Font style="default_button">OK</Font>
+                    <Font style="button">OK</Font>
                 </OnClick>
             </div>
         </div>

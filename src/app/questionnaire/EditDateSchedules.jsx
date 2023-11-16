@@ -24,7 +24,7 @@ const EditDateSchedules = (props) => {
                     {questionnaireDates.map((date, index) => (
                         <li className={ styles.element } key={ index }>
                             <div className={ styles.date }>
-                                <Font style="middle_text">{ date[1] }</Font>
+                                <Font style="large">{ date[1] }</Font>
                             </div>
                             <div className={ styles.radio }>
                                 <div>
@@ -76,9 +76,9 @@ const EditDateSchedules = (props) => {
                         </li>
                     ))}
                 </ul>
-                <div className={`${ styles.button } ${ "green_button" }`}>
+                <div className={`${ styles.button } ${ "button" }`}>
                     <OnClick type="submit">
-                        <Font style="default_button">登録</Font>
+                        <Font style="button">登録</Font>
                     </OnClick>
                 </div>
             </form>

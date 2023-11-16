@@ -25,7 +25,7 @@ const Schdule = (props) => {
     return (
         <div className={ styles.frame }>
             <div className={ styles.header }>
-                <Font style="large_text">{ scheduleName }</Font>
+                <Font style="large">{ scheduleName }</Font>
                 <EditSchedule
                     scheduleId={ scheduleId }
                     scheduleName={ scheduleName }
@@ -43,16 +43,16 @@ const Schdule = (props) => {
             <div className={ styles.main }>
                 <Font style="default_text" tag="div">
                     <ul className={ styles.details }>
-                        <li className={ styles.element }>
-                            <Font style="force_text" tag="div">
+                        <li>
+                            <Font style="force" tag="div">
                                 <div className={ styles.date }>
                                     <p className={ styles.key }>日付：</p>
                                     <p className={ styles.value }>{ scheduleDate || "未定"}</p>
                                 </div>
                             </Font>
                         </li>
-                        <li className={ styles.element }>
-                            <Font style="force_text" tag="div">
+                        <li>
+                            <Font style="force" tag="div">
                                 <div className={ styles.restaurant }>
                                     <span className={ styles.key }>お店：</span>
                                     <span className={ styles.value }>{ restaurantName || "未定"}</span>

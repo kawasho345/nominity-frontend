@@ -19,7 +19,7 @@ const Restaurant = (props) => {
     return (
         <div className={ styles.frame }>
             <div className={ styles.header }>
-                <Font style="large_text">{ restaurantName }</Font>
+                <Font style="large">{ restaurantName }</Font>
                 {restaurantId?
                     <EditRestaurant
                         restaurantId={ restaurantId }

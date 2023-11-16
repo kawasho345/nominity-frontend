@@ -8,6 +8,8 @@ import QuestionnaireForm from './QuestionnaireForm';
 import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
 import Heading from '@/components/Heading/Heading';
 import { registerQuestionnaire } from '@/lib/questionnaire';
+import Cancel from '@/components/Cancel/Cancel';
+import { useRouter } from 'next/navigation';
 
 const RegisterQuestionnaire = (props) => {
     const {
@@ -15,20 +17,26 @@ const RegisterQuestionnaire = (props) => {
         groupId,
     } = props;
     const [hasForm, setHasForm] = useToggle(false);
+    const router = useRouter()
     const onSubmit = async(data, dates) => {
         const response = await registerQuestionnaire(data, dates, userId, groupId);
+        router.refresh();
+        setHasForm(false);
     } 
 
     return (
         <>
-            <div className={`${ styles.button } ${ "green_button" }`}>
+            <div className={`${ styles.button } ${ "button" }`}>
                 <OnClick func={ () => setHasForm(true)}>
-                    <Font style="default_button">新しい日程調整を作る</Font>
+                    <Font style="button">新しい日程調整を作る</Font>
                 </OnClick>
             </div>
             {hasForm?
                 <EmphasisFrame>
-                    <Heading>日程調整作成</Heading>
+                    <div className={ styles.header }>
+                        <Heading>日程調整作成</Heading>
+                        <Cancel cancelFunc={ () => setHasForm(false)} />
+                    </div>
                     <QuestionnaireForm 
                         submitFunc={ (data, dates) => onSubmit(data, dates)}
                         submitText="登録"
