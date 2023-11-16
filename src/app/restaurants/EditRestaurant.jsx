@@ -13,6 +13,7 @@ import Heading from '@/components/Heading/Heading';
 import Dialog from '@/components/Dialog/Dialog';
 import Font from '@/components/Font/Font';
 import Cancel from '@/components/Cancel/Cancel';
+import { deleteRestaurant, updateRestaurant } from '@/lib/restaurants';
 
 const EditRestaurant = (props) => {
     const {
@@ -29,38 +30,13 @@ const EditRestaurant = (props) => {
     const router = useRouter()
 
     const deleteFunc = async() => {
-        const response = await fetchRequest({
-            url: "/api/restaurant/" + restaurantId + "/delete",
-            method: "DELETE",
-            body: { userId, }
-        })
+        const response = await deleteRestaurant(restaurantId, userId)
         router.refresh();
+        setHasDialog(false);
     }
 
-    const updateRestaurant = async(data) => {
-        let fileUrl
-        if(data.hotpepperImage){
-            fileUrl = data.hotpepperImage
-        }
-        if(data.restaurantImage.length){
-            const file = data.restaurantImage[0]
-            const storageRef = ref(storage, "image/restaurantImage/" + file.name)
-            fileUrl = await uploadBytes(storageRef, file).then((snapshot) => {
-                return ref(storage, process.env.NEXT_PUBLIC_FIREBASE_URL + snapshot.metadata.fullPath);
-            }).then((gsReference) => getDownloadURL(gsReference))
-        }
-        const response = await fetchRequest({
-            url: "/api/restaurant/" + restaurantId + "/put",
-            method: "PUT",
-            body: {
-                userId,
-                restaurantName: data.restaurantName,
-                restaurantAddress: data.restaurantAddress,
-                restaurantUrl: data.restaurantUrl,
-                restaurantImage: fileUrl,
-                restaurantRemarks: data.restaurantRemarks,
-            }
-        })
+    const updateFunc = async(data) => {
+        const response = await updateRestaurant(data, userId, restaurantId);
         setHasForm(false);
         router.refresh();
     }
@@ -78,7 +54,7 @@ const EditRestaurant = (props) => {
                         <Cancel cancelFunc={ () => setHasForm(false)} />
                     </div>
                     <RestaurantForm
-                        submitFunc={ (data) => updateRestaurant(data) }
+                        submitFunc={ (data) => updateFunc(data) }
                         cancelFucn={ () => setHasForm(false) }
                         restaurantName={ restaurantName }
                         restaurantAddress={ restaurantAddress }
