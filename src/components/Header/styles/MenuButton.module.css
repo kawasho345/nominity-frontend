@@ -54,8 +54,13 @@
     margin-right: 0;
 }
 
-.aaa {
-    height: 75px;
-    background-color: bisque;
-}
+@media screen and (max-width:720px) {
+    .user_frame {
+        min-width: 75px;
+        padding-left: 5px;
+    }
 
+    .user {
+        display: none;
+    }
+}
