@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./styles/page.module.css";
-import Header from "@/components/header/Header";
+import Header from "@/components/Header/Header";
 import ProfileForm from './ProfileForm';
 import { setup } from '@/lib/setup';
 import BodyFrame from '@/components/BodyFrame/BodyFrame';

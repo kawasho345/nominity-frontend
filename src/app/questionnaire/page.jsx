@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./styles/page.module.css"
-import Header from '@/components/header/Header';
+import Header from '@/components/Header/Header';
 import Leftbar from '@/components/Leftbar/Leftbar';
 import Rightbar from '@/components/Rightbar/Rightbar';
 import { setup } from '@/lib/setup';
