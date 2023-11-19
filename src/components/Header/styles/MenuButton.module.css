@@ -1,0 +1,61 @@
+.frame {
+    display: flex;
+}
+
+.user_frame {
+    display: flex;
+    min-width: 200px;
+    padding-top: 15px;
+}
+
+.group_frame {
+    display: flex;
+    min-width: 200px;
+    padding-top: 15px;
+}
+
+.user_frame:hover {
+    background: rgba(0, 0, 0, .1);
+}
+
+.group_frame:hover {
+    background: #f1f1f1
+}
+
+.icon {
+    margin: 0 8px;
+}
+
+.group {
+    padding-top: 5px;
+}
+
+.user {
+    padding-top: 5px;
+}
+
+.heading {
+    text-align:left;
+}
+
+.detail {
+    display:flex;
+}
+
+.name {
+    font-size: large;
+    max-width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ExpandMore_icon {
+    margin-right: 0;
+}
+
+.aaa {
+    height: 75px;
+    background-color: bisque;
+}
+
