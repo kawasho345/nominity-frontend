@@ -1,5 +1,6 @@
 import { fetchRequest } from "./fetch";
 
+//日程調整登録
 const registerQuestionnaire = async(data, dates, userId, groupId) => {
     const response =  await fetchRequest({
         url: "/api/questionnaire/register",
@@ -16,6 +17,7 @@ const registerQuestionnaire = async(data, dates, userId, groupId) => {
     return response;
 }
 
+//日程調整取得
 const getQuestionnaires = async(groupId) => {
     const questionnaires = await fetchRequest({
         url: "/api/questionnaire/" + groupId + "/getQuestionnaires",
@@ -26,6 +28,7 @@ const getQuestionnaires = async(groupId) => {
     return questionnaires;
 }
 
+//日程調整削除
 const deleteQuestionnaire = async(userId, questionnaireId) => {
     const response = await fetchRequest({
         url: "/api/questionnaire/" + questionnaireId + "/delete",
@@ -36,6 +39,7 @@ const deleteQuestionnaire = async(userId, questionnaireId) => {
     return response;
 }
 
+//日程調整更新
 const updateQuestionnaire = async(data, dates, userId, questionnaireId) => {
     const response = await fetchRequest({
         url: "/api/questionnaire/" + questionnaireId + "/put",
@@ -51,6 +55,7 @@ const updateQuestionnaire = async(data, dates, userId, questionnaireId) => {
     return response;
 }
 
+//予定更新
 const updateDateSchedules = async(data, userId, questionnaireDates, questionnaireId) => {
     const dateSchedules = questionnaireDates.map((date) => {
         return [date[0], data[date[0]]]

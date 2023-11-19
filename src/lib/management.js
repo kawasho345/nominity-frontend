@@ -2,6 +2,7 @@ import { fetchRequest } from '@/lib/fetch';
 import storage from '@/providers/firebase';
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
+//グループ登録
 const registerGroup = async(data, userId) => {
     let fileUrl;
     if(data.groupIcon.length){
@@ -25,6 +26,7 @@ const registerGroup = async(data, userId) => {
     return groupId;
 }
 
+//グループ更新
 const updateGroup = async(data, userId, groupId) => {
     let fileUrl;
     if(data.groupIcon.length){
@@ -47,6 +49,7 @@ const updateGroup = async(data, userId, groupId) => {
     return response;
 }
 
+//プロフィール更新
 const updateUser = async(data, userId) => {
     let fileUrl;
     if(data.userIcon.length){
@@ -74,16 +77,17 @@ const updateUser = async(data, userId) => {
     return response;
 }
 
+//グループ退会
 const withdrawal = async(groupId, userId) => {
     const response = await fetchRequest({
         url: "/api/group/" + groupId + "/withdrawal",
         method: "PUT",
         body: { userIds: [userId] }
     })
-    console.log(response);
     return response;
 }
 
+//グループ参加
 const joinGroup = async(invitationCode, userId) => {
     const joinGroupId = await fetchRequest({
         url: "/api/group/" + invitationCode + "/joinGroup",

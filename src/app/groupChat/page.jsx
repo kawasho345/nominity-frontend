@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styles from "./styles/page.module.css";
 import Header from '@/components/Header/Header';
 import Leftbar from '@/components/Leftbar/Leftbar';
@@ -12,6 +12,7 @@ import Post from './Post';
 import { getTimeline } from '@/lib/groupChat';
 import Font from '@/components/Font/Font';
 
+//掲示板
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
     const {
@@ -23,7 +24,9 @@ const page = async({ searchParams }) => {
         members,
         groupId,
         hasGroupId,
-    } = await setup(searchParamsGroupId)
+        joinGroups,
+        query,
+    } = await setup(searchParamsGroupId);
     if(!hasGroupId){
         return(
             <>
@@ -53,10 +56,12 @@ const page = async({ searchParams }) => {
                     groupId={ groupId } 
                     groupName={ groupName }
                     groupIcon={ groupIcon }
+                    joinGroups={ joinGroups }
+                    query={ query }
                 />
             </header>
             <main className = { styles.group_content }>
-                <Leftbar groupId={ groupId } />
+                <Leftbar query={ query } />
                 <BodyFrame>
                     <Heading>掲示板</Heading>
                     <RegisterPost 

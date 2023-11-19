@@ -1,14 +1,15 @@
-"use client"
+"use client";
 import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
-import PutDelete from '@/components/PutDelete/PutDelete'
+import PutDelete from '@/components/PutDelete/PutDelete';
 import { deletePost, updatePost } from '@/lib/groupChat';
 import { useRouter } from 'next/navigation';
-import React from 'react'
+import React from 'react';
 import { useToggle } from 'react-use';
 import PostForm from './PostForm';
 import Dialog from '@/components/Dialog/Dialog';
 import Font from '@/components/Font/Font';
 
+//投稿編集
 const EditPost = (props) => {
     const {
         userId,
@@ -18,13 +19,13 @@ const EditPost = (props) => {
     const router = useRouter()
     const [hasForm, setHasForm] = useToggle(false);
     const [hasDialog, setHasDialog] = useToggle(false);
-
+    //投稿更新
     const putFunc = async(data) => {
         const response = await updatePost(data, userId, postId);
         setHasForm(false);
         router.refresh();
     }
-
+    //投稿削除  
     const deleteFunc = async() => {
         const response = await deletePost(userId, postId);
         router.refresh();

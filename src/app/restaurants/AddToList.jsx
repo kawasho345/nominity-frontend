@@ -1,5 +1,5 @@
-"use client"
-import React from 'react'
+"use client";
+import React from 'react';
 import styles from "./styles/AddToList.module.css";
 import OnClick from '@/components/OnClick/OnClick';
 import { useToggle } from 'react-use';
@@ -7,6 +7,7 @@ import RegisterRestaurant from './RegisterRestaurant';
 import Font from '@/components/Font/Font';
 import Heading from '@/components/Heading/Heading';
 
+//お店リスト登録ボタン
 const AddToList = (props) => {
     const {
         groupId,

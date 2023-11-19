@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
 import styles from "./styles/Schdule.module.css";
 import EditSchedule from './EditSchedule';
 import Font from '@/components/Font/Font';
 import Image from 'next/image';
 import Link from 'next/link';
 
+//お知らせ表示
 const Schdule = (props) => {
     const {
         scheduleId,
@@ -19,8 +20,8 @@ const Schdule = (props) => {
         scheduleRemarks,
         scheduleUpdatedAt,
         userId,
-    } = props
-    const updateDate = new Date(scheduleUpdatedAt)
+    } = props;
+    const updateDate = new Date(scheduleUpdatedAt);
 
     return (
         <div className={ styles.frame }>

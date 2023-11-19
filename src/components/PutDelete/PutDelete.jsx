@@ -5,11 +5,12 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import OnClick from '../OnClick/OnClick';
 import { Edit } from '@mui/icons-material';
 
+//フォームの更新、削除ボタン
 const PutDelete = (props) => {
     const {
         putFunc,
         deleteFunc,
-    } = props
+    } = props;
 
     return (
         <div className={ styles.frame }>

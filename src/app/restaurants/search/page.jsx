@@ -18,6 +18,8 @@ const page = async({ searchParams }) => {
         members,
         groupId,
         hasGroupId,
+        joinGroups,
+        query,
     } = await setup(searchParamsGroupId)
     if(!hasGroupId){
         return(
@@ -46,10 +48,12 @@ const page = async({ searchParams }) => {
                     groupId={ groupId } 
                     groupName={ groupName }
                     groupIcon={ groupIcon }
+                    joinGroups={ joinGroups }
+                    query={ query }
                 />
             </header>
             <main className = {styles.group_content}>
-                <Leftbar />
+                <Leftbar query={ query }/>
                 <SearchForm 
                     groupId={ groupId }
                     userId={ userId }

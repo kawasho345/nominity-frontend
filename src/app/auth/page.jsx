@@ -1,11 +1,12 @@
-"use client"
-import React from 'react'
-import styles from './page.module.css'
-import { signIn } from 'next-auth/react'
+"use client";
+import React from 'react';
+import styles from './styles/page.module.css';
+import { signIn } from 'next-auth/react';
 import Image from "next/image";
 import Font from '@/components/Font/Font';
 import OnClick from '@/components/OnClick/OnClick';
 
+//サインイン
 const Login = ({ searchParams }) => {
     const callbackUrl = searchParams.callbackUrl;
 

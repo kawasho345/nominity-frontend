@@ -2,6 +2,7 @@ import { fetchRequest } from "./fetch";
 import storage from '@/providers/firebase';
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
+//お知らせ登録
 const registerSchedule = async(data, userId, groupId) => {
     let fileUrl
     if(data.imageUrl){
@@ -35,6 +36,7 @@ const registerSchedule = async(data, userId, groupId) => {
     return response;
 }
 
+//お知らせ取得
 const getSchedules = async(groupId) => {
     const schedules = await fetchRequest({
         url: "/api/schedule/" + groupId + "/getSchedules",
@@ -45,6 +47,7 @@ const getSchedules = async(groupId) => {
     return schedules;
 }
 
+//お知らせ削除
 const deleteSchedule = async(userId, scheduleId) => {
     const response = await fetchRequest({
         url: "/api/schedule/" + scheduleId + "/delete",
@@ -55,6 +58,7 @@ const deleteSchedule = async(userId, scheduleId) => {
     return response;
 }
 
+//お知らせ更新
 const updateSchedule = async(data, userId, scheduleId) => {
     let fileUrl
     if(data.imageUrl){

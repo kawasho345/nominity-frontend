@@ -1,18 +1,13 @@
-import React from 'react'
+import React from 'react';
 import styles from "./styles/UserMenu.module.css";
-import Link from 'next/link';
 import { signOut } from 'next-auth/react'
 import OnClick from '@/components/OnClick/OnClick';
 import Font from '../Font/Font';
 
-const GroupList = (props) => {
+const UserMenu = (props) => {
     const {
-        groupId,
+        query,
     } = props;
-    let query = "";
-    if(groupId){
-        query = "?groupId=" + groupId;
-    }
 
     return(
         <>
@@ -37,4 +32,4 @@ const GroupList = (props) => {
 
 }
 
-export default GroupList
+export default UserMenu

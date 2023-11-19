@@ -2,6 +2,7 @@ import { getServerSession } from 'next-auth';
 import { handler } from '../app/api/auth/[...nextauth]/route';
 import { fetchRequest } from "./fetch"
 
+//共通関数の実行
 const setup = async(searchParamsGroupId) => {
     //表示グループ選定関数
     const selectGroup = (searchParamsGroupId, joinGroupIds) => {
@@ -9,7 +10,7 @@ const setup = async(searchParamsGroupId) => {
         let hasGroupId = true;
         if(!joinGroupIds.length){
             hasGroupId = false;
-                return{ groupId, hasGroupId };
+                return{ groupId, hasGroupId }
         }
         if(joinGroupIds.includes(searchParamsGroupId)){
             groupId = searchParamsGroupId;
@@ -21,7 +22,6 @@ const setup = async(searchParamsGroupId) => {
 
     //セッション確認
     const session =  await getServerSession(handler);
-
     //ユーザー情報取得
     const user = await fetchRequest({
         url: "/api/user/verification",
@@ -43,8 +43,7 @@ const setup = async(searchParamsGroupId) => {
         userHatedAlcohol,
         userAllergy,
         userAllergyText,
-    } = user
-
+    } = user;
     //表示グループ選定 
     const { groupId, hasGroupId } = selectGroup(searchParamsGroupId, joinGroupIds);
     if(groupId === null){
@@ -60,14 +59,14 @@ const setup = async(searchParamsGroupId) => {
             userHatedAlcohol,
             userAllergy,
             userAllergyText,
+            query: "",
         };
     }
-
     //グループデータ取得
     const group = await fetchRequest({
         url: "/api/group/" + groupId + "/get",
         method: "GET",
-    })
+    });
     const {
         groupName,
         groupIcon,
@@ -78,14 +77,21 @@ const setup = async(searchParamsGroupId) => {
         groupHatedAlcohol,
         groupAllergy,
         groupAllergyText,
-    } = group
-
+    } = group;
     //グループメンバー取得
     const members = await fetchRequest({
         url: "/api/group/" + groupId + "/getMembers",
         method: "GET",
         element: "members"
     }); 
+    //所属グループ取得
+    const joinGroups = await fetchRequest({
+        url: "/api/group/" + userId + "/getJoinGroups",
+        method: "GET",
+        element: "joinGroups",
+    });
+    //groupIdクエリ作成
+    const query = "?groupId=" + groupId;
     
     return {
         userId,
@@ -109,6 +115,8 @@ const setup = async(searchParamsGroupId) => {
         groupHatedAlcohol,
         groupAllergy,
         groupAllergyText,
+        joinGroups,
+        query,
     }
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import styles from "./styles/ScheduleForm.module.css";
 import { FormProvider, useForm } from 'react-hook-form';
 import EditText from '@/components/EditText/EditText';
@@ -7,6 +7,7 @@ import OnClick from '@/components/OnClick/OnClick';
 import Font from '@/components/Font/Font';
 import EditImage from '@/components/EditImage/EditImage';
 
+//お知らせ編集フォーム
 const ScheduleForm = (props) => {
     const {
         submitFunc,
@@ -20,9 +21,10 @@ const ScheduleForm = (props) => {
         schedulePrice,
         scheduleNumberPeople,
         scheduleRemarks,
-    } = props
+    } = props;
     const methods = useForm();
     const onSubmit = (data) => submitFunc(data);
+    //お知らせリストから登録時一度フォームを初期化
     useEffect(() => {
         methods.reset();
     },[restaurantId])

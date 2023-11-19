@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
 import styles from "./Font.module.css"
 
+//フォントの統一
 const Font = (props) => {
     const { 
         children,

@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
 import styles from "./styles/Restaurant.module.css";
 import Link from 'next/link';
 import Image from 'next/image';
 import EditRestaurant from './EditRestaurant';
 import Font from '@/components/Font/Font';
 
+//お店情報表示
 const Restaurant = (props) => {
     const {
         restaurantId,
@@ -14,7 +15,7 @@ const Restaurant = (props) => {
         restaurantImage,
         restaurantRemarks,
         userId,
-    } = props
+    } = props;
 
     return (
         <div className={ styles.frame }>

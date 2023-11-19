@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./NoGroup.module.css";
 import Link from "next/link";
 
+//所属グループが無い場合表示
 const NoGroup = () => {
     return (
         <div className = { styles.frame }>

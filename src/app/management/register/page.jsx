@@ -6,6 +6,7 @@ import BodyFrame from '@/components/BodyFrame/BodyFrame';
 import Heading from '@/components/Heading/Heading';
 import RegisterGroup from './RegisterGroup';
 
+//グループ作成ページ
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
     const {
@@ -15,7 +16,9 @@ const page = async({ searchParams }) => {
         groupName,
         groupIcon,
         groupId,
-    } = await setup(searchParamsGroupId)
+        joinGroups,
+        query,
+    } = await setup(searchParamsGroupId);
 
     return (
         <>
@@ -27,6 +30,8 @@ const page = async({ searchParams }) => {
                     groupId={ groupId } 
                     groupName={ groupName }
                     groupIcon={ groupIcon }
+                    joinGroups={ joinGroups }
+                    query={ query }
                 />
             </header>
             <main className={ styles.main }>

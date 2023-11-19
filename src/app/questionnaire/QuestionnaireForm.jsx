@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import styles from "./styles/QuestionnaireForm.module.css";
 import { FormProvider, useForm } from 'react-hook-form';
 import EditText from '@/components/EditText/EditText';
@@ -7,6 +7,7 @@ import EditDates from './EditDates';
 import OnClick from '@/components/OnClick/OnClick';
 import Font from '@/components/Font/Font';
 
+//日程調整更新フォーム
 const QuestionnaireForm = (props) => {
     const {
         questionnaireName,

@@ -1,16 +1,17 @@
-import React from 'react'
+import React from 'react';
 import styles from "./styles/RestaurantList.module.css";
 import Restaurant from './Restaurant';
 import { getRestaurants } from '@/lib/restaurants';
 import Font from '@/components/Font/Font';
 import Heading from '@/components/Heading/Heading';
 
+//お店リスト表示
 const RestaurantList = async(props) => {
     const { 
         groupId,
         userId,
-    } = props
-    const restaurants = await getRestaurants(groupId)
+    } = props;
+    const restaurants = await getRestaurants(groupId);
 
     return (
         <div className={ styles.frame }>

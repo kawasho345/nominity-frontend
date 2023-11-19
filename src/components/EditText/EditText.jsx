@@ -1,9 +1,10 @@
-"use client"
-import React from 'react'
+"use client";
+import React from 'react';
 import styles from "./EditText.module.css";
 import { useFormContext } from 'react-hook-form';
 import Font from '../Font/Font';
 
+//textフォーム
 const EditText = (props) => {
     const {
         name,

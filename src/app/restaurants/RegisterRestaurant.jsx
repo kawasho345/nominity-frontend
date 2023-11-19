@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
 import RestaurantForm from './RestaurantForm';
 import { useRouter } from 'next/navigation';
@@ -7,6 +7,7 @@ import { registerRestaurant } from '@/lib/restaurants';
 import styles from "./styles/RegisterRestaurant.module.css";
 import Cancel from '@/components/Cancel/Cancel';
 
+//お店リスト登録
 const RegisterRestaurant = (props) => {
     const {
         setHasRegisterForm,
@@ -17,8 +18,9 @@ const RegisterRestaurant = (props) => {
         restaurantRemarks,
         groupId,
         userId,
-    } = props
+    } = props;
     const router = useRouter();
+    //お店リスト登録関数
     const onSubmit = async(data) => {
         const response = await registerRestaurant(data, groupId, userId);
         router.refresh();

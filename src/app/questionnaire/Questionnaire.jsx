@@ -5,6 +5,7 @@ import AddSchedulesButton from './AddSchedulesButton';
 import EditQuestionnaire from './EditQuestionnaire';
 import { ChangeHistory, Close, RadioButtonUnchecked } from '@mui/icons-material';
 
+//日程調整の表示
 const Questionnaire = (props) => {
     const { 
         userId,
@@ -14,7 +15,7 @@ const Questionnaire = (props) => {
         questionnaireDates,
         membersSchedule,
     } = props;
-
+    //各プレイヤーの予定情報を表示形式に成形
     const data = (memberSchedule) => {
         const list = []
         for(let i=2; i<memberSchedule.length; i++){

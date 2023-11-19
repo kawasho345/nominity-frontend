@@ -1,14 +1,15 @@
-import React from 'react'
+import React from 'react';
 import styles from "./Dialog.module.css";
 import OnClick from '../OnClick/OnClick';
 import Font from '../Font/Font';
 
+//ダイアログ
 const Dialog = (props) => {
     const {
         yesFunc,
         noFunc,
         children,
-    } = props
+    } = props;
 
     return (
         <div className={ styles.frame }>

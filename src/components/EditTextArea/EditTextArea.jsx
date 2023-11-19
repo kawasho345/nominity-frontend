@@ -1,10 +1,11 @@
-"use client"
-import React from 'react'
+"use client";
+import React from 'react';
 import styles from "./EditTextArea.module.css";
 import { useFormContext } from 'react-hook-form';
 import { TextareaAutosize } from '@mui/material';
 import Font from '../Font/Font';
 
+//text areaフォーム
 const EditTextArea = (props) => {
     const {
         name,
@@ -13,7 +14,7 @@ const EditTextArea = (props) => {
         style,
         required = false,
         maxLength = null,
-    } = props
+    } = props;
     const { register, formState:{errors} } = useFormContext();
 
     return (

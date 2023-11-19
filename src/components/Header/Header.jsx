@@ -2,29 +2,19 @@ import React from "react";
 import styles from "./styles/Header.module.css";
 import MenuButton from "./MenuButton";
 import Image from "next/image";
-import { fetchRequest } from "@/lib/fetch";
 import Link from "next/link";
 
+//ヘッダー
 const header = async(props) => {
     const {
-        userId,
         username,
         userIcon,
         groupId,
         groupName,
         groupIcon,
-    } = props
-
-    //所属グループリストを取得
-    let joinGroups = await fetchRequest({
-        url: "/api/group/" + userId + "/getJoinGroups",
-        method: "GET",
-        element: "joinGroups",
-    })
-    let query = "";
-    if(groupId){
-        query = "?groupId=" + groupId;
-    }
+        joinGroups,
+        query = "",
+    } = props;
 
     return (
         <div className={ styles.frame }>
@@ -46,6 +36,7 @@ const header = async(props) => {
                     groupId={ groupId } 
                     name={ username }
                     icon={ userIcon }
+                    query={ query }
                 />
             </div>
         </div>

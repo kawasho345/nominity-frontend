@@ -12,6 +12,7 @@ import Cancel from '@/components/Cancel/Cancel';
 import Dialog from '@/components/Dialog/Dialog';
 import Font from '@/components/Font/Font';
 
+//お知らせ更新
 const EditSchedule = (props) => {
     const {
         scheduleId,
@@ -25,16 +26,17 @@ const EditSchedule = (props) => {
         scheduleNumberPeople,
         scheduleRemarks,
         userId,
-    } = props
+    } = props;
     const [hasForm, setHasForm] = useToggle(false);
     const [hasDialog, setHasDialog] = useToggle(false);
-    const router = useRouter()
-    
+    const router = useRouter();
+    //お知らせ削除
     const deleteFunc = async() => {
         await deleteSchedule(userId, scheduleId);
         router.refresh();
         setHasDialog(false);
     }
+    //お知らせ更新
     const updateFunc = async(data) => {
         const response = await updateSchedule(data, userId, scheduleId);
         setHasForm(false)

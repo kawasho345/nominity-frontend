@@ -4,6 +4,7 @@ import OnClick from '../OnClick/OnClick';
 import { ArrowForwardIos } from '@mui/icons-material';
 import Font from '../Font/Font';
 
+//フォームで利用するキャンセルボタン
 const Cancel = (props) => {
     const { cancelFunc } = props;
     return (

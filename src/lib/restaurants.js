@@ -2,6 +2,7 @@ import { fetchRequest } from "./fetch";
 import storage from '@/providers/firebase';
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
+//お店リスト取得
 const getRestaurants = async(groupId) => {
     const restaurants = await fetchRequest({
         url: "/api/restaurant/" + groupId + "/getRestaurants",
@@ -12,6 +13,7 @@ const getRestaurants = async(groupId) => {
     return restaurants
 }
 
+//お店検索
 const searchRestaurants = async(keyword, start) => {
     const query = "?keyword=" + keyword + "&start=" + start;
     const results = await fetchRequest({
@@ -31,6 +33,7 @@ const searchRestaurants = async(keyword, start) => {
     return restaurantsArray
 }
 
+//お店情報登録
 const registerRestaurant = async(data, groupId, userId) => {
     let fileUrl
     if(data.hotpepperImage){
@@ -60,6 +63,7 @@ const registerRestaurant = async(data, groupId, userId) => {
     return response;
 }
 
+//お店情報削除
 const deleteRestaurant = async(restaurantId, userId) => {
     const response = await fetchRequest({
         url: "/api/restaurant/" + restaurantId + "/delete",
@@ -70,6 +74,7 @@ const deleteRestaurant = async(restaurantId, userId) => {
     return response;
 }
 
+//お店情報更新
 const updateRestaurant = async(data, userId, restaurantId) => {
     let fileUrl
     if(data.hotpepperImage){

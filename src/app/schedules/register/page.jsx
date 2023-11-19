@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styles from "./styles/page.module.css";
 import Header from '@/components/Header/Header';
 import Leftbar from '@/components/Leftbar/Leftbar';
@@ -8,7 +8,9 @@ import BodyFrame from '@/components/BodyFrame/BodyFrame';
 import RegisterScheduleBody from './RegisterScheduleBody';
 import { fetchRequest } from '@/lib/fetch';
 import NoGroup from '@/components/NoGroup/NoGroup';
+import { getRestaurants } from '@/lib/restaurants';
 
+//お知らせ登録ページ
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
     const {
@@ -20,12 +22,11 @@ const page = async({ searchParams }) => {
         members,
         groupId,
         hasGroupId,
-    } = await setup(searchParamsGroupId)
-    const restaurants = await fetchRequest({
-        url: "/api/restaurant/" + groupId + "/getRestaurants",
-        method: "GET",
-        element: "restaurants"
-    })
+        joinGroups,
+        query,
+    } = await setup(searchParamsGroupId);
+    //お店リスト取得
+    const restaurants = await getRestaurants(groupId);
 
     if(!hasGroupId){
         return(
@@ -54,10 +55,12 @@ const page = async({ searchParams }) => {
                     groupId={ groupId } 
                     groupName={ groupName }
                     groupIcon={ groupIcon }
+                    joinGroups={ joinGroups }
+                    query={ query }
                 />
             </header>
             <main className = {styles.group_content}>
-                <Leftbar />
+                <Leftbar query={ query }/>
                 <BodyFrame>
                     <RegisterScheduleBody
                         userId={ userId }

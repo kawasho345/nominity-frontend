@@ -1,17 +1,18 @@
-"use client"
-import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame'
-import PutDelete from '@/components/PutDelete/PutDelete'
-import { deleteQuestionnaire, updateQuestionnaire } from '@/lib/questionnaire'
-import { useRouter } from 'next/navigation'
-import React from 'react'
-import { useToggle } from 'react-use'
-import QuestionnaireForm from './QuestionnaireForm'
+"use client";
+import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
+import PutDelete from '@/components/PutDelete/PutDelete';
+import { deleteQuestionnaire, updateQuestionnaire } from '@/lib/questionnaire';
+import { useRouter } from 'next/navigation';
+import React from 'react';
+import { useToggle } from 'react-use';
+import QuestionnaireForm from './QuestionnaireForm';
 import styles from "./styles/EditQuestionnaire.module.css";
-import Heading from '@/components/Heading/Heading'
-import Cancel from '@/components/Cancel/Cancel'
-import Dialog from '@/components/Dialog/Dialog'
-import Font from '@/components/Font/Font'
+import Heading from '@/components/Heading/Heading';
+import Cancel from '@/components/Cancel/Cancel';
+import Dialog from '@/components/Dialog/Dialog';
+import Font from '@/components/Font/Font';
 
+//日程調整更新
 const EditQuestionnaire = (props) => {
     const { 
         questionnaireId,
@@ -19,15 +20,16 @@ const EditQuestionnaire = (props) => {
         questionnaireOverview,
         questionnaireDates,
         userId,
-    } = props
-    const router = useRouter()
+    } = props;
+    const router = useRouter();
     const [hasForm, setHasForm] = useToggle(false);
     const [hasDialog, setHasDialog] = useToggle(false);
-
+    //日程調整削除
     const deleteFunc = async() => {
         await deleteQuestionnaire(userId, questionnaireId);
         router.refresh();
     }
+    //日程調整更新
     const updateFunc = async(data, dates) => {
         await updateQuestionnaire(data, dates, userId, questionnaireId);
         router.refresh();

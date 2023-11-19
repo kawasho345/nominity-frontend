@@ -1,5 +1,5 @@
-"use client"
-import React, { useState } from 'react'
+"use client";
+import React, { useState } from 'react';
 import styles from "./styles/ProfileForm.module.css";
 import EditText from '@/components/EditText/EditText';
 import EditImage from '@/components/EditImage/EditImage';
@@ -11,6 +11,7 @@ import Font from '@/components/Font/Font';
 import { updateUser } from '@/lib/management';
 import PopUp from '@/components/PopUp/PopUp';
 
+//プロフィール更新フォーム
 const ProfileForm = (props) => {
     const {
         userId,
@@ -22,9 +23,10 @@ const ProfileForm = (props) => {
         hatedAlcohol,
         allergy,
         allergyText, 
-    } = props
+    } = props;
     const methods = useForm();
     const [popUp, setPopUp] = useState([]);
+    //プロフィール更新
     const onSubmit = async(data) => {
         const response = await updateUser(data, userId);
         if(response.status === 200){
@@ -39,6 +41,7 @@ const ProfileForm = (props) => {
             }, 3000)
         }
     }
+    //表示推奨アレルギー一覧
     const allergies=["えび", "かに", "たまご", "そば", "乳", "落花生", "あわび", "いか", "いくら", 
                     "オレンジ", "カシューナッツ", "キュウイフルーツ", "牛肉", "くるみ", "ごま", "さけ", 
                     "さば", "大豆", "豚肉", "バナナ", "鶏肉", "まつたけ", "もも", "やまいも", "りんご", "ゼラチン", "アーモンド"];

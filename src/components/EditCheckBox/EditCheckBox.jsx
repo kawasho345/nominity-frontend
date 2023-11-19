@@ -1,15 +1,16 @@
-import React from 'react'
+import React from 'react';
 import styles from "./EditCheckBox.module.css";
 import Font from '../Font/Font';
 import { useFormContext } from 'react-hook-form';
 
+//チェックボックスform
 const EditCheckBox = (props) => {
     const {
         title,
         name,
         value,
         elements,
-    } = props
+    } = props;
     const { register } = useFormContext();
 
     return (

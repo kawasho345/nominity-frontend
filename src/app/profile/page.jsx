@@ -6,6 +6,7 @@ import { setup } from '@/lib/setup';
 import BodyFrame from '@/components/BodyFrame/BodyFrame';
 import Heading from '@/components/Heading/Heading';
 
+//プロフィール更新ページ
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
     const {
@@ -21,7 +22,9 @@ const page = async({ searchParams }) => {
         userHatedAlcohol,
         userAllergy,
         userAllergyText,
-    } = await setup(searchParamsGroupId)
+        joinGroups,
+        query,
+    } = await setup(searchParamsGroupId);
 
     return (
         <>
@@ -33,6 +36,8 @@ const page = async({ searchParams }) => {
                     groupId={ groupId } 
                     groupName={ groupName }
                     groupIcon={ groupIcon }
+                    joinGroups={ joinGroups }
+                    query={ query }
                 />
             </header>
             <main className={ styles.main }>

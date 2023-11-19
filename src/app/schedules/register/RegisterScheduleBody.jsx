@@ -1,5 +1,5 @@
-"use client"
-import React, { useState } from 'react'
+"use client";
+import React, { useState } from 'react';
 import styles from "./styles/RegisterScheduleBody.module.css";
 import ScheduleForm from '../ScheduleForm';
 import Font from '@/components/Font/Font';
@@ -11,22 +11,25 @@ import Restaurant from '@/app/restaurants/Restaurant';
 import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
 import Heading from '@/components/Heading/Heading';
 
+//お知らせ登録
 const RegisterScheduleBody = (props) => {
     const {
         userId,
         groupId,
         restaurants
-    } = props
+    } = props;
     const router = useRouter();
     const [hasEmphasisFrame, setHasEmphasisFrame] = useToggle(false);
     const [currentRestaurant, setCurrentRestaurant] = useState("");
+    //お知らせ登録関数
     const onSubmit = async(data) => {
         const response = await registerSchedule(data, userId, groupId);
         router.refresh();
         router.push("/schedules?groupId=" + groupId);
     }
+    //お店リストから選択された情報を保持
     const selectRestaurant = (restaurant) => {
-        setCurrentRestaurant(restaurant)
+        setCurrentRestaurant(restaurant);
         setHasEmphasisFrame(false);
     }
 

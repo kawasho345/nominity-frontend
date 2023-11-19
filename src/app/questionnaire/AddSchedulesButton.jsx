@@ -1,5 +1,5 @@
-"use client"
-import React from 'react'
+"use client";
+import React from 'react';
 import styles from "./styles/AddSchedulesButton.module.css";
 import OnClick from '@/components/OnClick/OnClick';
 import Font from '@/components/Font/Font';
@@ -11,21 +11,23 @@ import { useRouter } from 'next/navigation';
 import Heading from '@/components/Heading/Heading';
 import Cancel from '@/components/Cancel/Cancel';
 
+//予定記入
 const AddSchedulesButton = (props) => {
     const {
         userId,
         questionnaireId,
         questionnaireDates,
         membersSchedule,
-    } = props
+    } = props;
     const [hasForm, setHasForm] = useToggle(false);
-    const router = useRouter()
+    const router = useRouter();
+    //予定の更新
     const updateFunc = async(data) =>  {
         const response = await updateDateSchedules(data, userId, questionnaireDates, questionnaireId);
         router.refresh();
         setHasForm(false);
     } 
-
+    //すでに登録された予定情報からユーザーのものを検索
     const userSchedule = (() => {
         for(let i=0; i<membersSchedule.length; i++){
             if(membersSchedule[i][0] === userId){

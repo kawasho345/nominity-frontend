@@ -9,6 +9,7 @@ import BodyFrame from '@/components/BodyFrame/BodyFrame';
 import Preference from './Preference';
 import Heading from '@/components/Heading/Heading';
 
+//好き嫌いアレルギーリストページ
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
     const {
@@ -26,16 +27,18 @@ const page = async({ searchParams }) => {
         groupHatedAlcohol,
         groupAllergy,
         groupAllergyText,
+        joinGroups,
+        query,
     } = await setup(searchParamsGroupId);
 
+    //その他アレルギーをユーザーごとに改行するよう編集
     const allergyText = () => {
-        let list = []
+        let list = [];
         groupAllergyText.map((text) => {
             list.push(<>{ text }<br/></>)
         })
         return <>{ list }</>
     }
-
     if(!hasGroupId){
         return(
             <>
@@ -63,10 +66,12 @@ const page = async({ searchParams }) => {
                     groupId={ groupId } 
                     groupName={ groupName }
                     groupIcon={ groupIcon }
+                    joinGroups={ joinGroups }
+                    query={ query }
                 />
             </header>
             <main className = {styles.group_content}>
-                <Leftbar groupId={ groupId } />
+                <Leftbar query={ query } />
                 <BodyFrame>
                     <Heading>好き/嫌い・アレルギーリスト</Heading>
                     <ul>

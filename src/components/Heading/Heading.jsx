@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
 import styles from "./Heading.module.css";
 import Font from '../Font/Font';
 
+//見出し
 const Heading = (props) => {
     const { 
         children, 
         style = "heading", 
-    } = props
+    } = props;
 
     return (
         <>

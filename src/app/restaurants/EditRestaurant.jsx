@@ -1,20 +1,18 @@
-"use client"
-import React from 'react'
-import styles from "./styles/EditRestaurant.module.css"
-import { fetchRequest } from '@/lib/fetch';
+"use client";
+import React from 'react';
+import styles from "./styles/EditRestaurant.module.css";
 import PutDelete from '@/components/PutDelete/PutDelete';
 import { useToggle } from 'react-use';
 import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
 import RestaurantForm from './RestaurantForm';
 import { useRouter } from 'next/navigation';
-import storage from '@/providers/firebase';
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import Heading from '@/components/Heading/Heading';
 import Dialog from '@/components/Dialog/Dialog';
 import Font from '@/components/Font/Font';
 import Cancel from '@/components/Cancel/Cancel';
 import { deleteRestaurant, updateRestaurant } from '@/lib/restaurants';
 
+//お店リスト編集
 const EditRestaurant = (props) => {
     const {
         restaurantId,
@@ -24,17 +22,17 @@ const EditRestaurant = (props) => {
         restaurantImage,
         restaurantRemarks,
         userId,
-    } = props
+    } = props;
     const [hasForm, setHasForm] = useToggle(false);
     const [hasDialog, setHasDialog] = useToggle(false);
-    const router = useRouter()
-
+    const router = useRouter();
+    //お店リストから削除
     const deleteFunc = async() => {
         const response = await deleteRestaurant(restaurantId, userId)
         router.refresh();
         setHasDialog(false);
     }
-
+    //お店情報更新
     const updateFunc = async(data) => {
         const response = await updateRestaurant(data, userId, restaurantId);
         setHasForm(false);

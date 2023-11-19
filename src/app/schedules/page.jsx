@@ -12,6 +12,7 @@ import Schdule from './Schdule';
 import Heading from '@/components/Heading/Heading';
 import Font from '@/components/Font/Font';
 
+//お知らせページ
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
     const {
@@ -23,9 +24,11 @@ const page = async({ searchParams }) => {
         members,
         groupId,
         hasGroupId,
+        joinGroups,
+        query,
     } = await setup(searchParamsGroupId);
+    //お知らせ取得
     const schedules = await getSchedules(groupId);
-
     if(!hasGroupId){
         return(
             <>
@@ -53,10 +56,12 @@ const page = async({ searchParams }) => {
                     groupId={ groupId } 
                     groupName={ groupName }
                     groupIcon={ groupIcon }
+                    joinGroups={ joinGroups }
+                    query={ query }
                 />
             </header>
             <main className = {styles.group_content}>
-                <Leftbar groupId={ groupId } />
+                <Leftbar query={ query } />
                 <BodyFrame>
                     <Heading>お知らせ</Heading>
                         {schedules.length?

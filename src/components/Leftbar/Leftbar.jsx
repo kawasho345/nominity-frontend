@@ -4,12 +4,9 @@ import { Chat, EditCalendar, Home, People, Restaurant, ThumbsUpDown } from "@mui
 import OnClick from '../OnClick/OnClick';
 import Font from '../Font/Font';
 
+//メニューバー
 const Leftbar = (props) => {
-    const { groupId } = props;
-    let query = "";
-    if(groupId){
-        query = "?groupId=" + groupId;
-    }
+    const { query } = props;
 
     return (
         <div className = { styles.content }>
@@ -86,56 +83,6 @@ const Leftbar = (props) => {
                         </div>
                     </OnClick>
                 </li>
-                {/* <li className = { styles.leftbar }>
-                    <Link href = "/schedules" className = "link">
-                        <span className = { styles.icon }>
-                            <Home />
-                        </span>
-                        <span className = { styles.text }>お知らせ</span>
-                    </Link>
-                </li>
-                <li className = { styles.leftbar }>
-                    <Link href = "/groupChat" className = "link">
-                        <span className = { styles.icon }>
-                            <Chat />
-                        </span>
-                        <span className = { styles.text }>掲示板</span>
-                    </Link>
-                </li>
-                <li className = { styles.leftbar }>
-                    <Link href = "/questionnaire" className = "link">
-                        <span className = { styles.icon }>
-                            <EditCalendar />
-                        </span>
-                        <span className = { styles.text }>日程調整</span>
-                    </Link>
-                </li>
-                <li className = { styles.leftbar }>
-                    <Link href = "/restaurants" className = "link">
-                        <span className = { styles.icon }>
-                            <Restaurant />
-                        </span>
-                        <span className = { styles.text }>お店リスト</span>
-                    </Link>
-                </li>
-                <li className = { styles.leftbar }>
-                    <Link href = "/preference" className = "link">
-                        <span className = { styles.preference_icon }>
-                            <ThumbsUpDown />
-                        </span>
-                        <span className = { styles.text }>
-                                好き/嫌い<br />アレルギーリスト
-                        </span>    
-                    </Link>
-                </li>
-                <li className = { styles.leftbar }>
-                    <Link href = "/management" className = "link">
-                        <span className = { styles.icon }>
-                            <People />
-                        </span>
-                        <span className = { styles.text }>グループ管理</span>
-                    </Link>
-                </li> */}
             </ul>
         </div>
     )

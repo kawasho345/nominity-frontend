@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Font from '@/components/Font/Font'
 import EditPost from './EditPost'
 
+//投稿表示
 const Post = (props) => {
     const {
         userId,

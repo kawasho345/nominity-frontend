@@ -1,10 +1,11 @@
 import Font from '@/components/Font/Font';
-import React from 'react'
+import React from 'react';
 import styles from "./styles/EditDateSchedules.module.css";
 import { useForm } from 'react-hook-form';
 import { ChangeHistory, Close, RadioButtonUnchecked } from '@mui/icons-material';
 import OnClick from '@/components/OnClick/OnClick';
 
+//予定更新フォーム
 const EditDateSchedules = (props) => {
     const {
         questionnaireDates,

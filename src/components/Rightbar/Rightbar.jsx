@@ -1,7 +1,8 @@
-import React from 'react'
-import styles from "./Rightbar.module.css"
-import Image from 'next/image'
+import React from 'react';
+import styles from "./Rightbar.module.css";
+import Image from 'next/image';
 
+//メンバー表示
 const Rightbar = async(props) => {
     const { members } = props;
 

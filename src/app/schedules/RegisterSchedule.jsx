@@ -1,14 +1,13 @@
-"use client"
-import React from 'react'
+"use client";
+import React from 'react';
 import styles from "./styles/RegisterSchedule.module.css";
 import OnClick from '@/components/OnClick/OnClick';
-import { useToggle } from 'react-use';
 import Font from '@/components/Font/Font';
-import ScheduleForm from './ScheduleForm';
 
+//お知らせ作成ボタン
+//ToDo　pageに合流させる
 const RegisterSchedule = (props) => {
     const { groupId } = props;
-    const [hasForm, setHasForm] = useToggle(false);
 
     return (
         <div className={ styles.frame }>
@@ -19,12 +18,6 @@ const RegisterSchedule = (props) => {
                     </Font>
                 </OnClick>
             </div>
-            {hasForm?
-                <ScheduleForm
-                    submitFunc={ (data) => onsubmit(data) }
-                    cancelFunc={ () => setHasForm(false) }
-                />  
-            :""}
         </div>
     )
 }

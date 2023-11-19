@@ -1,5 +1,5 @@
-"use client"
-import React from 'react'
+"use client";
+import React from 'react';
 import styles from "./styles/MenuButton.module.css";
 import { ExpandMore } from '@mui/icons-material';
 import Image from 'next/image';
@@ -8,6 +8,7 @@ import GroupList from './GroupList';
 import UserMenu from "./UserMenu"
 import Shadow from '../Shadow/Shadow';
 
+//グループ、ユーザーの表示
 const MenuButton = (props) => {
     const {
         type,
@@ -15,7 +16,8 @@ const MenuButton = (props) => {
         icon,
         groupId = null,
         joinGroups,
-    } = props
+        query,
+    } = props;
     const [hasMenu, setHasMenu] = useToggle(false);
 
     return (
@@ -52,7 +54,7 @@ const MenuButton = (props) => {
                         />
                         :
                         <UserMenu 
-                            groupId={ groupId }
+                            query={ query }
                         />
                     }
                 </>

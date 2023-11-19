@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react'
+import React, { forwardRef, useState } from 'react';
 import styles from "./styles/EditDates.module.css";
 import EditText from '@/components/EditText/EditText';
 import OnClick from '@/components/OnClick/OnClick';
@@ -8,9 +8,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import ja from "date-fns/locale/ja"
-
 registerLocale("ja", ja)
 
+//開催日程編集
 const EditDates = (props) => {
     const { 
         dates,
@@ -18,6 +18,7 @@ const EditDates = (props) => {
     } = props;
     const days = ["日", "月", "火", "水", "木", "金", "土"];
     const methods = useForm();
+    //テキストで開催日程リストへの追加
     const onSubmit = (data) => {
         methods.reset();
         if(!dates){
@@ -26,6 +27,7 @@ const EditDates = (props) => {
         }
         setDates([...dates, ["", data.registerDate]]);
     }
+    //カレンダーから開催日程リストへ追加
     const addDate = (data) => {
         const newDate = new Date(data[0]);
         const month = newDate.getMonth() + 1;
@@ -38,6 +40,7 @@ const EditDates = (props) => {
         }
         setDates([...dates, ["", dateString]]);
     }
+    //以下dragEndまでドラッグによるリストの順番変更関数
     const [dragIndex, setDragIndex] = useState(null);
     const dragStart = (index) => {
         setDragIndex(index);
@@ -57,6 +60,7 @@ const EditDates = (props) => {
     const dragEnd = () => {
         setDragIndex(null);
     }
+    //リスト登録された日程情報の更新
     const editDate = (e, index) => {
         const newDate = e.currentTarget.value;
         setDates((prevState) => {
@@ -65,6 +69,7 @@ const EditDates = (props) => {
             return newDates;
         });
     }
+    //リスト登録された日程情報の削除
     const deleteDate = (index) => {
         setDates((prevState) => {
             let newDates = JSON.parse(JSON.stringify(prevState));
@@ -72,6 +77,7 @@ const EditDates = (props) => {
             return newDates;
         });
     }
+    //カレンダーへcssを適用
     const MyConteiner = ({className, children }) => {
         return (
         <div className={`${styles.date_picker} ${className}`}>

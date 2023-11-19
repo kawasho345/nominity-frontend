@@ -2,6 +2,7 @@ import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from "next-auth/providers/credentials"
 
+//auth設定
 export const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
@@ -19,7 +20,7 @@ export const handler = NextAuth({
       },
       async authorize(credentials, req) {
         const { username, password } = credentials
-        const user = { name: "guest", email: "guest@example.com" }
+        const user = { name: "guest11", email: "guest11@example.com" }
 
         if (user) {
           return user

@@ -11,6 +11,7 @@ import RegisterQuestionnaire from './RegisterQuestionnaire';
 import Questionnaire from './Questionnaire';
 import { getQuestionnaires } from '@/lib/questionnaire';
 
+//日程調整ページ
 const page = async({ searchParams }) => {
     const searchParamsGroupId = searchParams.groupId;
     const {
@@ -22,7 +23,10 @@ const page = async({ searchParams }) => {
         members,
         groupId,
         hasGroupId,
-    } = await setup(searchParamsGroupId)
+        joinGroups,
+        query,
+    } = await setup(searchParamsGroupId);
+    //登録された日程調整の取得
     const questionnaires = await getQuestionnaires(groupId);
     
     if(!hasGroupId){
@@ -52,10 +56,12 @@ const page = async({ searchParams }) => {
                     groupId={ groupId } 
                     groupName={ groupName }
                     groupIcon={ groupIcon }
+                    joinGroups={ joinGroups }
+                    query={ query }
                 />
             </header>
             <main>
-                <Leftbar groupId={ groupId } />
+                <Leftbar query={ query } />
                 <BodyFrame>
                     <Heading>日程調整</Heading>
                     {questionnaires.map((questionnaire, index) => (

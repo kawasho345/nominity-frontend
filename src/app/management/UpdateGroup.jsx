@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import { updateGroup } from '@/lib/management'
 import PopUp from '@/components/PopUp/PopUp'
 
+//グループ情報編集
 const UpdateGroup = (props) => {
     const { 
         userId,
@@ -15,6 +16,7 @@ const UpdateGroup = (props) => {
     } = props
     const router = useRouter();
     const [popUp, setPopUp] = useState([]);
+    //グループ更新
     const onSubmit = async(data) => {
         const response = await updateGroup(data, userId, groupId);
         if(response.status === 200){

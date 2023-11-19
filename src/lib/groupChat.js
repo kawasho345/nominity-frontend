@@ -1,5 +1,6 @@
 import { fetchRequest} from "./fetch";
 
+//投稿登録
 const registerPost = async(data, userId, groupId) => {
     const response = await fetchRequest({
         url: "/api/post/register",
@@ -14,6 +15,7 @@ const registerPost = async(data, userId, groupId) => {
     return response;
 }
 
+//投稿取得
 const getTimeline = async(groupId) => {
     const posts = await fetchRequest({
         url: "/api/post/" + groupId + "/getTimeline",
@@ -24,6 +26,7 @@ const getTimeline = async(groupId) => {
     return posts;
 }
 
+//投稿削除
 const deletePost = async(userId, postId) => {
     const response = await fetchRequest({
         url: "/api/post/" + postId + "/delete",
@@ -34,6 +37,7 @@ const deletePost = async(userId, postId) => {
     return response;
 }
 
+//投稿更新
 const updatePost = async(data, userId, postId) => {
     const response = await fetchRequest({
         url: "/api/post/" + postId + "/put",

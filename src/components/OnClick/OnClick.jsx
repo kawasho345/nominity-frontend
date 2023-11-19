@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
 import styles from "./OnClick.module.css";
 import Link from 'next/link';
 
+//Link、Buttonの統一化
 const OnClick = (props) => {
     const {
         link = null,

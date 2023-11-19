@@ -1,5 +1,5 @@
-"use client"
-import React from 'react'
+"use client";
+import React from 'react';
 import styles from "./styles/RegisterQuestionnaire.module.css";
 import OnClick from '@/components/OnClick/OnClick';
 import Font from '@/components/Font/Font';
@@ -11,13 +11,15 @@ import { registerQuestionnaire } from '@/lib/questionnaire';
 import Cancel from '@/components/Cancel/Cancel';
 import { useRouter } from 'next/navigation';
 
+//日程調整登録
 const RegisterQuestionnaire = (props) => {
     const {
         userId,
         groupId,
     } = props;
     const [hasForm, setHasForm] = useToggle(false);
-    const router = useRouter()
+    const router = useRouter();
+    //日程調整登録関数
     const onSubmit = async(data, dates) => {
         const response = await registerQuestionnaire(data, dates, userId, groupId);
         router.refresh();

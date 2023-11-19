@@ -3,11 +3,12 @@ import styles from "./Modal.module.css";
 import OnClick from '../OnClick/OnClick';
 import Font from '../Font/Font';
 
+//モーダルウィンドウ
 const Modal = (props) => {
     const {
         okFunc,
         children,
-    } = props
+    } = props;
 
     return (
         <div className={ styles.frame }>

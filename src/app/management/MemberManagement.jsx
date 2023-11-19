@@ -1,5 +1,5 @@
-"use client"
-import React, { useState } from 'react'
+"use client";
+import React, { useState } from 'react';
 import styles from "./styles/MemberManagement.module.css";
 import Heading from '@/components/Heading/Heading';
 import OnClick from '@/components/OnClick/OnClick';
@@ -11,6 +11,7 @@ import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
 import Dialog from '@/components/Dialog/Dialog';
 import PopUp from '@/components/PopUp/PopUp';
 
+//メンバー管理
 const MemberManagement = (props) => {
     const {
         userId,
@@ -19,6 +20,7 @@ const MemberManagement = (props) => {
     const [popUp, setPopUp] = useState([]);
     const [hasDialog, setHasDialog] = useToggle(false);
     const router = useRouter();
+    //退会関数
     const deleteFunc = async() => {
         const response = await withdrawal(groupId, userId);
         router.refresh();

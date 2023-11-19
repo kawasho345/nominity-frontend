@@ -1,5 +1,5 @@
-"use client"
-import React, { useEffect } from 'react'
+"use client";
+import React, { useEffect } from 'react';
 import styles from "./styles/GroupForm.module.css";
 import EditText from '@/components/EditText/EditText';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -7,6 +7,7 @@ import EditImage from '@/components/EditImage/EditImage';
 import OnClick from '@/components/OnClick/OnClick';
 import Font from '@/components/Font/Font';
 
+//グループ編集フォーム
 const GroupForm = (props) => {
     const { 
         submitText,
@@ -14,8 +15,9 @@ const GroupForm = (props) => {
         groupName,
         groupIcon,
     } = props
+    //初期値認識のためのリセット
     useEffect(() => {
-        methods.reset()
+        methods.reset();
     },[])
     const methods = useForm();
     const onSubmit = (data) => submitFunc(data) 

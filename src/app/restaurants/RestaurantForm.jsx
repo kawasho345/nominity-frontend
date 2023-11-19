@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from "./styles/RestaurantForm.module.css"
+import React from 'react';
+import styles from "./styles/RestaurantForm.module.css";
 import EditText from '@/components/EditText/EditText';
 import { FormProvider, useForm } from 'react-hook-form';
 import EditImage from '@/components/EditImage/EditImage';
@@ -7,10 +7,10 @@ import EditTextArea from '@/components/EditTextArea/EditTextArea';
 import OnClick from '@/components/OnClick/OnClick';
 import Font from '@/components/Font/Font';
 
+//お店情報更新フォーム
 const RestaurantForm = (props) => {
     const { 
         submitFunc,
-        cancelFucn,
         restaurantName,
         restaurantAddress,
         restaurantImage,
@@ -18,7 +18,7 @@ const RestaurantForm = (props) => {
         restaurantRemarks,
     } = props
     const methods = useForm();
-    const onSubmit = (data) => submitFunc(data) 
+    const onSubmit = (data) => submitFunc(data); 
 
     return (
         <>

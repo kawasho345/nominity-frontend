@@ -2,6 +2,7 @@ import React from 'react'
 import styles from "./PopUp.module.css";
 import Font from '../Font/Font';
 
+//ポップアップの表示
 const PopUp = (props) => {
     const { 
         children, 

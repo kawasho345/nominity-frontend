@@ -1,3 +1,4 @@
+//fetchのラップ関数
 const fetchRequest = async(request) => {
     const {
         url,

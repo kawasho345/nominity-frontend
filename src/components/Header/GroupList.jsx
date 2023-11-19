@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
 import styles from "./styles/GroupList.module.css";
 import Link from 'next/link';
 import Image from 'next/image';
 
+//所属グループの表示
 const GroupList = (props) => {
     const {
         groupId,
@@ -19,7 +20,7 @@ const GroupList = (props) => {
                         </div>
                     </Link>
                 </li>
-                {joinGroups !== "undefind"?
+                {joinGroups?
                     joinGroups.map((group) => (
                         <li key={ group[0] }>
                             <Link href = { "/schedules?groupId=" + group[0] }>
