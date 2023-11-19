@@ -40,3 +40,21 @@
 .text {
     margin: auto;
 }
+
+@media screen and (max-width:850px) {
+    .content {
+        width: 70%;
+        min-width: 480px;
+    }
+
+    .list {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .leftbar {
+        display: inline-block;
+        height: 45px;
+        margin: 5px;
+        vertical-align: top;
+    }
+}

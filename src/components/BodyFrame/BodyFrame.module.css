@@ -1,6 +1,5 @@
 .frame {
     display: inline-block;
-    /* min-width: 480px; */
     width: 70%;
     min-width: 480px;
     max-width: 700px;
@@ -10,4 +9,12 @@
     border-radius: 10px;
     text-align: left;
     overflow: auto;
+}
+
+@media screen and (max-width:850px) {
+    .frame {
+        border-radius: 0 0 10px 10px;
+        padding-top: 10px;
+        margin: 0;
+    }
 }

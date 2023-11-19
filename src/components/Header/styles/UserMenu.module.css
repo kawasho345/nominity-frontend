@@ -8,6 +8,7 @@
 .element {
     width: 200px;
     height: 50px;
+    color: #39608d;
 }
 
 .element:hover {

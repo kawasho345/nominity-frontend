@@ -28,3 +28,23 @@
 .icon {
     margin-right: 5px;
 }
+
+@media screen and (max-width:1200px) {
+    .frame {
+        margin-left: 220px;
+        width: 70%;
+        max-width: 700px;
+        min-width: 480px;
+    }
+
+    .member {
+        display: inline-flex;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width:850px) {
+    .frame {
+        margin-left: 0;
+    }
+}

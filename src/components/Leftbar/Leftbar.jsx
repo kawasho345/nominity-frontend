@@ -44,7 +44,7 @@ const Leftbar = (props) => {
                             <div className={ styles.icon }>
                                 <EditCalendar sx={{typography:{ fontSize: '1.8rem' }}} />
                             </div>
-                            <div className={ styles.text}>
+                            <div className={ styles.text }>
                                 <Font>日程調整</Font>
                             </div>
                         </div>
@@ -56,7 +56,7 @@ const Leftbar = (props) => {
                             <div className={ styles.icon }>
                                 <Restaurant sx={{typography:{ fontSize: '1.8rem' }}} />
                             </div>
-                            <div className={ styles.text}>
+                            <div className={ styles.text }>
                                 <Font>お店リスト</Font>
                             </div>
                         </div>
@@ -68,7 +68,7 @@ const Leftbar = (props) => {
                             <div className={ styles.icon }>
                                 <ThumbsUpDown sx={{typography:{ fontSize: '1.8rem' }}} />
                             </div>
-                            <div className={ styles.text}>
+                            <div className={ styles.text }>
                                 <Font>好き / 嫌い<br />アレルギーリスト</Font>
                             </div>
                         </div>
@@ -80,7 +80,7 @@ const Leftbar = (props) => {
                             <div className={ styles.icon }>
                                 <People sx={{typography:{ fontSize: '1.8rem' }}} />
                             </div>
-                            <div className={ styles.text}>
+                            <div className={ styles.text }>
                                 <Font>グループ管理</Font>
                             </div>
                         </div>
