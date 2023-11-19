@@ -4,17 +4,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 //所属グループの表示
+//ToDo　OnClick化
 const GroupList = (props) => {
     const {
-        groupId,
         joinGroups,
+        query,
     } = props;
 
     return(
         <>
             <ul className={ styles.frame }>
                 <li key="createGroup">
-                    <Link href = { "/management/register/?groupId=" + groupId }>
+                    <Link href = { "/management/register" + query }>
                         <div className={ styles.list }>
                             <p className={ styles.text }>新しいグループを作る</p>
                         </div>

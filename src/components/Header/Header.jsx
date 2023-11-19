@@ -30,6 +30,7 @@ const header = async(props) => {
                     icon={ groupIcon }
                     groupId={ groupId }
                     joinGroups={ joinGroups }
+                    query={ query }
                 />
                 <MenuButton
                     type="user"

@@ -14,7 +14,6 @@ const MenuButton = (props) => {
         type,
         name,
         icon,
-        groupId = null,
         joinGroups,
         query,
     } = props;
@@ -49,8 +48,8 @@ const MenuButton = (props) => {
                     <Shadow func={ () => setHasMenu(false) } style="header"/>
                     {(type === "group")?
                         <GroupList
-                            groupId={ groupId }
                             joinGroups={ joinGroups }
+                            query={ query }
                         />
                         :
                         <UserMenu 

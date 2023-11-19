@@ -20,7 +20,7 @@ export const handler = NextAuth({
       },
       async authorize(credentials, req) {
         const { username, password } = credentials
-        const user = { name: "guest11", email: "guest11@example.com" }
+        const user = { name: "guest", email: "guest@example.com" }
 
         if (user) {
           return user
