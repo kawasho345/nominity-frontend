@@ -83,7 +83,7 @@ const page = async({ searchParams }) => {
                         :
                             <Font style="default_text">お知らせはありません</Font>
                         }
-                    <RegisterSchedule/>
+                    <RegisterSchedule groupId={ groupId }/>
                 </BodyFrame>
                 <Rightbar members = { members }/> 
             </main>

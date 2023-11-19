@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import styles from "./styles/MemberManagement.module.css";
 import Heading from '@/components/Heading/Heading';
 import OnClick from '@/components/OnClick/OnClick';
@@ -9,17 +9,30 @@ import { useRouter } from 'next/navigation';
 import { useToggle } from 'react-use';
 import EmphasisFrame from '@/components/EmphasisFrame/EmphasisFrame';
 import Dialog from '@/components/Dialog/Dialog';
+import PopUp from '@/components/PopUp/PopUp';
 
 const MemberManagement = (props) => {
     const {
         userId,
         groupId,
     } = props;
+    const [popUp, setPopUp] = useState([]);
     const [hasDialog, setHasDialog] = useToggle(false);
     const router = useRouter();
     const deleteFunc = async() => {
         const response = await withdrawal(groupId, userId);
         router.refresh();
+        if(response.status === 200){
+            setPopUp([true, "success", "退会完了"]);
+            setTimeout(() => {
+                setPopUp([false,,]);
+            }, 3000)
+        }else{
+            setPopUp([true, "failed", "退会失敗"]);
+            setTimeout(() => {
+                setPopUp([false,,]);
+            }, 3000)
+        }
         setHasDialog(false);
     }
     
@@ -39,6 +52,9 @@ const MemberManagement = (props) => {
                         <Font style="large">本当にグループを退会しますか</Font>
                     </Dialog>
                 </EmphasisFrame>  
+            :""}
+            {(popUp[0] === true)?
+                <PopUp style={ popUp[1] }>{ popUp[2] }</PopUp>
             :""}
         </div>
     )

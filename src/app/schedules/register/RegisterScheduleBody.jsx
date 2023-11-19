@@ -19,12 +19,11 @@ const RegisterScheduleBody = (props) => {
     } = props
     const router = useRouter();
     const [hasEmphasisFrame, setHasEmphasisFrame] = useToggle(false);
-    const cancel = () => router.push("/");
     const [currentRestaurant, setCurrentRestaurant] = useState("");
     const onSubmit = async(data) => {
         const response = await registerSchedule(data, userId, groupId);
         router.refresh();
-        router.push("/")
+        router.push("/schedules?groupId=" + groupId);
     }
     const selectRestaurant = (restaurant) => {
         setCurrentRestaurant(restaurant)
@@ -42,7 +41,6 @@ const RegisterScheduleBody = (props) => {
                 </div>
             </div>
             <ScheduleForm
-                cancelFunc={ () => cancel() }
                 submitFunc={ (data) => onSubmit(data) }
                 restaurantId={ currentRestaurant.restaurantId }
                 restaurantName={ currentRestaurant.restaurantName }

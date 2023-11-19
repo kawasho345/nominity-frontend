@@ -80,8 +80,19 @@ const withdrawal = async(groupId, userId) => {
         method: "PUT",
         body: { userIds: [userId] }
     })
-
+    console.log(response);
     return response;
+}
+
+const joinGroup = async(invitationCode, userId) => {
+    const joinGroupId = await fetchRequest({
+        url: "/api/group/" + invitationCode + "/joinGroup",
+        method: "PUT",
+        body: { userId: userId },
+        element: "joinGroupId",
+    });
+
+    return joinGroupId;
 }
 
 export { 
@@ -89,4 +100,5 @@ export {
     updateGroup, 
     updateUser,
     withdrawal,
+    joinGroup,
 }

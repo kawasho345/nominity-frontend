@@ -7,12 +7,13 @@ import Font from '@/components/Font/Font';
 import ScheduleForm from './ScheduleForm';
 
 const RegisterSchedule = (props) => {
+    const { groupId } = props;
     const [hasForm, setHasForm] = useToggle(false);
 
     return (
         <div className={ styles.frame }>
             <div className={`${ "button" } ${ styles.button }`}>
-                <OnClick link="/schedules/register">
+                <OnClick link={ "/schedules/register?groupId=" + groupId }>
                     <Font style="button">
                         お知らせ作成
                     </Font>
